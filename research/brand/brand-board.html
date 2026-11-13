@@ -1,0 +1,216 @@
+<title>Respiratory Brand Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700&family=Inter:wght@400;500;600&family=Mukta:wght@500;700&display=swap">
+<style>
+/* Layout: a working board. Foundation first, then a live "try it" bench (name x mark x colour), then the evidence tables. */
+:root {
+  --bg: #F5F7F8; --surface: #FFFFFF; --fg: #17202A; --muted: #5A6672; --line: #DAE0E5;
+  --accent: #0E6E6B; --accent-fg: #FFFFFF; --good: #1F7A4D; --warn: #A15C00; --bad: #B3261E;
+  --display: 'Albert Sans', 'Segoe UI', system-ui, sans-serif;
+  --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --deva: 'Mukta', 'Noto Sans Devanagari', sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0F1418; --surface: #182128; --fg: #E8EDF1; --muted: #9BA8B4; --line: #2B3741;
+  --accent: #55BDB8; --accent-fg: #06201F; --good: #6FCF9B; --warn: #F0B45A; --bad: #F2867E; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0F1418; --surface: #182128; --fg: #E8EDF1; --muted: #9BA8B4; --line: #2B3741;
+  --accent: #55BDB8; --accent-fg: #06201F; --good: #6FCF9B; --warn: #F0B45A; --bad: #F2867E; color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 40px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(26px, 4.4vw, 38px); font-weight: 700; line-height: 1.15; }
+h2 { font-size: 22px; font-weight: 700; }
+h3 { font-size: 16px; font-weight: 600; }
+p { margin: 0; max-width: 68ch; }
+.lede { color: var(--muted); font-size: 16px; }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+section { display: flex; flex-direction: column; gap: 16px; }
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.cell { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.cell p { color: var(--muted); font-size: 14px; }
+.promise { border-left: 4px solid var(--accent); padding: 6px 0 6px 16px; }
+.promise strong { font-family: var(--display); font-size: clamp(20px, 3vw, 26px); display: block; }
+.two { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
+li { margin-bottom: 4px; }
+
+/* bench */
+.bench { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 16px; }
+.controls { display: flex; flex-direction: column; gap: 10px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.row > span { width: 64px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+button.opt { font: inherit; font-size: 14px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; }
+button.opt:hover { border-color: var(--accent); }
+button.opt[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); font-weight: 600; }
+button.opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.stage { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.tile { border-radius: 10px; min-height: 150px; padding: 18px; display: flex; flex-direction: column; justify-content: center; gap: 8px; min-width: 0; border: 1px solid var(--line); }
+.lockup { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.lockup svg { width: 52px; height: 52px; flex: none; }
+.word { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 5vw, 34px); letter-spacing: -.01em; line-height: 1; overflow-wrap: anywhere; }
+.sub { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+.deva { font-family: var(--deva); font-weight: 700; font-size: 22px; }
+.icon { width: 84px; height: 84px; border-radius: 20px; display: grid; place-items: center; }
+.icon svg { width: 54px; height: 54px; }
+.label { border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; font-size: 12px; }
+.label b { font-family: var(--display); font-size: 16px; }
+.cap { font-size: 12px; color: var(--muted); }
+.swatches { display: flex; flex-wrap: wrap; gap: 8px; }
+.sw { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sw i { display: block; width: 76px; height: 44px; border-radius: 8px; border: 1px solid var(--line); }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+td b { font-family: var(--display); font-size: 16px; }
+.pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.ok { color: var(--good); } .mid { color: var(--warn); } .no { color: var(--bad); }
+.note { font-size: 13px; color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <span class="eyebrow">Brand board · draft 1 · 13 Nov 2026</span>
+    <h1>A brand for a doctor-led respiratory care company</h1>
+    <p class="lede">Values first, then six screened names, three logo ideas and three colour systems. Use the bench below to try any combination before you choose.</p>
+  </header>
+
+  <section>
+    <h2>Foundation</h2>
+    <div class="promise">
+      <span class="eyebrow">Promise</span>
+      <strong>Prescribed, titrated, monitored.</strong>
+      <p class="lede">Purpose: help people with chronic lung disease breathe well enough to live their lives, at home and outside it.</p>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
+      <div class="cell"><h3>Evidence before claims</h3><p>Nothing goes on a box or a slide that we haven't measured or published.</p></div>
+      <div class="cell"><h3>Honest numbers</h3><p>Oxygen in ml per minute, real battery hours, real prices. No "5 litre" talk.</p></div>
+      <div class="cell"><h3>We follow up</h3><p>The sale is the start. Titration, usage reports and a 48-hour swap come after it.</p></div>
+      <div class="cell"><h3>Built for Indian conditions</h3><p>Heat, dust, power cuts, altitude and family budgets are design inputs.</p></div>
+      <div class="cell"><h3>Clean hands</h3><p>No payments for prescriptions. No shortcuts on licences or quality.</p></div>
+    </div>
+    <div class="two">
+      <div class="cell"><h3>How the brand sounds</h3><ul><li>Calm, precise, warm, plain-spoken</li><li>To doctors: data, protocols, references</li><li>To families: short sentences, their language, no fear-selling</li></ul></div>
+      <div class="cell"><h3>What it never does</h3><ul><li>Miracle or "hospital-grade at home" claims</li><li>Stock photos of smiling models in masks</li><li>Jargon a patient's daughter can't follow</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Try it: name × mark × colour</h2>
+    <div class="bench">
+      <div class="controls">
+        <div class="row" id="r-name"><span>Name</span></div>
+        <div class="row" id="r-mark"><span>Mark</span></div>
+        <div class="row" id="r-pal"><span>Colour</span></div>
+      </div>
+      <div class="stage" id="stage"></div>
+      <div class="swatches" id="swatches"></div>
+      <p class="cap" id="cap"></p>
+    </div>
+    <p class="note">The marks are rough concepts to choose a direction. A designer should redraw the chosen one properly, with spacing rules and a single-colour version for moulding onto devices.</p>
+  </section>
+
+  <section>
+    <h2>The six names, screened</h2>
+    <p class="lede">I tested about 230 candidates. Almost every obvious word (Prana, Vayu, Aeris, Respira, Breva) is taken. These six had an unregistered .com and .in today and no company using the name in web searches.</p>
+    <div class="tablewrap"><table>
+      <tr><th>Name</th><th>Built from</th><th>Fits</th><th>Watch out</th><th>Screen</th></tr>
+      <tr><td><b>Alvayu</b><br><span class="note">al-VAA-yu</span></td><td>Alveoli (the lung's air sacs) + vayu (Sanskrit: air)</td><td>Science and India in one word. Doctors get it instantly. Works abroad.</td><td>Many Indian marks end in "-vayu"; "Aarivayu" is registered for medical goods. Lung-specific.</td><td><span class="pill ok">Clear so far</span></td></tr>
+      <tr><td><b>Arohiq</b><br><span class="note">aa-ROH-ik</span></td><td>Aroha (Sanskrit: ascent) + IQ</td><td>Broadest. Covers altitude, recovery, growth and data. Not tied to lungs, so it stretches to other therapy areas.</td><td>Spelling needs teaching. "AeroIQ" (vehicles) and "AeriQ" (car fragrance) exist in other categories.</td><td><span class="pill ok">Clear so far</span></td></tr>
+      <tr><td><b>Ojavent</b><br><span class="note">OH-ja-vent</span></td><td>Ojas (Sanskrit: vitality) + vent (air)</td><td>Vitality plus air. Sounds like an established device company.</td><td>"Ojas" can read as Ayurvedic, which pulls against the science positioning.</td><td><span class="pill ok">Clear so far</span></td></tr>
+      <tr><td><b>Saansio</b><br><span class="note">SAANS-ee-oh</span></td><td>Saans (Hindi: breath)</td><td>Warmest for patients and families. Easy to say across India.</td><td>Locked to breathing. Less gravitas with specialists. Means little outside the subcontinent.</td><td><span class="pill ok">Clear so far</span></td></tr>
+      <tr><td><b>Jivaspira</b><br><span class="note">jee-va-SPY-ra</span></td><td>Jiva (life) + spira (Latin: breathe)</td><td>Premium, international feel.</td><td>Four syllables. "Jiva" is a well-known Ayurveda brand.</td><td><span class="pill mid">Some overlap</span></td></tr>
+      <tr><td><b>Kshemaya</b><br><span class="note">KSHAY-ma-ya</span></td><td>Kshema (Sanskrit: wellbeing, safety)</td><td>Broad company name with a strong meaning.</td><td>Hard to say and spell outside India.</td><td><span class="pill ok">Clear so far</span></td></tr>
+    </table></div>
+    <div class="tablewrap"><table>
+      <tr><th>Dropped</th><th>Why</th></tr>
+      <tr><td><b>O2Med</b></td><td>Too close to Oxymed, the market leader in the same category.</td></tr>
+      <tr><td><b>Ayuvent</b></td><td><span class="pill no">Conflict</span> A ventilator called "ayuvent" already exists (Eupnea Technologies, with manufacturing in India).</td></tr>
+      <tr><td><b>Aanila</b></td><td><span class="pill no">Conflict</span> Anila Medical Private Limited is a registered Indian company.</td></tr>
+      <tr><td><b>Pulmara</b></td><td>Crowded: Pulmonara Labs, Pulmora, Pulmair and a dozen other "Pulm-" names.</td></tr>
+    </table></div>
+    <p class="note">"Clear so far" means the .com and .in domains were unregistered on 13 Nov 2026 and web searches found no company or product with that name. It is not a trademark clearance. Before you commit, a trademark attorney must search the Indian registry in classes 10, 44, 35 and 9, and you should register the domains the same day you decide.</p>
+  </section>
+
+  <section>
+    <h2>My recommendation</h2>
+    <div class="two" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+      <div class="cell"><h3>Name: Alvayu, with Arohiq as the alternative</h3><p>Alvayu if you want the company to mean respiratory care for its first decade. Arohiq if you want a house name that stretches to cardiology or diabetes later without a rename.</p><p>Either way, name products plainly under it: Go (portable), Home (5 L unit), Care (service plan), Sense (monitoring).</p></div>
+      <div class="cell"><h3>Colour: Teal and Marigold</h3><p>Philips and most hospital brands sit in blue. Deep teal still reads clinical, and marigold is unmistakably Indian and warm. It also prints well on a white device.</p></div>
+      <div class="cell"><h3>Mark: Two breaths</h3><p>One shape for breathing in, one for out. It works at 16 pixels, in one colour, and moulded into plastic. The alveoli mark suits Alvayu best; the ascent mark suits Arohiq.</p></div>
+      <div class="cell"><h3>Type</h3><p>Albert Sans for the wordmark and headings, Inter for text, Mukta for Hindi. All free, all with the weights you need for packaging and apps.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Decide in this order</h2>
+    <div class="grid">
+      <div class="cell"><h3>1. Name</h3><p>Say each one aloud to five doctors and five patients' families. Pick two. Send both to a trademark attorney.</p></div>
+      <div class="cell"><h3>2. Colour and mark direction</h3><p>Choose on the bench above. I then build the full identity: logo files, spacing rules, device label, packaging, app icon.</p></div>
+      <div class="cell"><h3>3. Lock it</h3><p>File the trademark, buy the domains and social handles, then brief packaging and the website.</p></div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var names = [
+    { n: 'Alvayu', d: 'अल्वायु' }, { n: 'Arohiq', d: 'आरोहिक' }, { n: 'Ojavent', d: 'ओजवेंट' },
+    { n: 'Saansio', d: 'सांसियो' }, { n: 'Jivaspira', d: 'जीवस्पाइरा' }, { n: 'Kshemaya', d: 'क्षेमाया' }
+  ];
+  var pals = [
+    { n: 'Teal & Marigold', p: '#0E6E6B', deep: '#083F3E', a: '#F2A413', tint: '#E6F2F0', ink: '#14232B', why: 'Clinical but not hospital-blue; marigold adds Indian warmth.' },
+    { n: 'Indigo & Glacier', p: '#2B3A8C', deep: '#161D4A', a: '#35C2D6', tint: '#E9ECF8', ink: '#151A2E', why: 'Mountain night and ice. Strongest for the altitude story; closest to rivals\' blues.' },
+    { n: 'Pine & Coral', p: '#1F5C45', deep: '#0F3024', a: '#F06A4D', tint: '#E8F1EC', ink: '#16221C', why: 'Fresh air and life. Warmest for families; least conventional for a device brand.' }
+  ];
+  var marks = [
+    { n: 'Two breaths', svg: function (c, a) { return '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8a24 24 0 0 0 0 48" fill="none" stroke="' + c + '" stroke-width="9" stroke-linecap="round"/><path d="M32 20a12 12 0 0 1 0 24" fill="none" stroke="' + a + '" stroke-width="9" stroke-linecap="round"/></svg>'; } },
+    { n: 'Alveoli', svg: function (c, a) { return '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="25" cy="37" r="17" fill="' + c + '"/><circle cx="45" cy="21" r="11" fill="' + a + '"/><circle cx="49" cy="45" r="7" fill="' + c + '" fill-opacity=".55"/></svg>'; } },
+    { n: 'Ascent', svg: function (c, a) { return '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 50 L22 34 L30 42 L48 18" fill="none" stroke="' + c + '" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="15" r="7" fill="' + a + '"/></svg>'; } }
+  ];
+  var s = { name: 0, mark: 0, pal: 0 };
+  try { var saved = JSON.parse(localStorage.getItem('brandBench') || 'null'); if (saved) { s = saved; } } catch (e) {}
+
+  function row(id, list, key) {
+    var el = document.getElementById(id);
+    list.forEach(function (it, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'opt'; b.textContent = it.n; b.id = id + '-' + i;
+      b.addEventListener('click', function () { s[key] = i; render(); });
+      el.appendChild(b);
+    });
+  }
+  function press(id, idx) {
+    var bs = document.getElementById(id).querySelectorAll('button');
+    for (var i = 0; i < bs.length; i++) { bs[i].setAttribute('aria-pressed', i === idx ? 'true' : 'false'); }
+  }
+  function render() {
+    var nm = names[s.name] || names[0], m = marks[s.mark] || marks[0], p = pals[s.pal] || pals[0];
+    press('r-name', s.name); press('r-mark', s.mark); press('r-pal', s.pal);
+    var onLight = '<div class="tile" style="background:#FFFFFF;color:' + p.ink + '"><div class="lockup">' + m.svg(p.p, p.a) +
+      '<div><div class="word" style="color:' + p.p + '">' + nm.n + '</div><div class="sub" style="color:' + p.ink + '">Respiratory care</div></div></div>' +
+      '<div class="deva" style="color:' + p.ink + '">' + nm.d + '</div></div>';
+    var onDark = '<div class="tile" style="background:' + p.deep + ';color:#FFFFFF;border-color:' + p.deep + '"><div class="lockup">' + m.svg('#FFFFFF', p.a) +
+      '<div><div class="word" style="color:#FFFFFF">' + nm.n + '</div><div class="sub" style="color:' + p.a + '">Prescribed · titrated · monitored</div></div></div></div>';
+    var apps = '<div class="tile" style="background:' + p.tint + ';color:' + p.ink + '"><div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">' +
+      '<div class="icon" style="background:' + p.p + '">' + m.svg('#FFFFFF', p.a) + '</div>' +
+      '<div class="label" style="background:#FFFFFF;border:1px solid ' + p.p + ';min-width:0"><b style="color:' + p.p + '">' + nm.n + ' Go</b>' +
+      '<span>Portable oxygen concentrator</span><span>Pulse dose · settings 1–5 · up to 1,050 ml/min</span></div></div></div>';
+    document.getElementById('stage').innerHTML = onLight + onDark + apps;
+    var sw = [['Primary', p.p], ['Deep', p.deep], ['Accent', p.a], ['Tint', p.tint], ['Ink', p.ink]];
+    document.getElementById('swatches').innerHTML = sw.map(function (x) {
+      return '<div class="sw"><i style="background:' + x[1] + '"></i>' + x[0] + '<br>' + x[1] + '</div>';
+    }).join('');
+    document.getElementById('cap').textContent = p.n + ': ' + p.why;
+    try { localStorage.setItem('brandBench', JSON.stringify(s)); } catch (e) {}
+  }
+  row('r-name', names, 'name'); row('r-mark', marks, 'mark'); row('r-pal', pals, 'pal');
+  render();
+})();
+</script>
