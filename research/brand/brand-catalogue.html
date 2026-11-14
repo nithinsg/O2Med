@@ -1,0 +1,237 @@
+<title>Respiratory Brand Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Lexend:wght@500;700&family=Manrope:wght@600;800&family=Mukta:wght@500;700&family=Sora:wght@600;700&family=Urbanist:wght@600;800&display=swap">
+<style>
+/* Layout: a name catalogue. Six identities as large specimen cards, then the device-naming system shown on a real nameplate. Page chrome stays neutral so each identity carries its own colour. */
+:root {
+  --bg: #F5F7F8; --surface: #FFFFFF; --fg: #17202A; --muted: #5A6672; --line: #DAE0E5;
+  --accent: #0E6E6B; --accent-fg: #FFFFFF; --good: #1F7A4D; --warn: #A15C00; --bad: #B3261E;
+  --display: 'Albert Sans', 'Segoe UI', system-ui, sans-serif;
+  --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --deva: 'Mukta', 'Noto Sans Devanagari', sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0F1418; --surface: #182128; --fg: #E8EDF1; --muted: #9BA8B4; --line: #2B3741;
+  --accent: #55BDB8; --accent-fg: #06201F; --good: #6FCF9B; --warn: #F0B45A; --bad: #F2867E; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0F1418; --surface: #182128; --fg: #E8EDF1; --muted: #9BA8B4; --line: #2B3741;
+  --accent: #55BDB8; --accent-fg: #06201F; --good: #6FCF9B; --warn: #F0B45A; --bad: #F2867E; color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 44px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(26px, 4.4vw, 38px); font-weight: 800; line-height: 1.15; }
+h2 { font-size: 22px; font-weight: 700; }
+h3 { font-size: 16px; font-weight: 600; }
+p { margin: 0; max-width: 70ch; }
+.lede { color: var(--muted); font-size: 16px; }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+section { display: flex; flex-direction: column; gap: 16px; }
+.note { font-size: 13px; color: var(--muted); }
+ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; } li { margin-bottom: 4px; }
+
+.cards { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); }
+.id { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.spec { display: grid; grid-template-columns: 1fr 1fr; min-height: 150px; }
+.spec > div { padding: 20px 16px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; min-width: 0; }
+.lock { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.lock svg { width: 44px; height: 44px; flex: none; }
+.wm { font-size: clamp(24px, 4.2vw, 31px); line-height: 1; overflow-wrap: anywhere; }
+.tag { font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; font-weight: 600; }
+.dv { font-family: var(--deva); font-weight: 700; font-size: 18px; }
+.meta { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--line); }
+.meta p { font-size: 14px; color: var(--muted); }
+.meta p b { color: var(--fg); font-weight: 600; }
+.pillrow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.ok { color: var(--good); } .mid { color: var(--warn); } .no { color: var(--bad); }
+.rank { font-family: var(--display); font-weight: 700; font-size: 13px; color: var(--muted); }
+.sw { display: flex; gap: 6px; } .sw i { width: 22px; height: 22px; border-radius: 6px; border: 1px solid var(--line); display: block; }
+
+.bench { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 16px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.row > span { width: 76px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+button.opt { font: inherit; font-size: 14px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; }
+button.opt:hover { border-color: var(--accent); }
+button.opt[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); font-weight: 600; }
+button.opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.stage { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); align-items: stretch; }
+.device { border-radius: 12px; padding: 18px; display: grid; place-items: center; min-height: 260px; }
+.device svg { width: 100%; max-width: 250px; height: auto; }
+.plate { border-radius: 12px; background: #FFFFFF; color: #17202A; border: 1px solid #C9D1D8; padding: 16px; display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; min-width: 0; }
+.plate .big { font-size: 22px; line-height: 1.1; }
+.plate hr { border: 0; border-top: 1px solid #D5DBE0; width: 100%; margin: 4px 0; }
+.plate .k { color: #5A6672; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+td b { font-family: var(--display); }
+.two { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.cell { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.cell p { color: var(--muted); font-size: 14px; }
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <span class="eyebrow">Brand board · draft 2 · 14 Nov 2026</span>
+    <h1>Six names built to last twenty years</h1>
+    <p class="lede">Short, coined and easy to say, in the spirit of Inogen and ResMed. Each one below has its own logo idea, colours and type, and has been screened for domains and existing companies. The device names sit underneath the company name, so you can keep improving the product without touching the brand.</p>
+  </header>
+
+  <section>
+    <h2>The catalogue</h2>
+    <div class="cards" id="cards"></div>
+    <p class="note">Screening on 14 Nov 2026: for all six, the .com, .in and "…health.com" domains were unregistered, and web and trademark-directory searches found no company or mark with the exact name. "Neighbours" are similar-sounding marks that a trademark examiner might cite. This is a first screen, not a legal clearance: a trademark attorney must search the Indian registry (classes 10, 44, 35, 9) before you commit, and the domains should be bought the same day you decide.</p>
+  </section>
+
+  <section>
+    <h2>How I'd rank them</h2>
+    <div class="two">
+      <div class="cell"><h3>1. Thoraq</h3><p>The punchiest, and the only one that grows with you: the thorax holds the lungs and the heart, so the name still fits when you add cardiac devices. The risk is a busy neighbourhood of "Thora-" marks.</p></div>
+      <div class="cell"><h3>2. Normoxa</h3><p>The cleanest legally and the most meaningful to doctors: normoxia is the normal oxygen level, which is the outcome you sell. Slightly less punchy to a patient.</p></div>
+      <div class="cell"><h3>3. Pulmia</h3><p>The warmest and easiest to say in any language. Best if the brand should feel consumer-friendly first. Locked to lungs, in a crowded "Pulm-" field.</p></div>
+    </div>
+    <p class="note">Respeon is the closest in feel to ResMed, which helps recall and raises the chance of an objection. Vayeon and Alvayu carry the Indian root if you want that visible in the name.</p>
+  </section>
+
+  <section>
+    <h2>Device names: the white-labelled portable is version 1</h2>
+    <p class="lede">One rule for every product: <b>company name + series name + generation number</b>. The series name says what it's for. The number goes up with each real redesign.</p>
+    <div class="bench">
+      <div class="row" id="r-name"><span>Company</span></div>
+      <div class="row" id="r-dev"><span>Portable</span></div>
+      <div class="stage" id="stage"></div>
+      <p class="note" id="devnote"></p>
+    </div>
+    <div class="tablewrap"><table>
+      <tr><th>Product</th><th>Series name</th><th>Version 1</th><th>How it grows</th></tr>
+      <tr><td>Portable concentrator (the Jiayi unit, rebranded)</td><td><b>Stride</b></td><td><b>Stride 1</b></td><td>Stride 1S: same body, better battery or app link. Stride 2: your own Indian design.</td></tr>
+      <tr><td>Home 5 L concentrator</td><td><b>Haven</b></td><td><b>Haven 5</b></td><td>The number is the litres per minute: Haven 5, Haven 10.</td></tr>
+      <tr><td>Service plan</td><td><b>Care</b></td><td><b>Care</b></td><td>Care, Care Plus (48-hour swap, yearly purity check).</td></tr>
+      <tr><td>Usage monitoring and doctor report</td><td><b>Sense</b></td><td><b>Sense</b></td><td>Becomes the data platform across all devices.</td></tr>
+      <tr><td>Sleep apnea range (phase 2)</td><td><b>Rest</b></td><td><b>Rest 1</b></td><td>Rest 1 (CPAP), Rest Bi (BiPAP).</td></tr>
+    </table></div>
+    <div class="two">
+      <div class="cell"><h3>Why "Stride"</h3><p>It names the benefit, walking again, in one common word a patient's family understands. It reads well next to any of the six company names and leaves room for Stride 2 and 3.</p></div>
+      <div class="cell"><h3>Two Hindi alternatives</h3><p><b>Sair</b> (सैर, an outing or stroll) is short and warm. <b>Kadam</b> (क़दम, a step) is instantly understood across North India. Either works if you want the product, not just the service, to sound Indian.</p></div>
+      <div class="cell"><h3>What the label must still say</h3><p>Indian rules require the real manufacturer's name and licensed model on the nameplate, with your company as importer. Your brand name should also be listed on the import licence. So the patient sees "Stride 1", and the small print names Jiayi.</p></div>
+    </div>
+    <p class="note">Which Jiayi unit: their lightest, the 1.5 kg S1-A, isn't registered as a medical device in China, so it can't get an Indian import licence yet. The lightest one you can license today is the 2.1 kg JY-P25B, so Stride 1 is drawn on that. If Jiayi registers the S1-A, it becomes a natural Stride 1S or "Stride Mini".</p>
+  </section>
+
+  <section>
+    <h2>What stays the same whichever name you pick</h2>
+    <div class="two">
+      <div class="cell"><h3>Promise</h3><p>Prescribed, titrated, monitored.</p></div>
+      <div class="cell"><h3>Values</h3><p>Evidence before claims. Honest numbers. We follow up. Built for Indian conditions. Clean hands.</p></div>
+      <div class="cell"><h3>Next step</h3><p>Pick two names. I'll then build the full identity for the front-runner: final logo files, colour and type rules, packaging, app icon and the device nameplate.</p></div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var W = '#FFFFFF';
+  var ids = [
+    { n: 'Thoraq', d: 'थोरैक', say: 'THOR-ak', font: "'Sora', sans-serif", wt: 700, ls: '-.02em',
+      p: '#0E6E6B', deep: '#083F3E', a: '#F2A413', ink: '#14232B',
+      from: 'Thorax (the chest) + Q', why: 'The chest holds the lungs and the heart, so the name stretches from oxygen to sleep to cardiac care. Six letters, hard sound, easy to spell after hearing it once.',
+      nb: 'Thorasys, Thoraflex, Thora-3DI and Thoraxis are registered medical marks', st: 'mid',
+      mark: function (c, a) { return '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="30" cy="30" r="19" fill="none" stroke="' + c + '" stroke-width="9"/><path d="M40 40 L54 54" stroke="' + a + '" stroke-width="9" stroke-linecap="round"/></svg>'; } },
+    { n: 'Normoxa', d: 'नॉर्मोक्सा', say: 'nor-MOK-sa', font: "'Manrope', sans-serif", wt: 800, ls: '-.02em',
+      p: '#2B3A8C', deep: '#161D4A', a: '#35C2D6', ink: '#151A2E',
+      from: 'Normoxia: a normal level of oxygen in the body', why: 'Names the result, not the machine. Every pulmonologist decodes it at once, and it works for oxygen, sleep and monitoring alike.',
+      nb: 'Novoxa Biotech (software services) is the nearest; no medical-device match', st: 'ok',
+      mark: function (c, a) { return '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14.3 46.9 A23 23 0 1 1 49.7 46.9" fill="none" stroke="' + c + '" stroke-width="9" stroke-linecap="round"/><circle cx="32" cy="32" r="6.5" fill="' + a + '"/></svg>'; } },
+    { n: 'Pulmia', d: 'पल्मिया', say: 'PUL-mee-a', font: "'Urbanist', sans-serif", wt: 800, ls: '-.01em',
+      p: '#1F5C45', deep: '#0F3024', a: '#F06A4D', ink: '#16221C',
+      from: 'Pulmo (Latin: lung) + -ia', why: 'Soft, friendly, said the same way in Hindi, Tamil or English. The most consumer-brand of the set.',
+      nb: 'Pulmair (medical apparatus), Pulmocide, Pulmoria and other "Pulm-" marks', st: 'mid',
+      mark: function (c, a) { return '<svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="22" cy="34" rx="12" ry="20" transform="rotate(14 22 34)" fill="' + c + '"/><ellipse cx="43" cy="34" rx="12" ry="20" transform="rotate(-14 43 34)" fill="' + a + '"/></svg>'; } },
+    { n: 'Respeon', d: 'रेस्पिऑन', say: 'RES-pee-on', font: "'Lexend', sans-serif", wt: 700, ls: '-.02em',
+      p: '#1E3A5F', deep: '#10233B', a: '#F28C28', ink: '#131C27',
+      from: 'Respiration + eon (a very long time)', why: 'Says "respiratory care for the long run". Sits naturally beside ResMed and Respironics in a doctor\'s mind.',
+      nb: 'Respion, Respilon, Respiree and Respironics are live marks', st: 'mid',
+      mark: function (c, a) { return '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 36 C16 12, 26 12, 32 32 S48 54, 56 30" fill="none" stroke="' + c + '" stroke-width="8" stroke-linecap="round"/><circle cx="56" cy="27" r="6" fill="' + a + '"/></svg>'; } },
+    { n: 'Vayeon', d: 'वायिऑन', say: 'VAY-ee-on', font: "'Albert Sans', sans-serif", wt: 800, ls: '-.02em',
+      p: '#3D2F8F', deep: '#1E1750', a: '#7FD1AE', ink: '#19162B',
+      from: 'Vayu (Sanskrit: air) + eon', why: 'Keeps an Indian root without sounding traditional. Good for export: easy for English speakers.',
+      nb: 'Veyon (supplements) and Viveon are pending US marks', st: 'ok',
+      mark: function (c, a) { return '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 46 Q24 34 40 44 T58 40" fill="none" stroke="' + c + '" stroke-width="7" stroke-linecap="round"/><path d="M8 32 Q24 20 40 30 T58 26" fill="none" stroke="' + c + '" stroke-width="7" stroke-linecap="round" opacity=".6"/><path d="M8 18 Q24 6 40 16 T58 12" fill="none" stroke="' + a + '" stroke-width="7" stroke-linecap="round"/></svg>'; } },
+    { n: 'Alvayu', d: 'अल्वायु', say: 'al-VAA-yu', font: "'Sora', sans-serif", wt: 600, ls: '-.01em',
+      p: '#0B5D7A', deep: '#06344A', a: '#F6B93B', ink: '#12222B',
+      from: 'Alveoli (the lung\'s air sacs) + vayu', why: 'From draft 1. Science and India in one word; the most lung-specific.',
+      nb: '"Aarivayu" is registered for medical goods; many "-vayu" marks', st: 'mid',
+      mark: function (c, a) { return '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="25" cy="37" r="17" fill="' + c + '"/><circle cx="45" cy="21" r="11" fill="' + a + '"/><circle cx="49" cy="45" r="7" fill="' + c + '" fill-opacity=".55"/></svg>'; } }
+  ];
+  var devs = [
+    { n: 'Stride', d: 'स्ट्राइड', why: 'Stride 1: the benefit in one word. My recommendation.' },
+    { n: 'Sair', d: 'सैर', why: 'Sair 1: Hindi for an outing. Warm and short; English speakers may need to hear it once.' },
+    { n: 'Kadam', d: 'क़दम', why: 'Kadam 1: Hindi for a step. Instantly understood across North India.' }
+  ];
+
+  var cards = document.getElementById('cards');
+  cards.innerHTML = ids.map(function (x, i) {
+    var wm = 'font-family:' + x.font + ';font-weight:' + x.wt + ';letter-spacing:' + x.ls;
+    return '<article class="id">' +
+      '<div class="spec">' +
+        '<div style="background:#FFFFFF;color:' + x.ink + '"><div class="lock">' + x.mark(x.p, x.a) + '<span class="wm" style="' + wm + ';color:' + x.p + '">' + x.n + '</span></div><span class="dv" style="color:' + x.ink + '">' + x.d + '</span></div>' +
+        '<div style="background:' + x.deep + ';color:#FFFFFF"><div class="lock">' + x.mark(W, x.a) + '<span class="wm" style="' + wm + ';color:#FFFFFF">' + x.n + '</span></div><span class="tag" style="color:' + x.a + '">Respiratory care</span></div>' +
+      '</div>' +
+      '<div class="meta">' +
+        '<div class="pillrow"><span class="rank">' + (i + 1) + ' · ' + x.say + '</span><span class="sw"><i style="background:' + x.p + '"></i><i style="background:' + x.deep + '"></i><i style="background:' + x.a + '"></i></span></div>' +
+        '<p><b>From:</b> ' + x.from + '</p><p>' + x.why + '</p>' +
+        '<div class="pillrow"><span class="pill ok">.com free</span><span class="pill ok">.in free</span><span class="pill ok">No exact match</span>' +
+        '<span class="pill ' + x.st + '">' + (x.st === 'ok' ? 'Quiet neighbourhood' : 'Busy neighbourhood') + '</span></div>' +
+        '<p class="note">Neighbours: ' + x.nb + '.</p>' +
+      '</div></article>';
+  }).join('');
+
+  var s = { name: 0, dev: 0 };
+  try { var sv = JSON.parse(localStorage.getItem('brandCat') || 'null'); if (sv && ids[sv.name] && devs[sv.dev]) { s = sv; } } catch (e) {}
+  function row(id, list, key) {
+    var el = document.getElementById(id);
+    list.forEach(function (it, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'opt'; b.id = id + '-' + i; b.textContent = it.n;
+      b.addEventListener('click', function () { s[key] = i; render(); });
+      el.appendChild(b);
+    });
+  }
+  function press(id, idx) { var bs = document.getElementById(id).querySelectorAll('button'); for (var i = 0; i < bs.length; i++) { bs[i].setAttribute('aria-pressed', i === idx ? 'true' : 'false'); } }
+  function render() {
+    var x = ids[s.name], d = devs[s.dev];
+    press('r-name', s.name); press('r-dev', s.dev);
+    var wm = 'font-family:' + x.font + ';font-weight:' + x.wt + ';letter-spacing:' + x.ls;
+    var dev = '<div class="device" style="background:' + x.deep + '"><svg viewBox="0 0 250 230" role="img" aria-label="Portable concentrator with ' + x.n + ' ' + d.n + ' 1 branding">' +
+      '<rect x="45" y="30" width="160" height="180" rx="22" fill="#F4F6F7"/>' +
+      '<rect x="45" y="30" width="160" height="34" rx="17" fill="#DDE3E7"/>' +
+      '<rect x="92" y="38" width="52" height="18" rx="4" fill="' + x.ink + '"/><text x="118" y="51" font-size="10" text-anchor="middle" fill="' + x.a + '" font-family="Inter, sans-serif" font-weight="600">94% · 3</text>' +
+      '<circle cx="168" cy="47" r="7" fill="' + x.p + '"/><circle cx="74" cy="47" r="5" fill="#9AA6AF"/>' +
+      '<g transform="translate(66 92) scale(.55)">' + x.mark(x.p, x.a).replace(/<svg[^>]*>|<\/svg>/g, '') + '</g>' +
+      '<text x="106" y="112" font-size="19" fill="' + x.p + '" style="' + wm + '">' + x.n + '</text>' +
+      '<text x="66" y="142" font-size="15" fill="' + x.ink + '" font-family="Albert Sans, sans-serif" font-weight="700">' + d.n + ' 1</text>' +
+      '<g fill="#B8C2CA">' + [0,1,2,3,4,5,6,7,8].map(function (k) { return '<rect x="' + (66 + k * 14) + '" y="168" width="7" height="24" rx="3.5"/>'; }).join('') + '</g>' +
+      '</svg></div>';
+    var plate = '<div class="plate"><span class="k">Front of pack</span>' +
+      '<span class="big" style="' + wm + ';color:' + x.p + '">' + x.n + ' <span style="font-family:Albert Sans,sans-serif;font-weight:700;letter-spacing:0;color:' + x.ink + '">' + d.n + ' 1</span></span>' +
+      '<span>Portable oxygen concentrator · pulse dose</span><span>Settings 1–5 · 210 to 1,050 ml of oxygen per minute · 2.1 kg</span>' +
+      '<hr><span class="k">Nameplate small print (required)</span>' +
+      '<span>Model: JY-P25B · Manufactured by Sichuan Jiayi Medical Device Co., Ltd., Chengdu, China</span>' +
+      '<span>Imported and marketed by: [your company], India · Import licence no. MD-15/____</span>' +
+      '<span>MRP ₹99,900 (incl. of all taxes) · Customer care: ____</span></div>';
+    var fam = '<div class="plate"><span class="k">The family under this name</span>' +
+      ['' + d.n + ' 1 · portable', 'Haven 5 · home unit', 'Care · service plan', 'Sense · monitoring', 'Rest 1 · sleep apnea (phase 2)'].map(function (t) {
+        return '<span><b style="' + wm + ';color:' + x.p + '">' + x.n + '</b> ' + t + '</span>'; }).join('') +
+      '<hr><span class="dv" style="color:' + x.ink + '">' + x.d + ' ' + d.d + ' 1</span></div>';
+    document.getElementById('stage').innerHTML = dev + plate + fam;
+    document.getElementById('devnote').textContent = d.why + ' Screen shows oxygen purity and setting; figures on the pack are from the maker\'s manual.';
+    try { localStorage.setItem('brandCat', JSON.stringify(s)); } catch (e) {}
+  }
+  row('r-name', ids, 'name'); row('r-dev', devs, 'dev'); render();
+})();
+</script>
