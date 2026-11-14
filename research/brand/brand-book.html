@@ -1,0 +1,313 @@
+<title>Respiratory Brand Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700&family=Outfit:wght@500;600&family=Mukta:wght@500;700&display=swap">
+<style>
+/* Layout: a brand book. Short opener (the brief as a recipe), then one full-bleed spread per finalist in its own colours, then the system for the recommended brand and the screening evidence. Page chrome stays neutral; each spread carries its brand. */
+:root {
+  --bg: #F7F6F4; --surface: #FFFFFF; --fg: #1B1D24; --muted: #5E6270; --line: #E2E0DC;
+  --accent: #1F2340; --accent-fg: #FFFFFF; --good: #237A4B; --warn: #9A5B00; --bad: #B3261E;
+  --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --deva: 'Mukta', 'Noto Sans Devanagari', sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111216; --surface: #1A1C22; --fg: #ECEBE8; --muted: #A3A6B0; --line: #2C2F37;
+  --accent: #F29F38; --accent-fg: #1A1C22; --good: #74C99A; --warn: #F0B45A; --bad: #F2867E; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111216; --surface: #1A1C22; --fg: #ECEBE8; --muted: #A3A6B0; --line: #2C2F37;
+  --accent: #F29F38; --accent-fg: #1A1C22; --good: #74C99A; --warn: #F0B45A; --bad: #F2867E; color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15.5px; line-height: 1.6; }
+.in { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -.015em; }
+h1 { font-size: clamp(30px, 5.4vw, 52px); font-weight: 800; line-height: 1.05; }
+h2 { font-size: clamp(22px, 3vw, 28px); font-weight: 700; line-height: 1.15; }
+h3 { font-size: 17px; font-weight: 700; }
+p { margin: 0; max-width: 66ch; }
+.eyebrow { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+.lede { font-size: 18px; color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+
+/* opener */
+.open { padding-block: 40px 28px; display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); align-items: start; }
+.recipe { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.recipe dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 8px 14px; font-size: 14.5px; }
+.recipe dt { font-weight: 700; } .recipe dd { margin: 0; color: var(--muted); }
+.funnel { display: flex; flex-wrap: wrap; gap: 10px; }
+.funnel div { flex: 1 1 88px; border-top: 3px solid var(--fg); padding-top: 8px; }
+.funnel b { font-family: var(--display); font-size: 26px; font-weight: 800; display: block; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.funnel span { font-size: 13px; color: var(--muted); }
+
+/* spreads */
+.spread { padding-block: 44px; }
+.spread .in { display: flex; flex-direction: column; gap: 26px; }
+.head { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); align-items: center; }
+.lockup { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.lockup svg { flex: none; }
+.say { font-size: 14px; opacity: .8; }
+.story p { font-size: 16px; }
+.story .deva { font-family: var(--deva); font-weight: 700; font-size: 26px; line-height: 1.2; }
+.tiles { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+.tile { border-radius: 14px; padding: 18px; min-height: 170px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; min-width: 0; }
+.tile .cap { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; opacity: .75; }
+.tile svg { max-width: 100%; height: auto; display: block; }
+.sw { display: flex; flex-wrap: wrap; gap: 10px; }
+.sw div { display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-variant-numeric: tabular-nums; min-width: 92px; }
+.sw i { display: block; height: 56px; border-radius: 10px; }
+.sw b { font-size: 13px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+
+/* system */
+.sys { padding-block: 44px; }
+.sys .in { display: flex; flex-direction: column; gap: 22px; }
+.grid2 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.card p { color: var(--muted); font-size: 14.5px; }
+.arch { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
+.arch div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.arch b { font-family: var(--display); font-size: 18px; font-weight: 700; }
+.arch span { font-size: 13.5px; color: var(--muted); }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+tr:last-child td { border-bottom: 0; }
+td b { font-family: var(--display); font-size: 16px; }
+.ok { color: var(--good); } .mid { color: var(--warn); } .no { color: var(--bad); }
+.pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+</style>
+
+<header class="in open">
+  <div class="stack">
+    <span class="eyebrow">Brand book · draft 3 · 14 Nov 2026</span>
+    <h1>One company, built to come home with people</h1>
+    <p class="lede">A future-facing Indian medtech company: devices, home-care delivery and an intelligence layer that keeps watch. Respiratory care is the first chapter, not the whole book. So the name has to carry hope and intelligence, not a body part.</p>
+  </div>
+  <div class="recipe">
+    <span class="eyebrow">The brief as a recipe</span>
+    <dl>
+      <dt>Ingredients</dt><dd>Medicine, home, intelligence, hope, India, the future</dd>
+      <dt>Method</dt><dd>Hide "med" inside a word with its own meaning, so the name tastes new but the ingredient is still there</dd>
+      <dt>Taste test</dt><dd>Say it once, remember it tomorrow. Spell it after hearing it. Means something good in Hindi, sounds clean in English</dd>
+      <dt>Rejected</dt><dd>Anything literal: Pulmo, Vayu, Respi, Thorax, Oxy, Care</dd>
+    </dl>
+    <div class="funnel">
+      <div><b>626</b><span>names crafted this round</span></div>
+      <div><b>81</b><span>with a free .com</span></div>
+      <div><b>10</b><span>free on .com, .in and .health</span></div>
+      <div><b>3</b><span>passed the company search</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ UMEDHA ============ -->
+<section class="spread" style="background:#FCEEE1;color:#1F2340">
+  <div class="in">
+    <div class="head">
+      <div class="stack">
+        <span class="eyebrow" style="color:#1F2340;opacity:.7">Finalist 1 · recommended</span>
+        <div class="lockup">
+          <svg width="88" height="88" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 18 V31 A18 18 0 0 0 50 31 V18" fill="none" stroke="#1F2340" stroke-width="9.5" stroke-linecap="round"/><path d="M32 13 C36.5 18.5 39 23.2 39 27.6 C39 31.8 35.9 35 32 35 C28.1 35 25 31.8 25 27.6 C25 23.2 27.5 18.5 32 13 Z" fill="#F29F38"/><path d="M32 22.5 C33.9 25 35 27 35 28.7 C35 30.6 33.7 32 32 32 C30.3 32 29 30.6 29 28.7 C29 27 30.1 25 32 22.5 Z" fill="#FCEEE1"/></svg>
+          <div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(46px,8vw,72px);letter-spacing:-.045em;line-height:.95">umedha</div>
+            <div class="say">oo-MAY-dha · <span style="font-family:var(--deva);font-weight:700">उमेधा</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="story stack">
+        <p><b>Umeed</b> (उम्मीद) is Hindi for hope. <b>Medha</b> (मेधा) is Sanskrit for intelligence. Folded together, with <b>med</b> sitting in the middle, they make a word that has never existed and still means something to 600 million people the first time they hear it.</p>
+        <p><b>The mark</b> is a lowercase u that is also a pair of cupped hands, holding a diya flame. The lamp is India's oldest sign of hope, and of knowledge pushing back the dark. It works at 16 pixels and moulded into white plastic.</p>
+        <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px">Care that comes home.</p>
+      </div>
+    </div>
+
+    <div class="sw">
+      <div><i style="background:#1F2340"></i><b>Kohl</b>#1F2340 · text, mark</div>
+      <div><i style="background:#F29F38"></i><b>Diya</b>#F29F38 · the flame</div>
+      <div><i style="background:#FCEEE1;border:1px solid #E8D3BF"></i><b>Dawn</b>#FCEEE1 · warm ground</div>
+      <div><i style="background:#E4573D"></i><b>Ember</b>#E4573D · alerts only</div>
+      <div><i style="background:#EEF0F6;border:1px solid #D9DCE6"></i><b>Mist</b>#EEF0F6 · clinical ground</div>
+    </div>
+    <p class="note" style="color:#1F2340;opacity:.75">Why these colours: every rival sits in hospital blue or teal. Kohl and Dawn feel like a home at first light, warm and calm, and still serious enough for a pulmonologist's desk. The flame colour is used small and rarely, so it stays special. Type: Bricolage Grotesque for the name and headlines, Figtree for text, Mukta for Hindi.</p>
+
+    <div class="tiles">
+      <div class="tile" style="background:#1F2340;color:#FCEEE1">
+        <span class="cap">Reversed</span>
+        <div class="lockup"><svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 18 V31 A18 18 0 0 0 50 31 V18" fill="none" stroke="#FCEEE1" stroke-width="9.5" stroke-linecap="round"/><path d="M32 13 C36.5 18.5 39 23.2 39 27.6 C39 31.8 35.9 35 32 35 C28.1 35 25 31.8 25 27.6 C25 23.2 27.5 18.5 32 13 Z" fill="#F29F38"/></svg><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:38px;letter-spacing:-.045em">umedha</span></div>
+        <span style="font-size:13px;opacity:.8">Prescribed. Titrated. Monitored.</span>
+      </div>
+      <div class="tile" style="background:#FFFFFF;color:#1F2340;border:1px solid #E8D3BF">
+        <span class="cap">App icon</span>
+        <div style="display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap">
+          <svg width="92" height="92" viewBox="0 0 92 92" aria-label="Umedha app icon"><rect width="92" height="92" rx="22" fill="#1F2340"/><g transform="translate(14 12) scale(1)"><path d="M14 18 V31 A18 18 0 0 0 50 31 V18" fill="none" stroke="#FCEEE1" stroke-width="9.5" stroke-linecap="round"/><path d="M32 13 C36.5 18.5 39 23.2 39 27.6 C39 31.8 35.9 35 32 35 C28.1 35 25 31.8 25 27.6 C25 23.2 27.5 18.5 32 13 Z" fill="#F29F38"/></g></svg>
+          <svg width="44" height="44" viewBox="0 0 92 92" aria-hidden="true"><rect width="92" height="92" rx="22" fill="#F29F38"/><g transform="translate(14 12)"><path d="M14 18 V31 A18 18 0 0 0 50 31 V18" fill="none" stroke="#1F2340" stroke-width="9.5" stroke-linecap="round"/><path d="M32 13 C36.5 18.5 39 23.2 39 27.6 C39 31.8 35.9 35 32 35 C28.1 35 25 31.8 25 27.6 C25 23.2 27.5 18.5 32 13 Z" fill="#FCEEE1"/></g></svg>
+        </div>
+        <span style="font-size:13px;opacity:.8">Patient app and the doctor's dashboard</span>
+      </div>
+      <div class="tile" style="background:#EEF0F6;color:#1F2340">
+        <span class="cap">Device · Umedha Stride 1</span>
+        <svg viewBox="0 0 260 200" role="img" aria-label="Umedha Stride 1 portable concentrator">
+          <rect x="70" y="18" width="120" height="170" rx="24" fill="#FFFFFF" stroke="#D3D7E2"/>
+          <path d="M70 52 V42 A24 24 0 0 1 94 18 H166 A24 24 0 0 1 190 42 V52 Z" fill="#F4F5F9"/>
+          <rect x="104" y="27" width="52" height="17" rx="5" fill="#1F2340"/>
+          <text x="130" y="39.5" font-size="9.5" text-anchor="middle" fill="#F29F38" font-family="Figtree, sans-serif" font-weight="700">94% · 3</text>
+          <circle cx="174" cy="35.5" r="6" fill="#F29F38"/>
+          <g transform="translate(88 70) scale(.42)"><path d="M14 18 V31 A18 18 0 0 0 50 31 V18" fill="none" stroke="#1F2340" stroke-width="9.5" stroke-linecap="round"/><path d="M32 13 C36.5 18.5 39 23.2 39 27.6 C39 31.8 35.9 35 32 35 C28.1 35 25 31.8 25 27.6 C25 23.2 27.5 18.5 32 13 Z" fill="#F29F38"/></g>
+          <text x="117" y="86" font-size="17" fill="#1F2340" font-family="Bricolage Grotesque, sans-serif" font-weight="800" letter-spacing="-.6">umedha</text>
+          <text x="90" y="116" font-size="13" fill="#5E6270" font-family="Figtree, sans-serif" font-weight="600">Stride 1</text>
+          <g fill="#DCE0EA"><rect x="90" y="138" width="80" height="5" rx="2.5"/><rect x="90" y="150" width="80" height="5" rx="2.5"/><rect x="90" y="162" width="80" height="5" rx="2.5"/></g>
+        </svg>
+      </div>
+      <div class="tile" style="background:#FFFFFF;color:#1F2340;border:1px solid #E8D3BF">
+        <span class="cap">Home-care van · Umedha Aangan</span>
+        <svg viewBox="0 0 320 150" role="img" aria-label="Umedha Aangan home-care van">
+          <path d="M18 108 V48 a14 14 0 0 1 14 -14 H200 l46 30 h40 a14 14 0 0 1 14 14 v30 z" fill="#FCEEE1" stroke="#E8D3BF"/>
+          <path d="M206 40 l36 24 h-36 z" fill="#C9D3E6"/>
+          <rect x="18" y="96" width="282" height="14" fill="#1F2340"/>
+          <g transform="translate(30 42) scale(.62)"><path d="M14 18 V31 A18 18 0 0 0 50 31 V18" fill="none" stroke="#1F2340" stroke-width="9.5" stroke-linecap="round"/><path d="M32 13 C36.5 18.5 39 23.2 39 27.6 C39 31.8 35.9 35 32 35 C28.1 35 25 31.8 25 27.6 C25 23.2 27.5 18.5 32 13 Z" fill="#F29F38"/></g>
+          <text x="74" y="66" font-size="24" fill="#1F2340" font-family="Bricolage Grotesque, sans-serif" font-weight="800" letter-spacing="-1">umedha</text>
+          <text x="76" y="84" font-size="11" fill="#1F2340" font-family="Figtree, sans-serif" font-weight="600">Aangan · care that comes home</text>
+          <circle cx="78" cy="114" r="15" fill="#1F2340"/><circle cx="78" cy="114" r="6" fill="#EEF0F6"/>
+          <circle cx="252" cy="114" r="15" fill="#1F2340"/><circle cx="252" cy="114" r="6" fill="#EEF0F6"/>
+        </svg>
+      </div>
+      <div class="tile" style="background:#1F2340;color:#FCEEE1">
+        <span class="cap">Care team badge</span>
+        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+          <div style="width:58px;height:58px;border-radius:50%;background:#F29F38;display:grid;place-items:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;color:#1F2340;font-size:20px">PR</div>
+          <div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px">Priya R.</div><div style="font-size:13px;opacity:.85">Respiratory therapist · Umedha Aangan</div></div>
+        </div>
+        <span style="font-size:13px;opacity:.8">The people are the brand, so the badge leads with them.</span>
+      </div>
+      <div class="tile" style="background:#FCEEE1;color:#1F2340;border:1px solid #E8D3BF">
+        <span class="cap">Website, first screen</span>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;line-height:1.05;letter-spacing:-.03em">Breathe easier at home.<br>We'll keep watch.</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><span style="background:#1F2340;color:#FCEEE1;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700">Talk to a care advisor</span><span style="border:1px solid #1F2340;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700">For doctors</span></div>
+      </div>
+    </div>
+    <div class="chips" style="color:#237A4B"><span class="chip">umedha.com free</span><span class="chip">umedha.in free</span><span class="chip">umedha.health free</span><span class="chip">No company or mark found</span></div>
+  </div>
+</section>
+
+<!-- ============ MEDSWARA ============ -->
+<section class="spread" style="background:#2E1838;color:#F6EEF2">
+  <div class="in">
+    <div class="head">
+      <div class="stack">
+        <span class="eyebrow" style="color:#E7A08F">Finalist 2</span>
+        <div class="lockup">
+          <svg width="88" height="88" viewBox="0 0 64 64" aria-hidden="true"><path d="M44 16 C38 9 20 10 20 21 C20 31 44 30 44 42 C44 53 25 55 18 47" fill="none" stroke="#F6EEF2" stroke-width="8" stroke-linecap="round"/><path d="M8 32 C12 28 16 28 20 32" fill="none" stroke="#9FC2AE" stroke-width="4" stroke-linecap="round"/><path d="M44 32 C48 36 52 36 56 32" fill="none" stroke="#9FC2AE" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="10" r="4.5" fill="#E7A08F"/></svg>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(40px,7vw,62px);letter-spacing:-.03em;line-height:1">medswara</div>
+            <div class="say">med-SWAA-ra · <span style="font-family:var(--deva);font-weight:700">मेडस्वरा</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="story stack">
+        <p><b>Swara</b> is a musical note in Indian music, and in yoga it is the flow of breath through the body. Medswara reads as "medicine in tune with you": care that listens to each person's own rhythm, which is exactly what an AI that learns a patient's patterns does.</p>
+        <p><b>The mark</b> is an S drawn as a breath, with the sound passing through it and the anusvara dot above, the sign that makes a note ring on.</p>
+        <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:21px">Care, in tune with you.</p>
+      </div>
+    </div>
+    <div class="sw">
+      <div><i style="background:#2E1838;border:1px solid #5A3A66"></i><b>Raga</b>#2E1838</div>
+      <div><i style="background:#E7A08F"></i><b>Rose brass</b>#E7A08F</div>
+      <div><i style="background:#9FC2AE"></i><b>Sage</b>#9FC2AE</div>
+      <div><i style="background:#F6EEF2"></i><b>Pearl</b>#F6EEF2</div>
+    </div>
+    <div class="tiles">
+      <div class="tile" style="background:#F6EEF2;color:#2E1838">
+        <span class="cap">On light</span>
+        <div class="lockup"><svg width="46" height="46" viewBox="0 0 64 64" aria-hidden="true"><path d="M44 16 C38 9 20 10 20 21 C20 31 44 30 44 42 C44 53 25 55 18 47" fill="none" stroke="#2E1838" stroke-width="8" stroke-linecap="round"/><path d="M8 32 C12 28 16 28 20 32" fill="none" stroke="#5F9A7C" stroke-width="4" stroke-linecap="round"/><path d="M44 32 C48 36 52 36 56 32" fill="none" stroke="#5F9A7C" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="10" r="4.5" fill="#D07A66"/></svg><span style="font-family:'Syne',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.03em">medswara</span></div>
+      </div>
+      <div class="tile" style="background:#3B2246;color:#F6EEF2">
+        <span class="cap">App icon</span>
+        <svg width="92" height="92" viewBox="0 0 92 92" aria-label="Medswara app icon"><rect width="92" height="92" rx="22" fill="#E7A08F"/><g transform="translate(14 14)"><path d="M44 16 C38 9 20 10 20 21 C20 31 44 30 44 42 C44 53 25 55 18 47" fill="none" stroke="#2E1838" stroke-width="8" stroke-linecap="round"/><circle cx="50" cy="10" r="4.5" fill="#F6EEF2"/></g></svg>
+      </div>
+      <div class="tile" style="background:#F6EEF2;color:#2E1838">
+        <span class="cap">Strength and weakness</span>
+        <p style="font-size:14px">Most poetic and most premium. Travels well abroad. But "med" sits openly at the front, so it reads more like a compound than a brand-new word, and it is the longest of the three.</p>
+      </div>
+    </div>
+    <div class="chips" style="color:#9FC2AE"><span class="chip">medswara.com free</span><span class="chip">medswara.in free</span><span class="chip">.health and .ai free</span><span class="chip">No company or mark found</span></div>
+  </div>
+</section>
+
+<!-- ============ MEDAANGAN ============ -->
+<section class="spread" style="background:#EFF2EA;color:#22392C">
+  <div class="in">
+    <div class="head">
+      <div class="stack">
+        <span class="eyebrow" style="color:#2F5D46">Finalist 3</span>
+        <div class="lockup">
+          <svg width="88" height="88" viewBox="0 0 64 64" aria-hidden="true"><path d="M24 54 H16 A8 8 0 0 1 8 46 V16 A8 8 0 0 1 16 8 H48 A8 8 0 0 1 56 16 V46 A8 8 0 0 1 48 54 H40" fill="none" stroke="#2F5D46" stroke-width="7" stroke-linecap="round"/><circle cx="32" cy="27" r="9" fill="#E8B32C"/><path d="M26 54 C26 46 38 46 38 54" fill="none" stroke="#2F5D46" stroke-width="5" stroke-linecap="round"/></svg>
+          <div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:clamp(40px,7vw,62px);letter-spacing:-.03em;line-height:1">medaangan</div>
+            <div class="say">med-AAN-gun · <span style="font-family:var(--deva);font-weight:700">मेडआंगन</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="story stack">
+        <p>The <b>aangan</b> is the open courtyard at the heart of an Indian home, where the family gathers, the sun comes in and the elders sit. Medaangan says medicine at the centre of the home.</p>
+        <p><b>The mark</b> is a courtyard seen from above: the walls of the house, an open doorway, and the sun in the middle.</p>
+      </div>
+    </div>
+    <div class="sw">
+      <div><i style="background:#2F5D46"></i><b>Neem</b>#2F5D46</div>
+      <div><i style="background:#E8B32C"></i><b>Haldi</b>#E8B32C</div>
+      <div><i style="background:#2B3B73"></i><b>Indigo</b>#2B3B73</div>
+      <div><i style="background:#EFF2EA;border:1px solid #CFD6C6"></i><b>Limewash</b>#EFF2EA</div>
+    </div>
+    <div class="tiles">
+      <div class="tile" style="background:#2F5D46;color:#EFF2EA">
+        <span class="cap">Reversed</span>
+        <div class="lockup"><svg width="46" height="46" viewBox="0 0 64 64" aria-hidden="true"><path d="M24 54 H16 A8 8 0 0 1 8 46 V16 A8 8 0 0 1 16 8 H48 A8 8 0 0 1 56 16 V46 A8 8 0 0 1 48 54 H40" fill="none" stroke="#EFF2EA" stroke-width="7" stroke-linecap="round"/><circle cx="32" cy="27" r="9" fill="#E8B32C"/></svg><span style="font-family:'Outfit',sans-serif;font-weight:600;font-size:30px;letter-spacing:-.03em">medaangan</span></div>
+      </div>
+      <div class="tile" style="background:#FFFFFF;color:#22392C;border:1px solid #CFD6C6">
+        <span class="cap">Strength and weakness</span>
+        <p style="font-size:14px">The warmest and most Indian of the three, and the clearest about home care. But it is long, it means little outside India, and it says "home" more than "future". It works better as the name of the home-care service under a shorter master brand.</p>
+      </div>
+    </div>
+    <div class="chips" style="color:#237A4B"><span class="chip">medaangan.com free</span><span class="chip">.in and .health free</span><span class="chip">No company or mark found</span></div>
+  </div>
+</section>
+
+<!-- ============ SYSTEM ============ -->
+<section class="sys">
+  <div class="in">
+    <div class="stack">
+      <span class="eyebrow">What I'd do</span>
+      <h2>Choose Umedha. Put everything else under it.</h2>
+      <p class="lede">It is the only finalist that hides "med" inside a brand-new word, carries both hope and intelligence, says nothing about lungs, and still sounds like a global consumer-health company next to Oura or Withings.</p>
+    </div>
+    <div class="arch">
+      <div><b>umedha</b><span>The company and master brand</span></div>
+      <div><b>Stride 1</b><span>Portable oxygen, the rebranded Jiayi JY-P25B. Stride 2 will be your own design.</span></div>
+      <div><b>Haven 5</b><span>Home 5 L oxygen unit</span></div>
+      <div><b>Aangan</b><span>Home-care delivery, nurses and therapists, rentals and the 48-hour swap</span></div>
+      <div><b>Sense</b><span>The AI layer: usage, oxygen trends, early warning, doctor reports</span></div>
+      <div><b>Rest 1</b><span>Sleep apnea range, phase 2</span></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>How it sounds in a sentence</h3><p>"My father's on Umedha." "Ask Umedha to send the Aangan team." "Your Sense report shows three hours a night." Short, possessive, easy to repeat.</p></div>
+      <div class="card"><h3>Thoraq and Respeon</h3><p>You liked both. Keep them in reserve as names for a future respiratory or cardiopulmonary product line under Umedha, and decide once the trademark search is back.</p></div>
+      <div class="card"><h3>Before you commit</h3><p>Buy umedha.com, .in and .health today (about ₹3,000 in all) so nobody else can. Then have a trademark attorney search India in classes 10, 44, 35, 9 and 42. Run a five-minute test: say the name to ten patients' families and ten doctors, and ask them to spell it the next day.</p></div>
+    </div>
+
+    <div class="stack">
+      <h3>Screening record (14 Nov 2026)</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Name</th><th>.com</th><th>.in</th><th>.health</th><th>Nearest existing names</th><th>Verdict</th></tr>
+        <tr><td><b>Umedha</b></td><td class="ok">Free</td><td class="ok">Free</td><td class="ok">Free</td><td>"Ummeed The Hope" (rehab services, Maharashtra, class 44); "Medha Healthcare" (pending, class 35); Umedix (pharma, UK)</td><td><span class="pill ok">Recommended</span></td></tr>
+        <tr><td><b>Medswara</b></td><td class="ok">Free</td><td class="ok">Free</td><td class="ok">Free (.ai free too)</td><td>Medsarar (US medical apparatus) is the nearest</td><td><span class="pill ok">Strong alternative</span></td></tr>
+        <tr><td><b>Medaangan</b></td><td class="ok">Free</td><td class="ok">Free</td><td class="ok">Free</td><td>Medyaan Healthcare (refused application, class 44)</td><td><span class="pill ok">Use as service name</span></td></tr>
+        <tr><td><b>Mederiq</b></td><td class="ok">Free</td><td class="ok">Free</td><td class="ok">Free</td><td>"Mederi Inc." holds a registered mark for home health care services; Mediq N.V. holds MEDIQ</td><td><span class="pill no">Dropped</span></td></tr>
+        <tr><td><b>Medhavai</b></td><td class="ok">Free</td><td class="ok">Free</td><td class="ok">Free</td><td>"Medhavi" is a live US mark for software (classes 9 and 42), the space our AI layer would sit in</td><td><span class="pill no">Dropped</span></td></tr>
+        <tr><td>Mederi, Sevora, Lumed, Medha, Kalpa, Aevum, Lumena</td><td class="no">Taken</td><td colspan="3">Strong words, all already registered as .com and mostly .in and .health too</td><td><span class="pill no">Taken</span></td></tr>
+      </table></div>
+      <p class="note">"Free" means the domain was unregistered when checked on 14 Nov 2026. "No company or mark found" means web and trademark-directory searches found no exact match. This is a first screen, not a legal clearance. The marks shown are concept-stage: a designer should redraw the chosen one with precise geometry, spacing rules and a one-colour version.</p>
+    </div>
+  </div>
+</section>
