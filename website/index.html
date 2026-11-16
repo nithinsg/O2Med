@@ -4,23 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ThoraQx Stride</title>
-<meta name="description" content="ThoraQx Stride portable oxygen concentrators: prescribed by your doctor, fitted by our therapists, backed by a 48-hour swap. Launching in India in 2027.">
-<meta name="theme-color" content="#083F3E">
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="ThoraQx Stride portable oxygen concentrators. Oxygen freedom, anytime, anywhere.">
+<meta name="theme-color" content="#F06426">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&family=Mukta:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
-/* ThoraQx website. Light, single-theme brand site by design.
-   Layout: hero over a drawn Himalayan ridge, then lineup, two product deep-dives with live calculators,
-   an altitude explorer, how it works, the care model, pricing, doctors, specs, FAQ, register interest. */
 :root {
-  --teal: #0E6E6B; --abyss: #083F3E; --marigold: #F2A413; --ink: #14232B;
-  --mist: #EEF4F3; --paper: #FFFFFF; --stone: #5B6B70; --line: #D8E3E1; --sand: #F6F1E7;
-  --ok: #1E7A4C; --warn: #A15C00; --alert: #C2412D;
+  --orange: #F06426; --orange-deep: #D24E14; --orange-soft: #FFF1E9;
+  --ink: #1E2126; --gray: #6A7078; --line: #E7E9EC; --soft: #F5F6F8; --sky: #EAF0F7; --paper: #FFFFFF;
   --display: 'Sora', 'Segoe UI', system-ui, sans-serif;
   --body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --deva: 'Mukta', 'Noto Sans Devanagari', sans-serif;
   --gut: max(18px, env(safe-area-inset-left, 0px));
   --gutr: max(18px, env(safe-area-inset-right, 0px));
   color-scheme: light;
@@ -29,734 +23,580 @@
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-img, svg { max-width: 100%; }
+img { max-width: 100%; display: block; }
 a { color: inherit; }
-.wrap { max-width: 1180px; margin: 0 auto; padding-left: var(--gut); padding-right: var(--gutr); }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: var(--gut); padding-right: var(--gutr); }
 h1, h2, h3, h4 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: -.02em; }
-h1 { font-size: clamp(38px, 6.4vw, 74px); line-height: 1.02; font-weight: 800; }
-h2 { font-size: clamp(28px, 4vw, 46px); line-height: 1.08; font-weight: 700; }
-h3 { font-size: clamp(19px, 2vw, 23px); line-height: 1.2; font-weight: 700; }
+h1 { font-size: clamp(38px, 6vw, 72px); line-height: 1.03; font-weight: 800; }
+h2 { font-size: clamp(28px, 4vw, 46px); line-height: 1.1; font-weight: 700; }
+h3 { font-size: clamp(19px, 2vw, 24px); line-height: 1.25; font-weight: 700; }
 p { margin: 0; }
-.eyebrow { font-family: var(--display); font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--teal); }
-.lead { font-size: clamp(17px, 1.6vw, 20px); color: var(--stone); max-width: 60ch; }
-.muted { color: var(--stone); }
-.small { font-size: 13.5px; }
+.eyebrow { font-family: var(--display); font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--orange); }
+.lead { font-size: clamp(17px, 1.6vw, 19.5px); color: var(--gray); max-width: 58ch; }
 .num { font-variant-numeric: tabular-nums; }
-section { scroll-margin-top: 84px; }
-.sec { padding-block: clamp(64px, 9vw, 120px); }
-.sec-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; max-width: 760px; }
+section { scroll-margin-top: 76px; }
+.sec { padding-block: clamp(64px, 9vw, 116px); }
+.sec-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: clamp(32px, 4vw, 48px); max-width: 760px; }
+.orange { color: var(--orange); }
 
-/* buttons */
-.btn { white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 15.5px; padding: 14px 22px; border-radius: 999px; border: 1.5px solid transparent; text-decoration: none; cursor: pointer; transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
+.btn { white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 15.5px; padding: 14px 24px; border-radius: 999px; border: 1.5px solid transparent; text-decoration: none; cursor: pointer; transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease; }
 .btn:hover { transform: translateY(-1px); }
-.btn:focus-visible, button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; }
-.btn-primary { background: var(--teal); color: #fff; }
-.btn-primary:hover { background: var(--abyss); }
-.btn-gold { background: var(--marigold); color: var(--ink); }
-.btn-ghost { border-color: currentColor; background: transparent; }
+.btn:focus-visible, button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+.btn-primary { background: var(--orange); color: #fff; box-shadow: 0 10px 24px -12px rgba(240,100,38,.8); }
+.btn-primary:hover { background: var(--orange-deep); }
+.btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-white { background: #fff; color: var(--ink); }
 .btn svg { width: 18px; height: 18px; }
 
-/* pre-launch bar + header */
-.prebar { background: var(--ink); color: #DDE7E6; font-size: 13.5px; padding-block: 9px; padding-top: calc(9px + env(safe-area-inset-top, 0px)); }
-.prebar .wrap { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; text-align: center; }
-.prebar b { color: var(--marigold); font-weight: 600; }
-header.site { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.86); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid transparent; transition: border-color .3s ease; }
+header.site { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.9); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid transparent; transition: border-color .3s ease; padding-top: env(safe-area-inset-top, 0px); }
 header.site.scrolled { border-bottom-color: var(--line); }
 .navbar { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 18px; }
-.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-.logo svg { width: 34px; height: 34px; flex: none; }
+.logo { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; color: var(--ink); }
+.logo svg { width: 32px; height: 32px; flex: none; }
 .wordmark { font-family: var(--display); font-weight: 700; font-size: 23px; letter-spacing: -.035em; line-height: 1; }
-.wordmark .qx { color: var(--teal); }
-.navlinks { display: flex; gap: 26px; align-items: center; list-style: none; margin: 0; padding: 0; }
-.navlinks a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--ink); opacity: .82; }
-.navlinks a:hover { opacity: 1; color: var(--teal); }
-.nav-cta { display: flex; gap: 10px; align-items: center; }
+.wordmark .qx { color: var(--orange); }
+.navlinks { display: flex; gap: 28px; align-items: center; list-style: none; margin: 0; padding: 0; }
+.navlinks a { text-decoration: none; font-weight: 600; font-size: 15px; opacity: .85; }
+.navlinks a:hover { opacity: 1; color: var(--orange); }
+.nav-cta { display: flex; gap: 8px; align-items: center; }
+.nav-cta .btn { padding: 11px 20px; font-size: 14.5px; }
 .menu-btn { display: none; background: none; border: 0; width: 44px; height: 44px; border-radius: 12px; cursor: pointer; color: var(--ink); }
 .menu-btn svg { width: 26px; height: 26px; }
-.mobile-menu { display: none; border-top: 1px solid var(--line); padding-block: 12px 20px; }
+.mobile-menu { display: none; border-top: 1px solid var(--line); padding-block: 8px 18px; }
 .mobile-menu a { display: block; padding: 12px 0; font-family: var(--display); font-weight: 600; font-size: 18px; text-decoration: none; border-bottom: 1px solid var(--line); }
 .mobile-menu.open { display: block; }
-@media (max-width: 520px) { .prebar .wrap > a { display: none; } .nav-cta .btn-primary { padding: 9px 14px !important; font-size: 13.5px !important; } .wordmark { font-size: 20px; } }
-@media (max-width: 960px) { .navlinks, .nav-cta .btn-ghost { display: none; } .menu-btn { display: inline-grid; place-items: center; } }
+@media (max-width: 900px) { .navlinks { display: none; } .menu-btn { display: inline-grid; place-items: center; } }
+@media (max-width: 420px) { .nav-cta .btn { padding: 9px 14px; font-size: 13.5px; } .wordmark { font-size: 20px; } }
 
-/* hero */
-.hero { position: relative; overflow: hidden; background: linear-gradient(180deg, #E7F1EF 0%, #F4F8F7 55%, #FFFFFF 100%); }
-.hero .ridge { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 62%; pointer-events: none; }
-.hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: 30px; align-items: center; padding-block: clamp(40px, 7vw, 96px) clamp(48px, 7vw, 90px); }
+.hero { background: linear-gradient(180deg, var(--sky) 0%, #F7F9FC 70%, #fff 100%); overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(28px, 4vw, 56px); align-items: center; padding-block: clamp(36px, 6vw, 80px); }
 .hero-copy { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
-.hero-copy .lead { color: #3E5156; }
+.hero-copy h1 .orange { display: block; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero-art { position: relative; min-width: 0; display: grid; place-items: center; }
-.hero-art .s1 { width: min(100%, 360px); filter: drop-shadow(0 40px 40px rgba(8,63,62,.18)); animation: float 7s ease-in-out infinite; }
-.hero-art .s2 { position: absolute; right: 2%; bottom: -2%; width: min(32%, 150px); filter: drop-shadow(0 30px 30px rgba(8,63,62,.2)); animation: float 7s ease-in-out -3.5s infinite; }
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-.hero-hindi { font-family: var(--deva); font-weight: 700; color: var(--teal); font-size: 19px; }
-.stats { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: #fff; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 20px 60px -30px rgba(8,63,62,.35); margin-top: -10px; }
-.stat { padding: 22px 22px; border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.hero-photo { position: relative; border-radius: 32px; overflow: hidden; aspect-ratio: 788 / 800; box-shadow: 0 40px 80px -40px rgba(30,33,38,.45); min-width: 0; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); animation: drift 14s ease-in-out infinite alternate; }
+@keyframes drift { to { transform: scale(1.1) translateY(-1.5%); } }
+.hero-badge { position: absolute; left: 18px; bottom: 18px; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 18px; padding: 12px 16px; display: flex; gap: 12px; align-items: center; }
+.hero-badge b { font-family: var(--display); font-size: 26px; color: var(--orange); letter-spacing: -.03em; line-height: 1; }
+.hero-badge span { font-size: 13.5px; color: var(--gray); line-height: 1.3; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: 0 24px 60px -36px rgba(30,33,38,.35); }
+.stat { padding: 22px; border-left: 1px solid var(--line); display: flex; gap: 14px; align-items: center; min-width: 0; }
 .stat:first-child { border-left: 0; }
-.stat b { font-family: var(--display); font-size: clamp(24px, 2.6vw, 32px); font-weight: 700; letter-spacing: -.03em; color: var(--abyss); }
-.stat b small { font-size: .55em; font-weight: 600; margin-left: 2px; }
-.stat span { font-size: 14px; color: var(--stone); }
-@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .hero-art { order: -1; max-width: 440px; margin: 0 auto; } .stats { grid-template-columns: repeat(2, 1fr); } .stat:nth-child(3) { border-left: 0; } .stat:nth-child(n+3) { border-top: 1px solid var(--line); } }
+.stat .ic { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--orange-soft); display: grid; place-items: center; }
+.stat .ic svg { width: 24px; height: 24px; }
+.stat b { display: block; font-family: var(--display); font-size: clamp(22px, 2.4vw, 28px); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; }
+.stat span { font-size: 13.5px; color: var(--gray); }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr 1fr; } .stat:nth-child(3) { border-left: 0; } .stat:nth-child(n+3) { border-top: 1px solid var(--line); } }
+@media (max-width: 420px) { .stat { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px; } }
 
-/* lineup */
-.lineup { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
-.pcard { position: relative; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 18px; min-width: 0; overflow: hidden; }
-.pcard.one { background: var(--mist); }
-.pcard.two { background: var(--sand); }
-.pcard .art { height: 330px; display: grid; place-items: center; }
-.pcard .art svg { height: 100%; width: auto; filter: drop-shadow(0 26px 26px rgba(20,35,43,.16)); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
-.pcard:hover .art svg { transform: translateY(-6px) rotate(-1deg); }
-.status { align-self: flex-start; font-size: 12.5px; font-weight: 700; letter-spacing: .02em; padding: 5px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line); }
-.status.ok { color: var(--ok); } .status.wait { color: var(--warn); }
-.pcard .row { display: flex; justify-content: space-between; align-items: flex-end; gap: 14px; flex-wrap: wrap; }
-.pcard h3 { font-size: clamp(26px, 3vw, 34px); }
-.pcard h3 .sub { display: block; font-family: var(--body); font-size: 15px; font-weight: 500; color: var(--stone); letter-spacing: 0; margin-top: 4px; }
-.keys { display: flex; flex-wrap: wrap; gap: 8px; }
-.keys span { font-size: 14px; font-weight: 600; background: #fff; border-radius: 10px; padding: 6px 10px; }
-.finishes { display: flex; gap: 8px; align-items: center; }
-.finishes button { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px var(--line); cursor: pointer; padding: 0; }
-.finishes button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--teal); }
-.finish-name { font-size: 13px; color: var(--stone); min-width: 110px; }
-@media (max-width: 860px) { .lineup { grid-template-columns: 1fr; } }
+.lineup { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.pcard { border-radius: 30px; background: var(--soft); display: grid; grid-template-rows: auto 1fr; overflow: hidden; text-decoration: none; transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease; min-width: 0; }
+.pcard:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -36px rgba(30,33,38,.4); }
+.pcard .pic { height: 380px; display: grid; place-items: center; padding: 28px; background: radial-gradient(80% 70% at 50% 45%, #fff 0%, var(--soft) 75%); }
+.pcard .pic { position: relative; } .pcard .pic img { position: absolute; inset: 28px; width: calc(100% - 56px); height: calc(100% - 56px); object-fit: contain; mix-blend-mode: multiply; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.pcard:hover .pic img { transform: scale(1.04); }
+.pcard .body { padding: 26px 30px 30px; display: flex; flex-direction: column; gap: 10px; }
+.pcard .tagline { color: var(--gray); }
+.pcard .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { font-size: 13.5px; font-weight: 600; background: #fff; border-radius: 999px; padding: 6px 12px; }
+.more { font-family: var(--display); font-weight: 600; color: var(--orange); display: inline-flex; gap: 6px; align-items: center; }
+.more svg { width: 18px; height: 18px; transition: transform .2s ease; }
+.pcard:hover .more svg { transform: translateX(4px); }
+@media (max-width: 860px) { .lineup { grid-template-columns: 1fr; } .pcard .pic { height: 320px; } }
 
-/* deep dive */
-.dive { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 70px); align-items: start; }
-.dive-art { position: sticky; top: 100px; border-radius: 30px; background: radial-gradient(120% 90% at 30% 20%, #FFFFFF 0%, var(--mist) 60%, #DCEAE8 100%); min-height: 520px; display: grid; place-items: center; padding: 30px; }
-.dive-art.sand { background: radial-gradient(120% 90% at 30% 20%, #FFFFFF 0%, var(--sand) 60%, #EDE3D1 100%); }
-.dive-art svg { max-height: 470px; width: auto; filter: drop-shadow(0 34px 34px rgba(20,35,43,.18)); }
-.dive-copy { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
-.features { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.feat { display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 2px solid var(--ink); }
-.feat h4 { font-size: 17px; font-weight: 700; }
-.feat p { font-size: 15px; color: var(--stone); }
-@media (max-width: 900px) { .dive { grid-template-columns: 1fr; } .dive-art { position: relative; top: 0; min-height: 380px; } .dive-art svg { max-height: 340px; } }
-@media (max-width: 520px) { .features { grid-template-columns: 1fr; } }
+.band { background: var(--ink); color: #fff; }
+.band-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.band .lead { color: #B9BEC6; }
+.band-pic { border-radius: 28px; overflow: hidden; background: #fff; display: grid; place-items: center; padding: 30px; aspect-ratio: 1 / 1; min-width: 0; }
+.band-pic { position: relative; } .band-pic img { position: absolute; inset: 30px; width: calc(100% - 60px); height: calc(100% - 60px); object-fit: contain; }
+.speclist { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,255,255,.14); }
+.speclist div { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.14); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.speclist div:nth-child(odd) { padding-right: 16px; }
+.speclist span { font-size: 13px; color: #9AA1AA; }
+.speclist b { font-family: var(--display); font-weight: 600; font-size: 17px; }
+@media (max-width: 900px) { .band-grid { grid-template-columns: 1fr; } .band-pic { aspect-ratio: 4 / 3; } }
 
-/* calculator */
-.calc { background: var(--abyss); color: #E9F2F1; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 18px; }
-.calc .eyebrow { color: var(--marigold); }
-.calc-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-.calc-top h3 { color: #fff; }
-.setting-btns { display: flex; gap: 8px; flex-wrap: wrap; }
-.setting-btns button { font-family: var(--display); font-weight: 700; font-size: 17px; width: 50px; height: 50px; border-radius: 14px; border: 1.5px solid rgba(255,255,255,.25); background: transparent; color: #fff; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
-.setting-btns button[aria-pressed="true"] { background: var(--marigold); color: var(--ink); border-color: var(--marigold); }
-.readouts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.readout { background: rgba(255,255,255,.06); border-radius: 16px; padding: 14px; min-width: 0; }
-.readout b { display: block; font-family: var(--display); font-size: clamp(24px, 3vw, 32px); font-weight: 700; letter-spacing: -.03em; color: #fff; }
-.readout span { font-size: 13px; color: #A9C4C1; }
-.batt { display: flex; flex-direction: column; gap: 8px; }
-.battbar { height: 12px; border-radius: 999px; background: rgba(255,255,255,.1); overflow: hidden; }
-.battbar i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--marigold), #FFD27A); transition: width .5s cubic-bezier(.2,.8,.2,1); }
-.calc .small { color: #A9C4C1; }
-@media (max-width: 520px) { .readouts { grid-template-columns: 1fr 1fr; } }
+.frows { display: flex; flex-direction: column; gap: clamp(48px, 7vw, 96px); }
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.frow.flip .fpic { order: 2; }
+.fpic { border-radius: 28px; overflow: hidden; background: var(--sky); min-width: 0; aspect-ratio: 5 / 4; }
+.fpic img { width: 100%; height: 100%; object-fit: cover; }
+.fcopy { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.fcopy .tag { align-self: flex-start; background: var(--orange); color: #fff; font-family: var(--display); font-weight: 600; font-size: 13.5px; padding: 6px 14px; border-radius: 999px; }
+@media (max-width: 900px) { .frow { grid-template-columns: 1fr; } .frow.flip .fpic { order: 0; } }
 
-/* altitude */
-.alt { background: linear-gradient(180deg, #0A2F33 0%, #083F3E 100%); color: #E9F2F1; }
-.alt .eyebrow { color: var(--marigold); }
-.alt h2 { color: #fff; }
-.alt .lead { color: #A9C4C1; }
-.alt-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 26px; align-items: stretch; }
-.alt-chart { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 24px; padding: 18px; min-width: 0; }
-.alt-chart svg { width: 100%; height: auto; display: block; }
-.places { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.places button { font: inherit; font-size: 14px; font-weight: 600; padding: 7px 13px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); background: transparent; color: #E9F2F1; cursor: pointer; }
-.places button[aria-pressed="true"] { background: #fff; color: var(--abyss); border-color: #fff; }
-.alt-panel { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.alt-card { background: rgba(255,255,255,.06); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 6px; }
-.alt-card b.big { font-family: var(--display); font-size: clamp(34px, 4.6vw, 52px); font-weight: 800; letter-spacing: -.04em; color: #fff; line-height: 1; }
-.alt-card .k { font-size: 13px; color: #A9C4C1; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
-.verdict { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
-.verdict i { flex: none; width: 10px; height: 10px; border-radius: 50%; margin-top: 7px; }
-.verdict.in i { background: #6FE3A6; } .verdict.out i { background: #FF8A73; } .verdict.claim i { background: var(--marigold); }
-@media (max-width: 900px) { .alt-grid { grid-template-columns: 1fr; } }
+.harms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.harm { background: #fff; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 10px; border: 1px solid var(--line); min-width: 0; }
+.harm .n { font-family: var(--display); font-weight: 800; font-size: 15px; color: var(--orange); }
+.harm p { font-weight: 500; }
+@media (max-width: 900px) { .harms { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .harms { grid-template-columns: 1fr; } }
 
-/* how it works */
-.how { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
-.how-art { background: var(--mist); border-radius: 28px; padding: 22px; min-width: 0; }
-.how-art svg { width: 100%; height: auto; display: block; }
-.steps { display: flex; flex-direction: column; gap: 22px; counter-reset: s; }
-.step { display: grid; grid-template-columns: 46px 1fr; gap: 14px; }
-.step::before { counter-increment: s; content: counter(s); font-family: var(--display); font-weight: 700; font-size: 18px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--teal); color: #fff; }
-.step h4 { font-size: 18px; margin-bottom: 4px; }
-.step p { color: var(--stone); font-size: 15.5px; }
-@media (max-width: 900px) { .how { grid-template-columns: 1fr; } }
-.bed { transition: fill .6s ease; }
+.s2hero { position: relative; overflow: hidden; background: #0F1A24; color: #fff; }
+.s2hero .bg { position: absolute; inset: 0; background: radial-gradient(60% 80% at 80% 50%, rgba(240,100,38,.28) 0%, transparent 60%), radial-gradient(50% 60% at 10% 100%, rgba(240,100,38,.12) 0%, transparent 70%); }
+.s2hero .wrap { position: relative; }
+.s2-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 30px; align-items: center; padding-block: clamp(64px, 9vw, 120px); }
+.s2hero .lead { color: #C9D0D8; }
+.s2stats { display: grid; grid-template-columns: repeat(2, 1fr); max-width: 560px; gap: 12px; margin-top: 10px; }
+.s2stats div { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 16px; min-width: 0; }
+.s2stats b { display: block; font-family: var(--display); font-size: clamp(20px, 2.4vw, 28px); font-weight: 700; letter-spacing: -.03em; color: var(--orange); line-height: 1.1; }
+.s2stats span { font-size: 13px; color: #C9D0D8; }
+.s2-unit { display: grid; place-items: center; }
+.s2-unit img { max-height: 520px; width: auto; border-radius: 24px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); }
+@media (max-width: 900px) { .s2-grid { grid-template-columns: 1fr; } .s2-unit { display: none; } .s2stats { grid-template-columns: 1fr 1fr; } }
 
-/* care model */
-.care { background: var(--mist); }
-.pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.pillar { background: #fff; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.pillar .ico { width: 48px; height: 48px; border-radius: 14px; background: var(--mist); display: grid; place-items: center; }
-.pillar .ico svg { width: 26px; height: 26px; }
-.pillar p { color: var(--stone); font-size: 15px; }
-@media (max-width: 980px) { .pillars { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .pillars { grid-template-columns: 1fr; } }
+.modes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.mode { border-radius: 24px; padding: 28px; background: #fff; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.mode.hot { background: var(--orange); color: #fff; }
+.mode.hot p { color: #FFE6D9; }
+.mode p { color: var(--gray); }
+.mode .pill { align-self: flex-start; font-family: var(--display); font-weight: 600; font-size: 13px; padding: 5px 12px; border-radius: 999px; background: var(--orange-soft); color: var(--orange-deep); }
+.mode.hot .pill { background: #fff; color: var(--orange); }
+@media (max-width: 760px) { .modes { grid-template-columns: 1fr; } }
 
-/* pricing */
-.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.plan { border: 1px solid var(--line); border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.plan.feature { background: var(--abyss); color: #E9F2F1; border-color: var(--abyss); }
-.plan.feature .muted { color: #A9C4C1; }
-.price { font-family: var(--display); font-size: clamp(34px, 4vw, 44px); font-weight: 800; letter-spacing: -.04em; line-height: 1; }
-.price small { font-size: 16px; font-weight: 600; letter-spacing: 0; }
-.plan ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; font-size: 15px; }
-.plan li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; }
-.plan li svg { width: 18px; height: 18px; margin-top: 3px; color: var(--teal); }
-.plan.feature li svg { color: var(--marigold); }
-.plan .btn { margin-top: auto; align-self: flex-start; }
-.plan.feature .btn-ghost { color: #fff; }
-@media (max-width: 960px) { .plans { grid-template-columns: 1fr; } }
+.filter { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.layers { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; counter-reset: l; }
+.layers li { counter-increment: l; display: grid; grid-template-columns: 38px 1fr; gap: 12px; align-items: center; padding: 10px 14px; border-radius: 14px; background: var(--soft); transition: background .3s ease, transform .3s ease; }
+.layers li::before { content: counter(l); font-family: var(--display); font-weight: 700; font-size: 14px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--orange); }
+.layers li.on { background: var(--orange-soft); transform: translateX(6px); }
+.layers b { font-weight: 600; }
+.layers small { display: block; color: var(--gray); font-size: 13px; }
+@media (max-width: 900px) { .filter { grid-template-columns: 1fr; } }
 
-/* doctors */
-.docs { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; }
-.report { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 22px; box-shadow: 0 30px 60px -40px rgba(8,63,62,.4); display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.report-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
-.report-head b { font-family: var(--display); font-size: 17px; }
-.report-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.report-kpis div { background: var(--mist); border-radius: 14px; padding: 12px; }
-.report-kpis b { display: block; font-family: var(--display); font-size: 22px; letter-spacing: -.02em; }
-.report-kpis span { font-size: 12.5px; color: var(--stone); }
-.report svg { width: 100%; height: auto; display: block; }
-.tag { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--sand); color: var(--warn); }
-@media (max-width: 900px) { .docs { grid-template-columns: 1fr; } }
+.gallery { display: grid; grid-template-columns: 1.3fr 1fr; gap: 22px; align-items: stretch; }
+.g-main { border-radius: 28px; overflow: hidden; background: var(--sky); aspect-ratio: 4 / 3; min-width: 0; }
+.g-main img { width: 100%; height: 100%; object-fit: cover; transition: opacity .25s ease; }
+.g-list { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.g-list button { text-align: left; font: inherit; color: inherit; background: #fff; border: 1.5px solid transparent; border-radius: 18px; padding: 14px 16px; cursor: pointer; display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: center; transition: border-color .2s ease; }
+.g-list button img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; }
+.g-list button b { font-family: var(--display); font-weight: 600; font-size: 16px; display: block; }
+.g-list button span { font-size: 14px; color: var(--gray); }
+.g-list button[aria-pressed="true"] { border-color: var(--orange); }
+@media (max-width: 900px) { .gallery { grid-template-columns: 1fr; } }
 
-/* specs */
-.specwrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 22px; }
-table.specs { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 15px; }
-.specs th, .specs td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
-.specs thead th { font-family: var(--display); font-size: 18px; background: var(--mist); position: sticky; top: 0; }
-.specs tbody th { font-weight: 600; color: var(--stone); width: 30%; }
-.specs tr.grp th { background: #fff; color: var(--teal); font-family: var(--display); font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; padding-top: 22px; }
-.specs tr:last-child th, .specs tr:last-child td { border-bottom: 0; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; border-radius: 28px; overflow: hidden; border: 1px solid var(--line); }
+.compare > div { padding: 28px; min-width: 0; }
+.compare .them { background: var(--soft); }
+.compare .us { background: var(--orange); color: #fff; }
+.compare h3 { margin-bottom: 6px; }
+.compare dl { margin: 0; }
+.compare dt { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; opacity: .7; margin-top: 16px; }
+.compare dd { margin: 2px 0 0; font-family: var(--display); font-weight: 600; font-size: 18px; }
+@media (max-width: 560px) { .compare { grid-template-columns: 1fr; } }
 
-/* faq */
-.faq { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
-.faq details { border-bottom: 1px solid var(--line); }
-.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 18px; padding: 20px 0; font-family: var(--display); font-weight: 600; font-size: 18px; }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; font-size: 26px; line-height: 1; color: var(--teal); transition: transform .25s ease; }
-.faq details[open] summary::after { transform: rotate(45deg); }
-.faq details p { padding: 0 0 22px; color: var(--stone); max-width: 75ch; }
+.life { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 16px; }
+.life figure { margin: 0; position: relative; border-radius: 26px; overflow: hidden; min-height: 440px; min-width: 0; }
+.life img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(.2,.8,.2,1); }
+.life figure:hover img { transform: scale(1.04); }
+.life figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 70px 22px 22px; color: #fff; background: linear-gradient(180deg, transparent, rgba(0,0,0,.7)); font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.3; }
+.life figcaption small { display: block; font-family: var(--body); font-weight: 500; font-size: 14px; opacity: .85; margin-top: 4px; }
+@media (max-width: 900px) { .life { grid-template-columns: 1fr 1fr; } .life figure:first-child { grid-column: 1 / -1; } .life figure { min-height: 340px; } }
+@media (max-width: 560px) { .life { grid-template-columns: 1fr; } }
 
-/* register */
-.reg { background: var(--abyss); color: #E9F2F1; border-radius: 32px; padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: 1fr 1fr; gap: 36px; position: relative; overflow: hidden; }
-.reg h2 { color: #fff; }
-.reg .lead { color: #A9C4C1; }
-form.reg-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; position: relative; }
-.reg-form label { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; font-weight: 600; color: #CFE0DE; }
-.reg-form .full { grid-column: 1 / -1; }
-.reg-form input, .reg-form select { font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 0; border-radius: 12px; padding: 13px 14px; width: 100%; }
-.reg-form .err { color: #FFB4A6; font-size: 13px; min-height: 18px; }
-.reg-done { display: none; flex-direction: column; gap: 10px; background: rgba(255,255,255,.07); border-radius: 18px; padding: 24px; }
-.reg-done.show { display: flex; }
-.reg-done b { font-family: var(--display); font-size: 22px; color: #fff; }
-@media (max-width: 900px) { .reg { grid-template-columns: 1fr; } }
-@media (max-width: 520px) { form.reg-form { grid-template-columns: 1fr; } }
+.spectabs { display: inline-flex; background: #fff; border-radius: 999px; padding: 5px; gap: 4px; margin-bottom: 22px; }
+.spectabs button { font-family: var(--display); font-weight: 600; font-size: 15px; border: 0; background: transparent; padding: 10px 22px; border-radius: 999px; cursor: pointer; color: var(--ink); }
+.spectabs button[aria-selected="true"] { background: var(--orange); color: #fff; }
+.specpanel { display: grid; grid-template-columns: 300px 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.specpanel[hidden] { display: none; }
+.specpanel .pic { background: #fff; border-radius: 26px; padding: 26px; display: grid; place-items: center; height: 360px; }
+.specpanel .pic { position: relative; } .specpanel .pic img { position: absolute; inset: 26px; width: calc(100% - 52px); height: calc(100% - 52px); object-fit: contain; mix-blend-mode: multiply; }
+.sgrid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+.sgrid div { padding: 16px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.sgrid div:nth-child(odd) { padding-right: 18px; }
+.sgrid span { display: block; font-size: 13px; color: var(--gray); }
+.sgrid b { font-family: var(--display); font-weight: 600; font-size: 16.5px; }
+.box { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+.box span { font-size: 14px; background: var(--orange-soft); color: var(--orange-deep); font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+@media (max-width: 820px) { .specpanel { grid-template-columns: 1fr; } .specpanel .pic { height: 300px; } }
+@media (max-width: 460px) { .sgrid { grid-template-columns: 1fr; } .sgrid div:nth-child(odd) { padding-right: 0; } }
 
-/* footer */
-footer { background: var(--ink); color: #B9C8CB; padding-block: 56px calc(30px + env(safe-area-inset-bottom, 0px)); font-size: 14.5px; }
+.enq { background: var(--orange); color: #fff; border-radius: 34px; padding: clamp(28px, 5vw, 60px); display: grid; grid-template-columns: 1fr 1fr; gap: 36px; position: relative; overflow: hidden; }
+.enq::before { content: ""; position: absolute; right: -120px; top: -120px; width: 380px; height: 380px; border-radius: 50%; border: 60px solid rgba(255,255,255,.1); }
+.enq .lead { color: #FFE6D9; }
+form.f { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; position: relative; }
+.f label { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; font-weight: 600; color: #FFE6D9; }
+.f .full { grid-column: 1 / -1; }
+.f input, .f select { font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 0; border-radius: 12px; padding: 13px 14px; width: 100%; }
+.f .err { color: #fff; font-weight: 600; font-size: 14px; min-height: 20px; }
+.done { display: none; flex-direction: column; gap: 8px; background: rgba(255,255,255,.14); border-radius: 18px; padding: 26px; position: relative; }
+.done.show { display: flex; }
+.done b { font-family: var(--display); font-size: 22px; }
+@media (max-width: 900px) { .enq { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { form.f { grid-template-columns: 1fr; } }
+
+footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px + env(safe-area-inset-bottom, 0px)); font-size: 14.5px; }
 .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 28px; }
-.foot h4 { color: #fff; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+.foot h4 { color: #fff; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
 .foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .foot a { text-decoration: none; } .foot a:hover { color: #fff; }
-.foot .wordmark { color: #fff; } .foot .wordmark .qx { color: #5FC4BE; }
-.legal { border-top: 1px solid rgba(255,255,255,.1); margin-top: 36px; padding-top: 22px; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #8FA2A6; }
+.foot .logo { color: #fff; }
+.copy { border-top: 1px solid rgba(255,255,255,.1); margin-top: 36px; padding-top: 20px; font-size: 13px; color: #7E858F; }
 @media (max-width: 900px) { .foot { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .foot { grid-template-columns: 1fr; } }
 
-/* reveal */
-.reveal { opacity: 1; transform: none; transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
-.js .reveal.pre { opacity: 0; transform: translateY(18px); }
+.reveal { transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+.js .reveal.pre { opacity: 0; transform: translateY(20px); }
 </style>
 </head>
 <body>
 
-<!-- ====== SVG library: brand mark, device renders, icons ====== -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="mark" viewBox="0 0 64 64">
-      <path d="M43.5 46.1 A21 21 0 1 1 50.3 35.4" fill="none" stroke="#0E6E6B" stroke-width="8.5" stroke-linecap="round"/>
-      <path d="M39.5 41.5 C45.5 45 49 52.5 57.5 56.5" fill="none" stroke="#F2A413" stroke-width="7" stroke-linecap="round"/>
+      <path d="M43.5 46.1 A21 21 0 1 1 50.3 35.4" fill="none" stroke="#F06426" stroke-width="8.5" stroke-linecap="round"/>
+      <path d="M39.5 41.5 C45.5 45 49 52.5 57.5 56.5" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
     </symbol>
-    <symbol id="mark-light" viewBox="0 0 64 64">
-      <path d="M43.5 46.1 A21 21 0 1 1 50.3 35.4" fill="none" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="round"/>
-      <path d="M39.5 41.5 C45.5 45 49 52.5 57.5 56.5" fill="none" stroke="#F2A413" stroke-width="7" stroke-linecap="round"/>
-    </symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </defs>
 </svg>
 
-<template id="tpl-stride1">
-  <svg class="dev-s1" viewBox="0 0 400 470" role="img" aria-label="ThoraQx Stride 1 portable oxygen concentrator">
-    <defs>
-      <linearGradient id="s1body" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" class="f-a" stop-color="#F3F6F7"/><stop offset=".45" class="f-b" stop-color="#FFFFFF"/><stop offset="1" class="f-c" stop-color="#D9E1E4"/>
-      </linearGradient>
-      <linearGradient id="s1top" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" class="f-b" stop-color="#FFFFFF"/><stop offset="1" class="f-a" stop-color="#E9EEF0"/>
-      </linearGradient>
-      <linearGradient id="s1side" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" class="f-c" stop-color="#D9E1E4"/><stop offset="1" class="f-d" stop-color="#C3CDD1"/>
-      </linearGradient>
-      <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#8E9AA0"/><stop offset=".45" stop-color="#F4F7F8"/><stop offset="1" stop-color="#7D8A90"/>
-      </linearGradient>
-      <linearGradient id="lcd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A2E33"/><stop offset="1" stop-color="#0D1C20"/></linearGradient>
-      <radialGradient id="shadow1" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14232B" stop-opacity=".28"/><stop offset="1" stop-color="#14232B" stop-opacity="0"/></radialGradient>
-    </defs>
-    <ellipse cx="200" cy="448" rx="150" ry="16" fill="url(#shadow1)"/>
-    <!-- side face -->
-    <path d="M300 102 L338 82 Q352 76 352 92 L352 392 Q352 410 338 414 L300 432 Z" fill="url(#s1side)"/>
-    <g fill="#B4C0C5"><rect x="318" y="210" width="5" height="70" rx="2.5"/><rect x="328" y="205" width="5" height="70" rx="2.5"/><rect x="338" y="200" width="5" height="70" rx="2.5"/></g>
-    <!-- top face -->
-        <path d="M100 100 L106 84 Q110 74 128 74 L320 74 Q346 70 352 84 L340 96 Q330 102 302 102 Z" fill="url(#s1top)"/>
-    <!-- front body -->
-    <rect x="60" y="100" width="242" height="334" rx="40" fill="url(#s1body)"/>
-    <rect x="60" y="100" width="242" height="334" rx="40" fill="none" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="2"/>
-    <!-- top control panel (seen in perspective) -->
-    <path d="M118 96 Q118 86 130 85 L262 83 Q276 83 276 92 L276 98 Q276 104 264 104 L130 106 Q118 106 118 98 Z" fill="#DDE6E8"/>
-    <rect x="150" y="88" width="66" height="13" rx="3" fill="url(#lcd)"/>
-    <text x="160" y="98.5" font-family="Sora, sans-serif" font-size="9" font-weight="700" fill="#F2A413">95%</text>
-    <text x="196" y="98.5" font-family="Sora, sans-serif" font-size="9" font-weight="700" fill="#7FE0D8">3</text>
-    <circle cx="232" cy="94" r="4.5" fill="#0E6E6B"/><circle cx="248" cy="94" r="4.5" fill="#8C9AA0"/><circle cx="263" cy="94" r="4.5" fill="#F2A413"/>
-    <!-- oxygen outlet -->
-    <rect x="286" y="60" width="16" height="22" rx="3" fill="url(#metal)"/><rect x="282" y="78" width="24" height="8" rx="3" fill="url(#metal)"/>
-    <!-- highlight -->
-    <path d="M84 140 Q84 120 104 120 L110 120 L110 410 Q84 404 84 380 Z" fill="#FFFFFF" opacity=".55"/>
-    <!-- brand -->
-    <g transform="translate(112 208)"><use href="#mark" width="34" height="34"/></g>
-    <text x="152" y="233" font-family="Sora, sans-serif" font-size="25" font-weight="700" letter-spacing="-1" fill="#14232B">Thora<tspan fill="#0E6E6B">Qx</tspan></text>
-    <text x="114" y="268" font-family="Figtree, sans-serif" font-size="14" font-weight="600" letter-spacing="2" fill="#5B6B70">STRIDE 1</text>
-    <!-- front slots -->
-    <g fill="#C9D3D7"><rect x="112" y="320" width="138" height="7" rx="3.5"/><rect x="112" y="336" width="138" height="7" rx="3.5"/><rect x="112" y="352" width="138" height="7" rx="3.5"/></g>
-    <!-- battery seam + release -->
-    <path d="M62 392 L300 392" stroke="#CBD4D8" stroke-width="2"/>
-    <rect x="166" y="404" width="30" height="8" rx="4" fill="#C2CCD0"/>
-  </svg>
-</template>
-
-<template id="tpl-stride2">
-  <svg class="dev-s2" viewBox="0 0 260 560" role="img" aria-label="ThoraQx Stride 2 portable oxygen concentrator">
-    <defs>
-      <pattern id="quilt" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-        <rect width="22" height="22" class="q-base" fill="#F7F9FA"/>
-        <path d="M0 0 H22 V22" fill="none" class="q-line" stroke="#DCE3E6" stroke-width="1.6"/>
-        <path d="M2 2 H20 V20 H2 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".8" stroke-width="1"/>
-      </pattern>
-      <linearGradient id="s2shade" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#000" stop-opacity=".07"/><stop offset=".35" stop-color="#FFF" stop-opacity=".35"/><stop offset=".6" stop-color="#FFF" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".16"/>
-      </linearGradient>
-      <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7F9FA"/><stop offset=".5" stop-color="#9AA6AC"/><stop offset="1" stop-color="#E9EEF0"/></linearGradient>
-      <radialGradient id="screen2" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#1D3439"/><stop offset="1" stop-color="#081417"/></radialGradient>
-      <radialGradient id="shadow2" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14232B" stop-opacity=".3"/><stop offset="1" stop-color="#14232B" stop-opacity="0"/></radialGradient>
-      <clipPath id="s2clip"><path d="M58 112 Q58 70 100 66 L176 62 Q206 60 206 96 L206 500 Q206 524 182 524 L82 524 Q58 524 58 500 Z"/></clipPath>
-    </defs>
-    <ellipse cx="132" cy="536" rx="96" ry="12" fill="url(#shadow2)"/>
-    <g clip-path="url(#s2clip)">
-      <rect x="40" y="40" width="190" height="500" fill="url(#quilt)"/>
-      <rect x="40" y="40" width="190" height="500" fill="url(#s2shade)"/>
-      <rect x="40" y="470" width="190" height="60" class="q-baseband" fill="#EEF2F4"/>
-      <path d="M40 470 H230" stroke="#D3DBDF" stroke-width="2"/>
-    </g>
-    <!-- side vents -->
-    <g fill="#B9C4C9"><circle cx="196" cy="330" r="2.4"/><circle cx="196" cy="342" r="2.4"/><circle cx="196" cy="354" r="2.4"/><circle cx="196" cy="366" r="2.4"/><circle cx="196" cy="378" r="2.4"/><circle cx="196" cy="390" r="2.4"/><circle cx="196" cy="402" r="2.4"/></g>
-    <!-- top display with chrome ring -->
-    <ellipse cx="112" cy="62" rx="44" ry="18" fill="#C9D2D6"/>
-    <ellipse cx="112" cy="56" rx="44" ry="18" fill="url(#chrome)"/>
-    <ellipse cx="112" cy="55" rx="37" ry="14.5" fill="url(#screen2)"/>
-    <text x="112" y="58" text-anchor="middle" font-family="Sora, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">3</text>
-    <path d="M86 61 Q112 70 138 61" fill="none" stroke="#F2A413" stroke-width="2.4" stroke-linecap="round"/>
-    <!-- O2 button -->
-    <ellipse cx="176" cy="66" rx="22" ry="10" fill="#C3CCD0"/>
-    <ellipse cx="176" cy="62" rx="22" ry="10" fill="#E3E8EA"/>
-    <text x="176" y="65.5" text-anchor="middle" font-family="Figtree, sans-serif" font-size="9" font-weight="700" fill="#7A878D">O₂</text>
-    <!-- brand -->
-    <g transform="translate(82 486)"><use href="#mark" width="20" height="20"/></g>
-    <text x="106" y="501" font-family="Sora, sans-serif" font-size="14" font-weight="700" letter-spacing="-.5" fill="#14232B">Thora<tspan fill="#0E6E6B">Qx</tspan></text>
-    <rect x="186" y="508" width="10" height="5" rx="2" fill="#9AA6AC"/>
-  </svg>
-</template>
-
-<!-- ====== header ====== -->
-<div class="prebar"><div class="wrap"><span><b>Pre-launch preview.</b> Stride 1 launches in India in 2027, after CDSCO licensing. Prices and specifications are indicative.</span><a href="#register">Register interest</a></div></div>
 <header class="site" id="top">
   <div class="wrap">
     <nav class="navbar" aria-label="Main">
       <a class="logo" href="#top" aria-label="ThoraQx home"><svg><use href="#mark"/></svg><span class="wordmark">Thora<span class="qx">Qx</span></span></a>
       <ul class="navlinks">
+        <li><a href="#products">Products</a></li>
         <li><a href="#stride-1">Stride 1</a></li>
         <li><a href="#stride-2">Stride 2</a></li>
-        <li><a href="#altitude">Altitude</a></li>
-        <li><a href="#care">Care</a></li>
-        <li><a href="#doctors">For doctors</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#specs">Specifications</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="#doctors" style="padding:10px 16px;font-size:14.5px">I'm a doctor</a>
-        <a class="btn btn-primary" href="#register" style="padding:11px 18px;font-size:14.5px">Register interest</a>
+        <a class="btn btn-primary" href="#contact">Enquire now</a>
         <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
       </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#stride-1">Stride 1</a><a href="#stride-2">Stride 2</a><a href="#altitude">Altitude</a><a href="#care">Care</a><a href="#doctors">For doctors</a><a href="#faq">FAQ</a>
+      <a href="#products">Products</a><a href="#stride-1">Stride 1</a><a href="#stride-2">Stride 2</a><a href="#specs">Specifications</a><a href="#contact">Contact</a>
     </div>
   </div>
 </header>
 
 <main>
-<!-- ====== hero ====== -->
 <section class="hero">
-  <svg class="ridge" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <path d="M0 300 L120 230 L210 270 L330 160 L430 240 L520 190 L640 250 L760 120 L880 220 L990 170 L1100 240 L1230 150 L1340 220 L1440 190 V520 H0 Z" fill="#D6E7E4"/>
-    <path d="M760 120 L800 160 L782 158 L770 176 L752 150 Z M330 160 L360 192 L344 190 L332 206 L318 184 Z M1230 150 L1262 184 L1246 182 L1234 198 L1218 176 Z" fill="#FFFFFF" opacity=".9"/>
-    <path d="M0 360 L160 300 L300 340 L420 280 L560 330 L700 270 L860 330 L1000 290 L1140 340 L1300 290 L1440 320 V520 H0 Z" fill="#BFDAD6"/>
-    <path d="M0 430 L200 390 L380 420 L560 380 L760 420 L960 386 L1160 424 L1320 398 L1440 412 V520 H0 Z" fill="#FFFFFF"/>
-  </svg>
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
-      <span class="eyebrow">ThoraQx Stride · portable oxygen</span>
-      <h1>Oxygen that keeps up with you.</h1>
-      <p class="lead">A portable concentrator prescribed by your doctor, set up by our respiratory therapists, and backed by a 48-hour swap if anything goes wrong. At home, in the car, on a flight, in the hills.</p>
-      <p class="hero-hindi">साँस भी, साथ भी।</p>
+      <span class="eyebrow">ThoraQx portable oxygen concentrators</span>
+      <h1>Oxygen freedom, <span class="orange">anytime, anywhere.</span></h1>
+      <p class="lead">Medical-grade oxygen that goes where you go. At home, in the car, at the office, on the road, and up to 6,000 metres in the mountains.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#register">Register interest <svg><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-ghost" href="#stride-1">Explore Stride 1</a>
+        <a class="btn btn-primary" href="#products">Explore Stride <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#contact">Book a demo</a>
       </div>
     </div>
-    <div class="hero-art reveal" id="heroArt"></div>
+    <div class="hero-photo reveal">
+      <img src="assets/s1a-hero.jpg" alt="ThoraQx Stride 2 on a camp table in front of a snow-capped mountain" fetchpriority="high">
+      <div class="hero-badge"><b>6,000 m</b><span>usable on<br>high plateaus</span></div>
+    </div>
   </div>
-  <div class="wrap" style="position:relative;padding-bottom:clamp(40px,6vw,72px)">
+  <div class="wrap" style="padding-bottom:clamp(40px,6vw,72px)">
     <div class="stats reveal">
-      <div class="stat"><b class="num">2.1<small>kg</small></b><span>with battery</span></div>
-      <div class="stat"><b class="num">1,050<small>ml/min</small></b><span>oxygen at setting 5</span></div>
-      <div class="stat"><b class="num">95<small>Wh</small></b><span>battery, within airline limits</span></div>
-      <div class="stat"><b class="num">48<small>h</small></b><span>replacement if it fails</span></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F06426" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 20 6-11 4 6 3-4 5 9z"/></svg></div><div><b class="num">6,000 m</b><span>altitude</span></div></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F06426" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l2 12H4z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></div><div><b class="num">1.5 kg</b><span>with battery</span></div></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F06426" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><b class="num">93% ± 3%</b><span>oxygen concentration</span></div></div>
+      <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F06426" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 11v2M7 10v4M11 10v4"/></svg></div><div><b class="num">2.5 h</b><span>battery life</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ====== lineup ====== -->
-<section class="sec" id="lineup">
+<section class="sec" id="products" style="padding-top:clamp(24px,4vw,48px)">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">The Stride family</span>
-      <h2>Two ways to carry oxygen.</h2>
-      <p class="lead">Both use pulse dosing: the machine senses each breath in and delivers oxygen at that moment, so a small battery lasts for hours.</p>
+      <span class="eyebrow">The Stride range</span>
+      <h2>Two portables. One promise: breathe freely.</h2>
     </div>
     <div class="lineup">
-      <article class="pcard one reveal">
-        <span class="status ok">Launching 2027</span>
-        <div class="art" data-dev="1"></div>
-        <div class="row">
-          <h3>Stride 1<span class="sub">The everyday portable</span></h3>
-          <div class="finishes" data-for="1" role="group" aria-label="Stride 1 finish"></div>
+      <a class="pcard reveal" href="#stride-1">
+        <div class="pic"><img src="assets/p25b-hero.jpg" alt="ThoraQx Stride 1 portable oxygen concentrator" loading="lazy"></div>
+        <div class="body">
+          <span class="eyebrow">Stride 1</span>
+          <h3>Portable, medical standard</h3>
+          <p class="tagline">Detachable battery, user-replaceable sieve and French imported CECA molecular sieve.</p>
+          <div class="row"><div class="chips"><span>2.1 kg</span><span>Settings 1–5</span><span>≥ 90% O₂</span></div><span class="more">Discover <svg><use href="#i-arrow"/></svg></span></div>
         </div>
-        <div class="keys"><span>2.1 kg</span><span>5 settings</span><span>Swap-in battery</span><span>User-replaceable sieve</span></div>
-        <a class="btn btn-ghost" href="#stride-1" style="align-self:flex-start">See Stride 1</a>
-      </article>
-      <article class="pcard two reveal">
-        <span class="status wait">In registration</span>
-        <div class="art" data-dev="2"></div>
-        <div class="row">
-          <h3>Stride 2<span class="sub">The lightest we make</span></h3>
-          <div class="finishes" data-for="2" role="group" aria-label="Stride 2 finish"></div>
+      </a>
+      <a class="pcard reveal" href="#stride-2">
+        <div class="pic"><img src="assets/s1a-unit.jpg" alt="ThoraQx Stride 2 portable oxygen concentrator" loading="lazy"></div>
+        <div class="body">
+          <span class="eyebrow">Stride 2</span>
+          <h3>Oxygen rhythm. Redefining the boundaries of breathing.</h3>
+          <p class="tagline">1.5 kg, usable up to 6,000 m, with pulse and active dual modes.</p>
+          <div class="row"><div class="chips"><span>1.5 kg</span><span>6,000 m</span><span>93% ± 3% O₂</span></div><span class="more">Discover <svg><use href="#i-arrow"/></svg></span></div>
         </div>
-        <div class="keys"><span>1.5 kg</span><span>Round touch display</span><span>USB-C charging</span><span>Two delivery modes</span></div>
-        <a class="btn btn-ghost" href="#stride-2" style="align-self:flex-start">See Stride 2</a>
-      </article>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ====== stride 1 ====== -->
-<section class="sec" id="stride-1" style="padding-top:0">
-  <div class="wrap dive">
-    <div class="dive-art reveal" data-dev="1"></div>
-    <div class="dive-copy">
+<section class="sec band" id="stride-1">
+  <div class="wrap band-grid">
+    <div class="band-pic reveal"><img src="assets/p25b-hero.jpg" alt="ThoraQx Stride 1" loading="lazy"></div>
+    <div style="display:flex;flex-direction:column;gap:22px;min-width:0" class="reveal">
+      <span class="eyebrow">ThoraQx Stride 1</span>
+      <h2>Oxygen freedom, anytime, anywhere.</h2>
+      <p class="lead">Not every portable is medical-grade. Stride 1 is a certified Class II medical device that produces oxygen-enriched air for oxygen therapy and to relieve the discomfort caused by hypoxia.</p>
+      <div class="speclist">
+        <div><span>Weight</span><b>2.1 kg</b></div>
+        <div><span>Oxygen flow</span><b>Settings 1–5</b></div>
+        <div><span>Oxygen concentration</span><b>≥ 90%</b></div>
+        <div><span>Noise</span><b>≤ 60 dB(A)</b></div>
+      </div>
+      <div><a class="btn btn-primary" href="#contact">Enquire about Stride 1</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap frows">
+    <div class="frow reveal">
+      <div class="fpic"><img src="assets/p25b-battery.jpg" alt="Stride 1 control panel and detachable battery" loading="lazy"></div>
+      <div class="fcopy">
+        <span class="tag">Detachable battery</span>
+        <h2>Buy one extra battery. Double your runtime.</h2>
+        <p class="lead">The battery detaches and charges on its own with the adapter, so a spare is always ready to go.</p>
+      </div>
+    </div>
+    <div class="frow flip reveal">
+      <div class="fpic"><img src="assets/p25b-sieve.jpg" alt="Stride 1 with its detachable molecular sieve" loading="lazy"></div>
+      <div class="fcopy">
+        <span class="tag">Detachable molecular sieve</span>
+        <h2>Replace the consumables yourself.</h2>
+        <p class="lead">The molecular sieve slides out of the unit, so you can change it at home without a service visit.</p>
+      </div>
+    </div>
+    <div class="frow reveal">
+      <div class="fpic"><img src="assets/s1a-sieve.jpg" alt="Molecular sieve separating oxygen from nitrogen" loading="lazy"></div>
+      <div class="fcopy">
+        <span class="tag">French imported CECA molecular sieve</span>
+        <h2>Higher oxygen concentration. Stronger stability.</h2>
+        <p class="lead">The molecular sieve is the "lung" of an oxygen concentrator. Its performance directly decides the oxygen concentration and how stable it stays. That's why ThoraQx uses French imported CECA molecular sieve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why oxygen matters</span>
+      <h2>The harms of hypoxia.</h2>
+    </div>
+    <div class="harms">
+      <div class="harm reveal"><span class="n">01</span><p>Lowers metabolic efficiency and immunity, leaving you prone to colds.</p></div>
+      <div class="harm reveal"><span class="n">02</span><p>Insomnia, slower reactions and memory decline.</p></div>
+      <div class="harm reveal"><span class="n">03</span><p>Cor pulmonale, worsened hypertension and arrhythmia.</p></div>
+      <div class="harm reveal"><span class="n">04</span><p>Can trigger myocardial infarction and cerebral thrombosis.</p></div>
+      <div class="harm reveal"><span class="n">05</span><p>Liver dysfunction, liver fibrosis and kidney insufficiency.</p></div>
+      <div class="harm reveal"><span class="n">06</span><p>Long-term hypoxia leads to declining body function, a vicious circle.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="s2hero" id="stride-2">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap s2-grid">
+    <div style="display:flex;flex-direction:column;gap:20px;min-width:0" class="reveal">
+      <span class="eyebrow">ThoraQx Stride 2</span>
+      <h1 style="font-size:clamp(34px,5.2vw,62px)">Oxygen rhythm.<br><span class="orange">Redefining the boundaries of breathing.</span></h1>
+      <p class="lead">Redefine free breathing with Stride 2.</p>
+      <div class="s2stats">
+        <div><b>6,000 m</b><span>altitude, usable on plateaus</span></div>
+        <div><b>1.5 kg</b><span>with 4-cell battery</span></div>
+        <div><b>93% ± 3%</b><span>high O₂ concentration, settings 1–5</span></div>
+        <div><b>2.5 h</b><span>battery life (4-cell, setting 1)</span></div>
+      </div>
+    </div>
+    <div class="s2-unit reveal"><img src="assets/s1a-hero.jpg" alt="ThoraQx Stride 2 in the mountains" loading="lazy" style="max-width:420px"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap frows">
+    <div class="frow reveal">
+      <div class="fpic"><img src="assets/s1a-life.jpg" alt="Traveller carrying Stride 2 in its shoulder bag" loading="lazy"></div>
+      <div class="fcopy">
+        <span class="tag">Sleek design, style leader</span>
+        <h2>Breathe oxygen and take great photos at 6,000 m.</h2>
+        <p class="lead">Simple colour that goes with any scenery. An argyle pattern that reshapes the look of oxygen concentrators. Stride 2 is devoted to the purest white: calm, inclusive and never tiresome, at home in mountains, rivers, forests and seas.</p>
+      </div>
+    </div>
+    <div class="frow flip reveal">
+      <div class="fpic"><img src="assets/s1a-touch.jpg" alt="Finger turning the Stride 2 rotary touch display" loading="lazy"></div>
+      <div class="fcopy">
+        <span class="tag">Simple control, 5-level oxygen flow</span>
+        <h2>Turn, touch, breathe.</h2>
+        <p class="lead">A rotary-knob touch control with an HD screen. Adjust settings 1 to 5 at will. Simple to operate: one press does it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Powerful core, all in one</span>
+      <h2>Pulse or Active. Dual mode, freely switchable.</h2>
+    </div>
+    <div class="modes">
+      <div class="mode reveal">
+        <span class="pill">Pulse mode</span>
+        <h3>Oxygen on demand</h3>
+        <p>Oxygen when you breathe in, paused when you breathe out. Made for people with mild to moderate hypoxia who need to go out. Stride 2 detects your inhalation and releases high-concentration oxygen from its storage tank.</p>
+      </div>
+      <div class="mode hot reveal">
+        <span class="pill">Active mode</span>
+        <h3>Fast oxygen output</h3>
+        <p>For altitude sickness, palpitations, chest tightness and other acute hypoxia. A fixed rate of 20 pulses a minute, and if your breath is too weak to detect, this mode starts automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap filter">
+    <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
       <div class="sec-head reveal" style="margin-bottom:0">
-        <span class="eyebrow">Stride 1</span>
-        <h2>Built for every day, all day.</h2>
-        <p class="lead">Small enough for a shoulder bag, strong enough for most people who need oxygen while they're up and about.</p>
+        <span class="eyebrow">10-layer filtration</span>
+        <h2>Layer-by-layer adsorption. Pure oxygen.</h2>
       </div>
-      <div class="calc reveal" id="calc1">
-        <div class="calc-top"><div><span class="eyebrow">Try a setting</span><h3>What each setting delivers</h3></div><span class="small">Your doctor prescribes the setting.</span></div>
-        <div class="setting-btns" role="group" aria-label="Pulse setting"></div>
-        <div class="readouts">
-          <div class="readout"><b class="num" data-k="mlmin">630</b><span>ml of oxygen per minute</span></div>
-          <div class="readout"><b class="num" data-k="dose">31.5</b><span>ml per breath at 20 breaths/min</span></div>
-          <div class="readout"><b class="num" data-k="h1">2.5 h</b><span>on one battery</span></div>
-        </div>
-        <div class="batt">
-          <div style="display:flex;justify-content:space-between;font-size:14px"><span>One battery</span><span class="num" data-k="h1b">2.5 h</span></div>
-          <div class="battbar"><i data-k="bar1" style="width:40%"></i></div>
-          <div style="display:flex;justify-content:space-between;font-size:14px"><span>With a spare battery</span><span class="num" data-k="h2b">5 h</span></div>
-          <div class="battbar"><i data-k="bar2" style="width:80%"></i></div>
-        </div>
-        <p class="small">Oxygen output from the manufacturer's manual (±15%). Battery times from the manufacturer's data at room temperature; real times vary with breathing rate and altitude. We'll publish our own measurements before launch.</p>
-      </div>
-      <div class="features">
-        <div class="feat reveal"><h4>Follows your breathing</h4><p>A pressure sensor detects the start of each breath and fires oxygen in the first part of it, where it reaches the lungs.</p></div>
-        <div class="feat reveal"><h4>Swap the battery, keep going</h4><p>The 95 Wh battery slides out and charges on its own. Carry a spare to double your time out.</p></div>
-        <div class="feat reveal"><h4>Change the sieve yourself</h4><p>The sieve cartridge, the part that wears out, lifts out without tools. No week-long service trip.</p></div>
-        <div class="feat reveal"><h4>Home, car or battery</h4><p>Runs on 100 to 240 V mains, a car socket, or the battery, and charges while it runs.</p></div>
-        <div class="feat reveal"><h4>Tells you when something's wrong</h4><p>Alarms for low oxygen purity, no breath detected, low battery, overheating and power faults.</p></div>
-        <div class="feat reveal"><h4>Cleared to fly</h4><p>The battery is under the 100 Wh airline limit. Check with your airline before you travel.</p></div>
-      </div>
+      <div class="fpic reveal" style="aspect-ratio:4/3"><img src="assets/s1a-comp.jpg" alt="High-performance oil-free compressor" loading="lazy" style="object-position:center 60%"></div>
+      <p class="lead reveal"><b style="color:var(--ink)">High-performance oil-free compressor:</b> the super heart, for a stable oxygen supply. <b style="color:var(--ink)">Original imported molecular sieve:</b> strong adsorption, pure oxygen production.</p>
     </div>
+    <ol class="layers reveal" id="layers">
+      <li><div><b>Dust filter</b><small>Hair and large particles</small></div></li>
+      <li><div><b>Air-inlet filter</b><small>Small and medium particles</small></div></li>
+      <li><div><b>High-grade filter cotton</b><small>Fine dust</small></div></li>
+      <li><div><b>Compressor gas filter</b><small>Impurities</small></div></li>
+      <li><div><b>Sieve inlet storage-tank filter</b><small>Before separation</small></div></li>
+      <li><div><b>Twin-tower molecular sieve</b><small>Pressure-swing adsorption removes nitrogen</small></div></li>
+      <li><div><b>Oxygen purification filter</b><small>Separates pure oxygen</small></div></li>
+      <li><div><b>Sieve outlet storage-tank filter</b><small>Filtered again</small></div></li>
+      <li><div><b>Filter membrane</b><small>Final purification</small></div></li>
+      <li><div><b>Outlet-pipe filter</b><small>Clean oxygen to you</small></div></li>
+    </ol>
   </div>
 </section>
 
-<!-- ====== stride 2 ====== -->
-<section class="sec" id="stride-2" style="padding-top:0">
-  <div class="wrap dive">
-    <div class="dive-copy">
-      <div class="sec-head reveal" style="margin-bottom:0">
-        <span class="eyebrow">Stride 2</span>
-        <h2>The one you forget you're carrying.</h2>
-        <p class="lead">Tall, slim and 1.5 kg with its battery. A round touch display on top, a quilted shell that doesn't show scuffs, and USB-C charging from a power bank or the car.</p>
-      </div>
-      <div class="features">
-        <div class="feat reveal"><h4>Two delivery modes</h4><p>Pulse mode follows your breathing. If your breath is too shallow to sense, it switches to a steady 20 pulses a minute on its own.</p></div>
-        <div class="feat reveal"><h4>Turn, tap, done</h4><p>A rotary ring around a 1.28-inch colour display. One control, five settings.</p></div>
-        <div class="feat reveal"><h4>Charges like a phone</h4><p>USB-C means a power bank, a car charger or a laptop adapter can top it up.</p></div>
-        <div class="feat reveal"><h4>Ten stages of filtering</h4><p>From the dust filter to the outlet, air passes through ten filter stages before it reaches you.</p></div>
-      </div>
-      <div class="alt-card reveal" style="background:var(--sand);color:var(--ink)">
-        <span class="k" style="color:var(--warn)">Honest note</span>
-        <p>Stride 2's standard battery runs about 2.5 hours at setting 1. It's built for short outings and travel days, with a spare battery or a power bank. It will go on sale only after it is registered as a medical device.</p>
-      </div>
-    </div>
-    <div class="dive-art sand reveal" data-dev="2"></div>
-  </div>
-</section>
-
-<!-- ====== altitude ====== -->
-<section class="sec alt" id="altitude">
+<section class="sec" style="background:var(--soft)">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Altitude explorer</span>
-      <h2>How much oxygen is in the air where you're going?</h2>
-      <p class="lead">Air gets thinner as you climb, so each breath carries less oxygen. Pick a place to see the difference, and whether Stride is rated to work there.</p>
+      <span class="eyebrow">Thoughtful details</span>
+      <h2>A better experience, down to the last detail.</h2>
     </div>
-    <div class="alt-grid">
-      <div class="alt-chart reveal">
-        <svg id="altSvg" viewBox="0 0 640 330" role="img" aria-label="Altitude profile with selected place"></svg>
-        <div class="places" id="places" role="group" aria-label="Places"></div>
-      </div>
-      <div class="alt-panel reveal">
-        <div class="alt-card">
-          <span class="k" id="altPlace">Leh</span>
-          <b class="big num" id="altPct">64%</b>
-          <span style="color:#A9C4C1">of the oxygen in each breath at sea level</span>
-        </div>
-        <div class="alt-card">
-          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span class="k">Altitude</span><b class="num" id="altM" style="font-family:var(--display);font-size:18px;color:#fff">3,500 m</b></div>
-          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span class="k">Air pressure</span><b class="num" id="altKpa" style="font-family:var(--display);font-size:18px;color:#fff">65 kPa</b></div>
-        </div>
-        <div class="alt-card" style="gap:10px">
-          <div class="verdict" id="v1"><i></i><span></span></div>
-          <div class="verdict" id="v2"><i></i><span></span></div>
-        </div>
-        <p class="small" style="color:#A9C4C1">A concentrator also makes a little less oxygen in thin air. If you have a lung or heart condition, talk to your doctor before travelling above 2,500 m.</p>
+    <div class="gallery reveal">
+      <div class="g-main"><img id="gMain" src="assets/s1a-knob.jpg" alt="One-key power on"></div>
+      <div class="g-list" id="gList">
+        <button type="button" aria-pressed="true" data-src="assets/s1a-knob.jpg"><img src="assets/s1a-knob.jpg" alt=""><div><b>One-key power on</b><span>Breathe oxygen with ease</span></div></button>
+        <button type="button" aria-pressed="false" data-src="assets/s1a-outlet.jpg"><img src="assets/s1a-outlet.jpg" alt=""><div><b>Oxygen outlet</b><span>Connects straight to the nasal cannula</span></div></button>
+        <button type="button" aria-pressed="false" data-src="assets/s1a-typec.jpg"><img src="assets/s1a-typec.jpg" alt=""><div><b>Type-C charging</b><span>Charge from the car or a power bank</span></div></button>
+        <button type="button" aria-pressed="false" data-src="assets/s1a-top.jpg"><img src="assets/s1a-top.jpg" alt=""><div><b>HD round display</b><span>Setting and oxygen concentration at a glance</span></div></button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====== how it works ====== -->
-<section class="sec" id="how">
-  <div class="wrap how">
-    <div class="how-art reveal">
-      <svg id="psa" viewBox="0 0 560 330" role="img" aria-label="How a concentrator separates oxygen from air">
-        <defs>
-          <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#0E6E6B"/></marker>
-          <pattern id="beads" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="4.2" fill="#FFFFFF" fill-opacity=".85"/></pattern>
-        </defs>
-        <g font-family="Figtree, sans-serif" font-size="13" fill="#14232B">
-          <rect x="14" y="135" width="92" height="60" rx="14" fill="#FFFFFF"/><text x="60" y="161" text-anchor="middle" font-weight="700">Room air</text><text x="60" y="179" text-anchor="middle" fill="#5B6B70" font-size="11.5">78% N₂ · 21% O₂</text>
-          <rect x="136" y="135" width="96" height="60" rx="14" fill="#FFFFFF"/><text x="184" y="161" text-anchor="middle" font-weight="700">Compressor</text><text x="184" y="179" text-anchor="middle" fill="#5B6B70" font-size="11.5">oil-free</text>
-          <rect class="bed" id="bedA" x="270" y="34" width="110" height="112" rx="18" fill="#0E6E6B"/><rect x="278" y="64" width="94" height="74" rx="10" fill="url(#beads)" opacity=".35"/>
-          <text x="325" y="56" text-anchor="middle" font-weight="700" fill="#FFFFFF" id="bedAt">Bed A · holding N₂</text>
-          <rect class="bed" id="bedB" x="270" y="184" width="110" height="112" rx="18" fill="#BFDAD6"/><rect x="278" y="214" width="94" height="74" rx="10" fill="url(#beads)" opacity=".35"/>
-          <text x="325" y="206" text-anchor="middle" font-weight="700" id="bedBt">Bed B · releasing N₂</text>
-          <rect x="420" y="135" width="124" height="60" rx="14" fill="#F2A413"/><text x="482" y="161" text-anchor="middle" font-weight="700">To you</text><text x="482" y="179" text-anchor="middle" font-size="11.5">90–96% oxygen</text>
-          <g stroke="#0E6E6B" stroke-width="2.5" fill="none" marker-end="url(#arr)"><path d="M106 165 H132"/><path d="M232 158 L266 108"/><path d="M232 172 L266 222"/><path d="M380 92 L418 152"/><path d="M380 240 L418 180" stroke-dasharray="5 5"/></g>
-          <text x="22" y="318" fill="#5B6B70" font-size="12">The beds swap every few seconds. The bed at rest vents its nitrogen back into the room.</text>
-        </g>
-      </svg>
-    </div>
-    <div>
-      <div class="sec-head reveal" style="margin-bottom:26px">
-        <span class="eyebrow">How it works</span>
-        <h2>It makes oxygen from the air around you.</h2>
-      </div>
-      <div class="steps">
-        <div class="step reveal"><div><h4>Draw in room air</h4><p>A quiet, oil-free compressor pulls air through dust and fine filters.</p></div></div>
-        <div class="step reveal"><div><h4>Hold back the nitrogen</h4><p>Under pressure, beads of zeolite (a mineral sieve) trap nitrogen and let oxygen through. Two beds take turns, so the flow never stops.</p></div></div>
-        <div class="step reveal"><div><h4>Deliver it as you breathe in</h4><p>An oxygen sensor checks purity, and the machine releases a pulse into your nasal cannula at the start of each breath.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== care model ====== -->
-<section class="sec care" id="care">
+<section class="sec">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">ThoraQx Care</span>
-      <h2>We don't just deliver a machine.</h2>
-      <p class="lead">Most portables in India are sold over a counter. Ours come with a prescription, a fitting, and someone who checks in.</p>
+      <span class="eyebrow">Why choose a portable concentrator</span>
+      <h2>Everything a home concentrator can't do.</h2>
     </div>
-    <div class="pillars">
-      <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#0E6E6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17l-5-9V3"/></svg></div><h3>Prescribed</h3><p>Stride is supplied against your pulmonologist's oxygen prescription, with the setting written down.</p></div>
-      <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#0E6E6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18c3-6 5-6 8 0s5 6 8 0"/><path d="M4 8h16"/></svg></div><h3>Titrated</h3><p>A therapist does a walking test with a pulse oximeter and finds the setting that holds your oxygen level.</p></div>
-      <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#0E6E6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></div><h3>Monitored</h3><p>Your doctor gets a monthly one-page report: hours used, settings, and your oxygen trend.</p></div>
-      <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#0E6E6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16M3 21v-5h5"/></svg></div><h3>Swapped in 48 hours</h3><p>If your Stride fails, a replacement reaches you within 48 hours in our launch cities. Three-year warranty.</p></div>
+    <div class="compare reveal">
+      <div class="them">
+        <h3>Home concentrator</h3>
+        <dl><dt>Weight</dt><dd>About 20 kg, heavy</dd><dt>Where</dt><dd>Home only</dd><dt>Power cut</dt><dd>No oxygen</dd><dt>Power</dt><dd>Fixed power socket</dd></dl>
+      </div>
+      <div class="us">
+        <h3>ThoraQx Stride 2</h3>
+        <dl><dt>Weight</dt><dd>1.5 kg, compact</dd><dt>Where</dt><dd>Travel, walks, car, office</dd><dt>Power cut</dt><dd>Backup oxygen source</dd><dt>Power</dt><dd>Mobile: car charging, Type-C at home</dd></dl>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ====== pricing ====== -->
-<section class="sec" id="pricing">
+<section class="sec" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Rent or own</span>
-      <h2>Start with a month. Keep it if it works.</h2>
-      <p class="lead">Indicative pre-launch prices for Stride 1, including GST. Rent you've paid in the first month comes off the purchase price.</p>
+      <span class="eyebrow">Life with Stride</span>
+      <h2>Made for the moments that matter.</h2>
     </div>
-    <div class="plans">
-      <div class="plan reveal">
-        <span class="eyebrow">Short trip</span>
-        <div class="price num">₹2,999<small> / week</small></div>
-        <p class="muted">For a hill trip, a pilgrimage or a family function.</p>
-        <ul><li><svg><use href="#i-check"/></svg>Delivered and set up</li><li><svg><use href="#i-check"/></svg>Spare battery and car charger</li><li><svg><use href="#i-check"/></svg>Phone support while you travel</li></ul>
-        <a class="btn btn-ghost" href="#register">Ask about rental</a>
-      </div>
-      <div class="plan feature reveal">
-        <span class="eyebrow" style="color:var(--marigold)">Most chosen</span>
-        <div class="price num">₹84,900<small> to own</small></div>
-        <p class="muted">MRP ₹99,900. No-cost EMI from about ₹7,075 a month over 12 months.</p>
-        <ul><li><svg><use href="#i-check"/></svg>Walking-test titration at home</li><li><svg><use href="#i-check"/></svg>Three-year warranty, 48-hour swap</li><li><svg><use href="#i-check"/></svg>Monthly report to your doctor</li><li><svg><use href="#i-check"/></svg>Spare battery ₹14,900</li></ul>
-        <a class="btn btn-gold" href="#register">Register interest</a>
-      </div>
-      <div class="plan reveal">
-        <span class="eyebrow">After a hospital stay</span>
-        <div class="price num">₹8,999<small> / month</small></div>
-        <p class="muted">For recovery, or to try before you buy.</p>
-        <ul><li><svg><use href="#i-check"/></svg>Cancel any time after 30 days</li><li><svg><use href="#i-check"/></svg>First month's rent credited if you buy</li><li><svg><use href="#i-check"/></svg>Home 5 L unit also available</li></ul>
-        <a class="btn btn-ghost" href="#register">Ask about rental</a>
-      </div>
+    <div class="life">
+      <figure class="reveal"><img src="assets/lake.jpg" alt="Travellers by a Himalayan lake with prayer flags" loading="lazy"><figcaption>The trip you've been planning<small>Light enough for the mountains</small></figcaption></figure>
+      <figure class="reveal"><img src="assets/couple.jpg" alt="Grandparents holding their grandchild" loading="lazy" style="object-position:center 25%"><figcaption>Every family moment<small>Oxygen that keeps you close</small></figcaption></figure>
+      <figure class="reveal"><img src="assets/s1a-life.jpg" alt="Traveller with Stride 2 in its carry bag" loading="lazy" style="object-position:center 30%"><figcaption>On every journey<small>Carry bag included</small></figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- ====== doctors ====== -->
-<section class="sec" id="doctors" style="background:var(--sand)">
-  <div class="wrap docs">
-    <div class="sec-head reveal" style="margin-bottom:0">
-      <span class="eyebrow">For pulmonologists</span>
-      <h2>Prescribe it like a therapy, not a gadget.</h2>
-      <p class="lead">Every ThoraQx patient is titrated against your prescription, and you get a monthly report you can read in thirty seconds.</p>
-      <ul style="margin:6px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;color:var(--stone)">
-        <li>Written titration protocol: rest, exertion and sleep settings</li>
-        <li>Published bench and altitude test data, not marketing "litres"</li>
-        <li>Founding clinicians programme and a registered real-world study</li>
-      </ul>
-      <div><a class="btn btn-primary" href="#register" data-role="Doctor">Join the founding clinicians</a></div>
-    </div>
-    <div class="report reveal">
-      <div class="report-head"><b>Monthly oxygen report</b><span class="tag">Example data</span></div>
-      <div class="small muted">Patient: R. Sharma, 68 · COPD (GOLD 3) · Rx: setting 3 on exertion · October 2027</div>
-      <div class="report-kpis">
-        <div><b class="num">13.2 h</b><span>average use per day (all devices)</span></div>
-        <div><b class="num">91%</b><span>median SpO₂ on oxygen</span></div>
-        <div><b class="num">2</b><span>days with SpO₂ under 88%</span></div>
-      </div>
-      <svg id="usage" viewBox="0 0 520 170" role="img" aria-label="Daily hours of oxygen use over 30 days"></svg>
-      <div class="small muted">Bars: hours of oxygen per day. Line: the 15-hour daily target for long-term oxygen therapy.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== specs ====== -->
-<section class="sec" id="specs">
+<section class="sec" id="specs" style="background:var(--soft)">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Specifications</span>
-      <h2>Every number, side by side.</h2>
-      <p class="lead">From the manufacturer's registered documents. Where we haven't tested something ourselves yet, we say so.</p>
+      <h2>Product information.</h2>
     </div>
-    <div class="specwrap reveal">
-      <table class="specs">
-        <thead><tr><th></th><th>Stride 1</th><th>Stride 2</th></tr></thead>
-        <tbody>
-          <tr class="grp"><th colspan="3">Oxygen</th></tr>
-          <tr><th>Delivery</th><td>Pulse dose, settings 1 to 5</td><td>Pulse dose, settings 1 to 5, plus automatic fixed-rate mode (20 pulses a minute)</td></tr>
-          <tr><th>Oxygen output</th><td>210, 420, 630, 840, 1,050 ml per minute</td><td>To be published after our bench test</td></tr>
-          <tr><th>Oxygen purity</th><td>90 to 96% at every setting</td><td>93% ± 3%</td></tr>
-          <tr class="grp"><th colspan="3">Size and power</th></tr>
-          <tr><th>Weight</th><td>2.1 kg with battery</td><td>1.5 kg with 4-cell battery</td></tr>
-          <tr><th>Size (W × D × H)</th><td>188 × 83 × 220 mm</td><td>101 × 75 × 283 mm</td></tr>
-          <tr><th>Battery</th><td>Removable lithium-ion, 14.4 V, 6.6 Ah (95 Wh)</td><td>Removable 4-cell lithium-ion</td></tr>
-          <tr><th>Battery time</th><td>About 4 h at setting 1, 1.6 h at setting 5; double with a spare</td><td>About 2.5 h at setting 1</td></tr>
-          <tr><th>Charging</th><td>About 4 h; 100–240 V adapter or car socket; runs while charging</td><td>USB-C: adapter, car or power bank</td></tr>
-          <tr><th>Power use</th><td>110 VA</td><td>70 W or less</td></tr>
-          <tr class="grp"><th colspan="3">Where it works</th></tr>
-          <tr><th>Altitude</th><td>Rated to about 4,700 m (air pressure down to 56 kPa)</td><td>Manufacturer states 6,000 m; our own test is pending</td></tr>
-          <tr><th>Temperature</th><td>5 to 40 °C</td><td>5 to 40 °C</td></tr>
-          <tr><th>Humidity</th><td>10 to 80%, non-condensing</td><td>10 to 80%, non-condensing</td></tr>
-          <tr><th>Dust and water</th><td>IP22</td><td>To be confirmed</td></tr>
-          <tr><th>Noise</th><td>60 dB(A) or less</td><td>60 dB(A) or less</td></tr>
-          <tr class="grp"><th colspan="3">Safety and status</th></tr>
-          <tr><th>Alarms</th><td>Low purity, no breath, low battery, high temperature, power fault, system fault</td><td>Start-up self-test, low purity, no breath, low battery, temperature, pressure</td></tr>
-          <tr><th>Expected service life</th><td>5 years</td><td>To be confirmed</td></tr>
-          <tr><th>Regulatory</th><td>Class II medical device in China (Reg. 20242080027). India: import licence application in preparation.</td><td>Not yet registered as a medical device. Will not be sold until it is.</td></tr>
-          <tr><th>ThoraQx warranty</th><td>3 years, 48-hour swap in launch cities</td><td>3 years, 48-hour swap in launch cities</td></tr>
-        </tbody>
-      </table>
+    <div class="spectabs" role="tablist" aria-label="Choose a product">
+      <button role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1">Stride 1</button>
+      <button role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2">Stride 2</button>
     </div>
-  </div>
-</section>
-
-<!-- ====== faq ====== -->
-<section class="sec" id="faq" style="padding-top:0">
-  <div class="wrap" style="max-width:900px">
-    <div class="sec-head reveal"><span class="eyebrow">Questions</span><h2>What people ask us.</h2></div>
-    <div class="faq reveal">
-      <details><summary>Do I need a prescription?</summary><p>Yes. Oxygen is a treatment, and too much or too little can harm. We supply Stride against a doctor's oxygen prescription, and our therapist sets it up to match.</p></details>
-      <details><summary>Can I use Stride while I sleep?</summary><p>Pulse dosing needs to sense your breathing, and breathing is shallower in sleep. Many people use a home concentrator with continuous flow at night. Your doctor will decide; we can supply both.</p></details>
-      <details><summary>Can I take it on a flight?</summary><p>Stride 1's battery is 95 Wh, under the 100 Wh limit most airlines set. Airlines have their own approval process for oxygen concentrators, so contact yours before you book, and carry enough battery for the whole journey plus delays.</p></details>
-      <details><summary>Will it work in Ladakh or on the Char Dham route?</summary><p>Stride 1 is rated down to an air pressure of 56 kPa, about 4,700 m. That covers Leh, Kedarnath and most passes, but not Khardung La. Use the altitude explorer above, and check with your doctor before the trip.</p></details>
-      <details><summary>What happens if it stops working?</summary><p>Call or message us. In our launch cities a working replacement reaches you within 48 hours, and we repair yours in the meantime. Every Stride has a three-year warranty.</p></details>
-      <details><summary>Where is Stride made?</summary><p>Stride 1 and Stride 2 are made for ThoraQx by Sichuan Jiayi Medical Device Co., Ltd. in Chengdu, China, a licensed manufacturer. We test, set up, service and support them in India. Our own India-designed Stride is in development.</p></details>
-      <details><summary>Why do other brands say "5 litres" for a portable?</summary><p>Portables don't put out 5 litres a minute. The figure is a marketing "equivalent". We publish the real oxygen output in ml per minute so you and your doctor can compare honestly.</p></details>
+    <div class="specpanel" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+      <div class="pic"><img src="assets/p25b-hero.jpg" alt="ThoraQx Stride 1" loading="lazy"></div>
+      <div class="sgrid">
+        <div><span>Product name</span><b>Portable oxygen concentrator</b></div>
+        <div><span>Brand</span><b>ThoraQx</b></div>
+        <div><span>Model</span><b>Stride 1</b></div>
+        <div><span>Weight</span><b>2.1 kg</b></div>
+        <div><span>Oxygen flow</span><b>Settings 1–5</b></div>
+        <div><span>Oxygen concentration</span><b>≥ 90%</b></div>
+        <div><span>Noise</span><b>≤ 60 dB(A)</b></div>
+        <div><span>Input power</span><b>110 VA</b></div>
+        <div><span>Package size</span><b>343 × 261 × 261 mm</b></div>
+        <div><span>Warranty</span><b>Main unit, 1 year</b></div>
+      </div>
+    </div>
+    <div class="specpanel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+      <div class="pic"><img src="assets/s1a-unit.jpg" alt="ThoraQx Stride 2" loading="lazy"></div>
+      <div>
+        <div class="sgrid">
+          <div><span>Product name</span><b>Portable oxygen concentrator</b></div>
+          <div><span>Brand</span><b>ThoraQx</b></div>
+          <div><span>Model</span><b>Stride 2</b></div>
+          <div><span>Weight</span><b>≈ 1.5 kg (incl. one 4-cell battery)</b></div>
+          <div><span>Size</span><b>75 × 101 × 283 mm</b></div>
+          <div><span>Screen</span><b>1.28-inch colour</b></div>
+          <div><span>Oxygen concentration</span><b>93% ± 3%</b></div>
+          <div><span>Settings</span><b>1–5</b></div>
+          <div><span>Input power</span><b>≤ 70 W</b></div>
+          <div><span>Noise</span><b>≤ 60 dB(A)</b></div>
+          <div><span>Operating temperature</span><b>5–40 °C</b></div>
+          <div><span>Operating humidity</span><b>10–80%, non-condensing</b></div>
+          <div><span>Altitude</span><b>6,000 m</b></div>
+          <div><span>Battery life</span><b>2.5 h (4-cell, setting 1)</b></div>
+        </div>
+        <div class="box"><span>Gift box</span><span>Shoulder carry bag</span><span>Main unit</span><span>Nasal cannula × 3</span><span>Quick-start guide</span><span>User manual</span><span>Filter cotton × 5</span><span>Car charging cable</span><span>Charger</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ====== register ====== -->
-<section class="sec" id="register" style="padding-top:0">
+<section class="sec" id="contact">
   <div class="wrap">
-    <div class="reg reveal">
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <span class="eyebrow" style="color:var(--marigold)">Register interest</span>
-        <h2>Be first to try Stride.</h2>
-        <p class="lead">We're launching in Delhi NCR, Bengaluru and Chandigarh first. Leave your details and a care advisor will call you before launch. No spam, no sharing your number.</p>
-        <svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true"><use href="#mark-light"/></svg>
+    <div class="enq reveal">
+      <div style="display:flex;flex-direction:column;gap:16px;position:relative">
+        <span class="eyebrow" style="color:#fff">Contact us</span>
+        <h2>Breathe freely. Let's talk.</h2>
+        <p class="lead">Tell us a little about yourself and our team will call you back to arrange a demo.</p>
       </div>
       <div>
-        <form class="reg-form" id="regForm" novalidate>
+        <form class="f" id="enqForm" novalidate>
           <label>Your name<input id="f-name" name="name" autocomplete="name" required></label>
           <label>Mobile number<input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10 digits" required></label>
           <label>City<input id="f-city" name="city" autocomplete="address-level2" required></label>
-          <label>I am<select id="f-role" name="role"><option>A patient</option><option>Family of a patient</option><option>Doctor</option><option>Hospital or clinic</option><option>Dealer or rental partner</option><option>Travelling to altitude</option></select></label>
-          <label class="full">Interested in<select id="f-prod" name="product"><option>Stride 1</option><option>Stride 2</option><option>Renting for a trip</option><option>Home 5 L concentrator</option></select></label>
+          <label>Interested in<select id="f-prod" name="product"><option>Stride 1</option><option>Stride 2</option><option>Both</option></select></label>
           <div class="err full" id="f-err" role="alert"></div>
-          <div class="full"><button class="btn btn-gold" type="submit">Register interest <svg><use href="#i-arrow"/></svg></button></div>
+          <div class="full"><button class="btn btn-white" type="submit">Send enquiry <svg><use href="#i-arrow"/></svg></button></div>
         </form>
-        <div class="reg-done" id="regDone" role="status"><b>Thank you, you're on the list.</b><span>A ThoraQx care advisor will call you before launch.</span><span class="small" style="color:#A9C4C1">Preview site: this form isn't connected yet, so nothing has been sent.</span></div>
+        <div class="done" id="done" role="status"><b>Thank you!</b><span>Our team will call you shortly.</span></div>
       </div>
     </div>
   </div>
@@ -767,19 +607,15 @@ footer { background: var(--ink); color: #B9C8CB; padding-block: 56px calc(30px +
   <div class="wrap">
     <div class="foot">
       <div style="display:flex;flex-direction:column;gap:12px">
-        <a class="logo" href="#top" style="color:#fff"><svg><use href="#mark-light"/></svg><span class="wordmark">Thora<span class="qx">Qx</span></span></a>
-        <p>Respiratory care that comes home with you.</p>
-        <p class="small">Care advisors: +91 00000 00000 (placeholder)<br>hello@thoraqx.com (placeholder)</p>
+        <a class="logo" href="#top"><svg style="color:#fff"><use href="#mark"/></svg><span class="wordmark">Thora<span class="qx">Qx</span></span></a>
+        <p>Oxygen freedom, anytime, anywhere.</p>
+        <p>+91 00000 00000<br>hello@thoraqx.com</p>
       </div>
-      <div><h4>Products</h4><ul><li><a href="#stride-1">Stride 1</a></li><li><a href="#stride-2">Stride 2</a></li><li><a href="#pricing">Rent or own</a></li><li><a href="#specs">Specifications</a></li></ul></div>
-      <div><h4>Care</h4><ul><li><a href="#care">How we care</a></li><li><a href="#altitude">Altitude explorer</a></li><li><a href="#how">How it works</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-      <div><h4>Professionals</h4><ul><li><a href="#doctors">For doctors</a></li><li><a href="#register">Dealers and rental partners</a></li><li><a href="#register">Hospitals</a></li></ul></div>
+      <div><h4>Products</h4><ul><li><a href="#stride-1">Stride 1</a></li><li><a href="#stride-2">Stride 2</a></li><li><a href="#specs">Specifications</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#top">About ThoraQx</a></li><li><a href="#contact">Contact</a></li><li><a href="#contact">Dealers</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="#contact">Book a demo</a></li><li><a href="#contact">Service</a></li><li><a href="#contact">Warranty</a></li></ul></div>
     </div>
-    <div class="legal">
-      <span>Stride 1 and Stride 2 are manufactured by Sichuan Jiayi Medical Device Co., Ltd., Chengdu, China. To be imported and marketed in India by [Company name] Private Limited, after the grant of a CDSCO import licence. Not yet available for sale in India.</span>
-      <span>This site gives general information and is not medical advice. Use oxygen only as prescribed by a doctor. ThoraQx is a trademark of [Company name] Private Limited (application to be filed).</span>
-      <span>© 2026 ThoraQx</span>
-    </div>
+    <div class="copy">© 2026 ThoraQx. All rights reserved.</div>
   </div>
 </footer>
 
@@ -787,79 +623,8 @@ footer { background: var(--ink); color: #B9C8CB; padding-block: 56px calc(30px +
 (function () {
   'use strict';
   document.documentElement.classList.add('js');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---------- device renders + finishes ----------
-  var FIN = {
-    1: [
-      { n: 'Glacier white', a: '#F3F6F7', b: '#FFFFFF', c: '#D9E1E4', d: '#C3CDD1' },
-      { n: 'Graphite', a: '#4A565C', b: '#6B777D', c: '#343E43', d: '#262E32' },
-      { n: 'Deep teal', a: '#0E6E6B', b: '#2A8C88', c: '#0A5452', d: '#083F3E' }
-    ],
-    2: [
-      { n: 'Glacier white', base: '#F7F9FA', line: '#DCE3E6', band: '#EEF2F4' },
-      { n: 'Monsoon teal', base: '#CFE6E3', line: '#A9CFCA', band: '#B9D9D5' },
-      { n: 'Marigold', base: '#FBE3B0', line: '#EEC86F', band: '#F6D48A' }
-    ]
-  };
-  var uid = 0;
-  function render(kind) {
-    var t = document.getElementById('tpl-stride' + kind);
-    var svg = t.content.firstElementChild.cloneNode(true);
-    uid += 1;
-    // give every gradient/pattern/clip a unique id so several copies can coexist
-    var map = {};
-    svg.querySelectorAll('[id]').forEach(function (el) { var nid = el.id + '-' + uid; map[el.id] = nid; el.id = nid; });
-    svg.querySelectorAll('*').forEach(function (el) {
-      ['fill', 'stroke', 'clip-path'].forEach(function (a) {
-        var v = el.getAttribute(a);
-        if (v && v.indexOf('url(#') === 0) { var k = v.slice(5, -1); if (map[k]) el.setAttribute(a, 'url(#' + map[k] + ')'); }
-      });
-    });
-    return svg;
-  }
-  function applyFinish(svg, kind, f) {
-    if (kind === 1) {
-      svg.querySelectorAll('.f-a').forEach(function (s) { s.setAttribute('stop-color', f.a); });
-      svg.querySelectorAll('.f-b').forEach(function (s) { s.setAttribute('stop-color', f.b); });
-      svg.querySelectorAll('.f-c').forEach(function (s) { s.setAttribute('stop-color', f.c); });
-      svg.querySelectorAll('.f-d').forEach(function (s) { s.setAttribute('stop-color', f.d); });
-      var dark = f.n !== 'Glacier white';
-      svg.querySelectorAll('text').forEach(function (tx) {
-        if (/Thora|STRIDE/.test(tx.textContent)) tx.setAttribute('fill', dark ? '#FFFFFF' : (tx.textContent.indexOf('STRIDE') > -1 ? '#5B6B70' : '#14232B'));
-      });
-      var q = svg.querySelector('tspan'); if (q) q.setAttribute('fill', dark ? '#F2A413' : '#0E6E6B');
-      var m = svg.querySelector('use[href="#mark"], use[href="#mark-light"]'); if (m) m.setAttribute('href', dark ? '#mark-light' : '#mark');
-    } else {
-      svg.querySelectorAll('.q-base').forEach(function (s) { s.setAttribute('fill', f.base); });
-      svg.querySelectorAll('.q-line').forEach(function (s) { s.setAttribute('stroke', f.line); });
-      svg.querySelectorAll('.q-baseband').forEach(function (s) { s.setAttribute('fill', f.band); });
-    }
-  }
-  var instances = { 1: [], 2: [] };
-  document.querySelectorAll('[data-dev]').forEach(function (host) {
-    var k = +host.getAttribute('data-dev'); var s = render(k); host.appendChild(s); instances[k].push(s);
-  });
-  var hero = document.getElementById('heroArt');
-  var h1 = render(1); h1.classList.add('s1'); hero.appendChild(h1); instances[1].push(h1);
-  var h2 = render(2); h2.classList.add('s2'); hero.appendChild(h2); instances[2].push(h2);
-
-  document.querySelectorAll('.finishes').forEach(function (box) {
-    var k = +box.getAttribute('data-for');
-    var label = document.createElement('span'); label.className = 'finish-name';
-    FIN[k].forEach(function (f, i) {
-      var b = document.createElement('button'); b.type = 'button'; b.id = 'fin-' + k + '-' + i;
-      b.style.background = k === 1 ? f.b : f.base; b.setAttribute('aria-label', f.n); b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
-      b.addEventListener('click', function () {
-        box.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
-        b.setAttribute('aria-pressed', 'true'); label.textContent = f.n;
-        instances[k].forEach(function (svg) { applyFinish(svg, k, f); });
-      });
-      box.appendChild(b);
-    });
-    label.textContent = FIN[k][0].n; box.insertBefore(label, box.firstChild);
-  });
-
-  // ---------- header + menu ----------
   var header = document.querySelector('header.site');
   function onScroll() { header.classList.toggle('scrolled', window.scrollY > 10); }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
@@ -867,114 +632,38 @@ footer { background: var(--ink); color: #B9C8CB; padding-block: 56px calc(30px +
   mb.addEventListener('click', function () { var o = mm.classList.toggle('open'); mb.setAttribute('aria-expanded', o ? 'true' : 'false'); });
   mm.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { mm.classList.remove('open'); mb.setAttribute('aria-expanded', 'false'); }); });
 
-  // ---------- Stride 1 setting calculator ----------
-  var S1 = [
-    { s: 1, ml: 210, h1: 4.0, h2: 8.0 }, { s: 2, ml: 420, h1: 3.0, h2: 6.0 }, { s: 3, ml: 630, h1: 2.5, h2: 5.0 },
-    { s: 4, ml: 840, h1: 1.9, h2: 3.8 }, { s: 5, ml: 1050, h1: 1.6, h2: 3.2 }
-  ];
-  var calc = document.getElementById('calc1'), sb = calc.querySelector('.setting-btns');
-  function q(k) { return calc.querySelector('[data-k="' + k + '"]'); }
-  function fmtH(h) { var hh = Math.floor(h), mm = Math.round((h - hh) * 60); return mm ? hh + ' h ' + mm + ' min' : hh + ' h'; }
-  function setS(i) {
-    var d = S1[i];
-    sb.querySelectorAll('button').forEach(function (b, j) { b.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
-    q('mlmin').textContent = d.ml.toLocaleString('en-IN');
-    q('dose').textContent = (d.ml / 20).toFixed(1).replace('.0', '');
-    q('h1').textContent = fmtH(d.h1); q('h1b').textContent = fmtH(d.h1); q('h2b').textContent = fmtH(d.h2);
-    q('bar1').style.width = (d.h1 / 8 * 100) + '%'; q('bar2').style.width = (d.h2 / 8 * 100) + '%';
+  // details gallery
+  var main = document.getElementById('gMain'), gbtns = document.querySelectorAll('#gList button');
+  gbtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      gbtns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      main.style.opacity = 0;
+      setTimeout(function () { main.src = b.getAttribute('data-src'); main.alt = b.querySelector('b').textContent; main.style.opacity = 1; }, reduce ? 0 : 180);
+    });
+  });
+
+  // filtration layers light up in turn while on screen
+  var layers = document.querySelectorAll('#layers li'), li = 0, timer = null;
+  function step() { layers.forEach(function (l, i) { l.classList.toggle('on', i === li); }); li = (li + 1) % layers.length; }
+  if (!reduce && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting && !timer) { step(); timer = setInterval(step, 900); }
+        else if (!e.isIntersecting && timer) { clearInterval(timer); timer = null; }
+      });
+    }).observe(document.getElementById('layers'));
   }
-  S1.forEach(function (d, i) { var b = document.createElement('button'); b.type = 'button'; b.id = 'set-' + d.s; b.textContent = d.s; b.setAttribute('aria-label', 'Setting ' + d.s); b.addEventListener('click', function () { setS(i); }); sb.appendChild(b); });
-  setS(2);
 
-  // ---------- altitude explorer ----------
-  var PLACES = [
-    { n: 'Mumbai', h: 14 }, { n: 'Delhi', h: 216 }, { n: 'Bengaluru', h: 920 }, { n: 'Shimla', h: 2276 },
-    { n: 'Tawang', h: 2669 }, { n: 'Leh', h: 3500 }, { n: 'Kedarnath', h: 3583 }, { n: 'Amarnath', h: 3888 },
-    { n: 'Nathu La', h: 4310 }, { n: 'Khardung La', h: 5359 }
-  ];
-  function kpa(h) { return 101.325 * Math.pow(1 - 2.25577e-5 * h, 5.25588); }
-  var S1_MIN_KPA = 56, S2_CLAIM_M = 6000;
-  var svgNS = 'http://www.w3.org/2000/svg', altSvg = document.getElementById('altSvg');
-  var W = 640, H = 330, X0 = 50, X1 = 620, Y0 = 290, Y1 = 30, HMAX = 6000;
-  function xOf(i) { return X0 + (X1 - X0) * (i / (PLACES.length - 1)); }
-  function yOf(h) { return Y0 - (Y0 - Y1) * (h / HMAX); }
-  function el(tag, attrs, parent) { var e = document.createElementNS(svgNS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); (parent || altSvg).appendChild(e); return e; }
-  // grid
-  [0, 2000, 4000, 6000].forEach(function (h) {
-    el('line', { x1: X0, x2: X1, y1: yOf(h), y2: yOf(h), stroke: 'rgba(255,255,255,.12)' });
-    var t = el('text', { x: X0 - 8, y: yOf(h) + 4, 'text-anchor': 'end', 'font-size': 11, fill: '#A9C4C1', 'font-family': 'Figtree, sans-serif' }); t.textContent = (h / 1000) + ' km';
-  });
-  // rated band for Stride 1
-  var s1h = (1 - Math.pow(S1_MIN_KPA / 101.325, 1 / 5.25588)) / 2.25577e-5;
-  el('line', { x1: X0, x2: X1, y1: yOf(s1h), y2: yOf(s1h), stroke: '#6FE3A6', 'stroke-dasharray': '6 6', 'stroke-width': 1.5 });
-  var lt = el('text', { x: X1, y: yOf(s1h) - 6, 'text-anchor': 'end', 'font-size': 11.5, fill: '#6FE3A6', 'font-family': 'Figtree, sans-serif', 'font-weight': 700 }); lt.textContent = 'Stride 1 rated to ~' + Math.round(s1h / 100) * 100 + ' m';
-  // ridge
-  var d = 'M' + X0 + ' ' + Y0;
-  PLACES.forEach(function (p, i) { d += ' L' + xOf(i) + ' ' + yOf(p.h); });
-  d += ' L' + X1 + ' ' + Y0 + ' Z';
-  el('path', { d: d, fill: 'rgba(191,218,214,.18)', stroke: '#BFDAD6', 'stroke-width': 2, 'stroke-linejoin': 'round' });
-  var dots = PLACES.map(function (p, i) { return el('circle', { cx: xOf(i), cy: yOf(p.h), r: 5, fill: '#BFDAD6' }); });
-  var cursor = el('line', { x1: 0, x2: 0, y1: Y0, y2: Y1, stroke: '#F2A413', 'stroke-width': 1.5, 'stroke-dasharray': '3 4' });
-  var big = el('circle', { cx: 0, cy: 0, r: 9, fill: '#F2A413', stroke: '#083F3E', 'stroke-width': 3 });
-  var lab = el('text', { x: 0, y: 0, 'font-size': 14, fill: '#FFFFFF', 'font-family': 'Sora, sans-serif', 'font-weight': 700 });
-  var pbox = document.getElementById('places');
-  function pick(i) {
-    var p = PLACES[i], P = kpa(p.h), pct = Math.round(P / 101.325 * 100);
-    pbox.querySelectorAll('button').forEach(function (b, j) { b.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
-    dots.forEach(function (c, j) { c.setAttribute('fill', j === i ? 'transparent' : '#BFDAD6'); });
-    var x = xOf(i), y = yOf(p.h);
-    cursor.setAttribute('x1', x); cursor.setAttribute('x2', x); cursor.setAttribute('y1', Y0); cursor.setAttribute('y2', y);
-    big.setAttribute('cx', x); big.setAttribute('cy', y);
-    lab.textContent = p.n; lab.setAttribute('x', Math.min(Math.max(x, X0 + 30), X1 - 30)); lab.setAttribute('y', y - 18); lab.setAttribute('text-anchor', 'middle');
-    document.getElementById('altPlace').textContent = p.n;
-    document.getElementById('altPct').textContent = pct + '%';
-    document.getElementById('altM').textContent = p.h.toLocaleString('en-IN') + ' m';
-    document.getElementById('altKpa').textContent = Math.round(P) + ' kPa';
-    var v1 = document.getElementById('v1'), v2 = document.getElementById('v2');
-    if (P >= S1_MIN_KPA) { v1.className = 'verdict in'; v1.querySelector('span').textContent = 'Stride 1: within its rated range.'; }
-    else { v1.className = 'verdict out'; v1.querySelector('span').textContent = 'Stride 1: above its rated range. Plan another oxygen source.'; }
-    if (p.h <= S2_CLAIM_M) { v2.className = 'verdict claim'; v2.querySelector('span').textContent = 'Stride 2: within the maker\'s stated 6,000 m. Our own test is pending.'; }
-    else { v2.className = 'verdict out'; v2.querySelector('span').textContent = 'Stride 2: above the maker\'s stated range.'; }
-  }
-  PLACES.forEach(function (p, i) { var b = document.createElement('button'); b.type = 'button'; b.id = 'place-' + i; b.textContent = p.n; b.addEventListener('click', function () { pick(i); }); pbox.appendChild(b); });
-  pick(5);
-
-  // ---------- PSA animation ----------
-  var bA = document.getElementById('bedA'), bB = document.getElementById('bedB'), tA = document.getElementById('bedAt'), tB = document.getElementById('bedBt');
-  var phase = 0, reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function swap() {
-    phase = 1 - phase;
-    bA.setAttribute('fill', phase ? '#BFDAD6' : '#0E6E6B'); bB.setAttribute('fill', phase ? '#0E6E6B' : '#BFDAD6');
-    tA.textContent = phase ? 'Bed A · releasing N₂' : 'Bed A · holding N₂'; tB.textContent = phase ? 'Bed B · holding N₂' : 'Bed B · releasing N₂';
-    tA.setAttribute('fill', phase ? '#14232B' : '#FFFFFF'); tB.setAttribute('fill', phase ? '#FFFFFF' : '#14232B');
-  }
-  if (!reduce) setInterval(swap, 2600);
-
-  // ---------- example usage report ----------
-  var us = document.getElementById('usage');
-  var hrs = [12, 14, 13, 15, 16, 11, 9, 13, 14, 15, 14, 16, 15, 13, 12, 14, 15, 16, 14, 13, 8, 12, 14, 15, 15, 14, 13, 12, 14, 16];
-  var UW = 520, UH = 170, ux0 = 28, ux1 = 512, uy0 = 150, uy1 = 12, umax = 18, bw = (ux1 - ux0) / hrs.length;
-  function uel(tag, a) { var e = document.createElementNS(svgNS, tag); for (var k in a) e.setAttribute(k, a[k]); us.appendChild(e); return e; }
-  [0, 6, 12, 18].forEach(function (h) {
-    var y = uy0 - (uy0 - uy1) * h / umax;
-    uel('line', { x1: ux0, x2: ux1, y1: y, y2: y, stroke: '#E3ECEA' });
-    var t = uel('text', { x: ux0 - 6, y: y + 4, 'text-anchor': 'end', 'font-size': 10.5, fill: '#5B6B70', 'font-family': 'Figtree, sans-serif' }); t.textContent = h;
-  });
-  hrs.forEach(function (h, i) {
-    var y = uy0 - (uy0 - uy1) * h / umax;
-    uel('rect', { x: ux0 + i * bw + 2, y: y, width: bw - 4, height: uy0 - y, rx: 3, fill: h < 10 ? '#F2A413' : '#0E6E6B' });
-  });
-  var ty = uy0 - (uy0 - uy1) * 15 / umax;
-  uel('line', { x1: ux0, x2: ux1, y1: ty, y2: ty, stroke: '#14232B', 'stroke-width': 1.5, 'stroke-dasharray': '5 4' });
-  var tt = uel('text', { x: ux1, y: ty - 5, 'text-anchor': 'end', 'font-size': 11, fill: '#14232B', 'font-family': 'Figtree, sans-serif', 'font-weight': 700 }); tt.textContent = '15 h target';
-
-  // ---------- doctor CTA pre-selects role ----------
-  document.querySelectorAll('[data-role]').forEach(function (a) {
-    a.addEventListener('click', function () { var s = document.getElementById('f-role'); if (s) s.value = a.getAttribute('data-role'); });
+  // spec tabs
+  var tabs = document.querySelectorAll('.spectabs button');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) { var on = x === t; x.setAttribute('aria-selected', on ? 'true' : 'false'); document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+    });
   });
 
-  // ---------- register form (local only) ----------
-  var form = document.getElementById('regForm'), err = document.getElementById('f-err');
+  // enquiry form (not wired to a backend yet)
+  var form = document.getElementById('enqForm'), err = document.getElementById('f-err');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = document.getElementById('f-name').value.trim();
@@ -983,19 +672,16 @@ footer { background: var(--ink); color: #B9C8CB; padding-block: 56px calc(30px +
     if (!name) { err.textContent = 'Please add your name.'; return; }
     if (phone.length !== 10) { err.textContent = 'Please enter a 10-digit mobile number.'; return; }
     if (!city) { err.textContent = 'Please add your city.'; return; }
-    err.textContent = '';
-    form.style.display = 'none';
-    document.getElementById('regDone').classList.add('show');
+    err.textContent = ''; form.style.display = 'none'; document.getElementById('done').classList.add('show');
   });
 
-  // ---------- reveal on scroll (content is visible without JS or observer) ----------
+  // reveal on scroll; everything stays visible without JS or the observer
   if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.remove('pre'); io.unobserve(en.target); } });
     }, { rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('.reveal').forEach(function (r) {
-      var rect = r.getBoundingClientRect();
-      if (rect.top > window.innerHeight) { r.classList.add('pre'); io.observe(r); }
+      if (r.getBoundingClientRect().top > window.innerHeight) { r.classList.add('pre'); io.observe(r); }
     });
   }
 })();
