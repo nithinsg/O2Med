@@ -6,6 +6,7 @@
 <title>ThoraQx Stride</title>
 <meta name="description" content="ThoraQx Stride portable oxygen concentrators. Oxygen freedom, anytime, anywhere.">
 <meta name="theme-color" content="#F06426">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath d=%27M43.5 46.1 A21 21 0 1 1 50.3 35.4%27 fill=%27none%27 stroke=%27%23F06426%27 stroke-width=%278.5%27 stroke-linecap=%27round%27/%3E%3Cpath d=%27M39.5 41.5 C45.5 45 49 52.5 57.5 56.5%27 fill=%27none%27 stroke=%27%234A4D50%27 stroke-width=%277%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
@@ -52,8 +53,8 @@ header.site { position: sticky; top: 0; z-index: 50; background: rgba(255,255,25
 header.site.scrolled { border-bottom-color: var(--line); }
 .navbar { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 18px; }
 .logo { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; color: var(--ink); }
-.logo svg { width: 32px; height: 32px; flex: none; }
-.wordmark { font-family: var(--display); font-weight: 700; font-size: 23px; letter-spacing: -.035em; line-height: 1; }
+.wordmark { font-family: var(--display); font-weight: 600; font-size: 27px; letter-spacing: -.04em; line-height: 1; white-space: nowrap; }
+.wordmark .q { width: .93em; height: .93em; vertical-align: -.13em; margin: 0 .015em 0 -.01em; }
 .wordmark .qx { color: var(--orange); }
 .navlinks { display: flex; gap: 28px; align-items: center; list-style: none; margin: 0; padding: 0; }
 .navlinks a { text-decoration: none; font-weight: 600; font-size: 15px; opacity: .85; }
@@ -66,7 +67,7 @@ header.site.scrolled { border-bottom-color: var(--line); }
 .mobile-menu a { display: block; padding: 12px 0; font-family: var(--display); font-weight: 600; font-size: 18px; text-decoration: none; border-bottom: 1px solid var(--line); }
 .mobile-menu.open { display: block; }
 @media (max-width: 900px) { .navlinks { display: none; } .menu-btn { display: inline-grid; place-items: center; } }
-@media (max-width: 420px) { .nav-cta .btn { padding: 9px 14px; font-size: 13.5px; } .wordmark { font-size: 20px; } }
+@media (max-width: 420px) { .nav-cta .btn { padding: 9px 14px; font-size: 13.5px; } .wordmark { font-size: 23px; } }
 
 .hero { background: linear-gradient(180deg, var(--sky) 0%, #F7F9FC 70%, #fff 100%); overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(28px, 4vw, 56px); align-items: center; padding-block: clamp(36px, 6vw, 80px); }
@@ -254,7 +255,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
 <header class="site" id="top">
   <div class="wrap">
     <nav class="navbar" aria-label="Main">
-      <a class="logo" href="#top" aria-label="ThoraQx home"><svg><use href="#mark"/></svg><span class="wordmark">Thora<span class="qx">Qx</span></span></a>
+      <a class="logo" href="#top" aria-label="ThoraQx home"><span class="wordmark" aria-hidden="true">Thora<svg class="q"><use href="#mark"/></svg><span class="qx">x</span></span></a>
       <ul class="navlinks">
         <li><a href="#products">Products</a></li>
         <li><a href="#stride-1">Stride 1</a></li>
@@ -607,7 +608,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
   <div class="wrap">
     <div class="foot">
       <div style="display:flex;flex-direction:column;gap:12px">
-        <a class="logo" href="#top"><svg style="color:#fff"><use href="#mark"/></svg><span class="wordmark">Thora<span class="qx">Qx</span></span></a>
+        <a class="logo" href="#top" aria-label="ThoraQx home"><span class="wordmark" aria-hidden="true">Thora<svg class="q"><use href="#mark"/></svg><span class="qx">x</span></span></a>
         <p>Oxygen freedom, anytime, anywhere.</p>
         <p>+91 00000 00000<br>hello@thoraqx.com</p>
       </div>
