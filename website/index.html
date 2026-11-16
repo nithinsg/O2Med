@@ -121,7 +121,7 @@ header.site.hide { transform: translateY(-100%); }
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; min-height: 0; }
   .stage { order: -1; aspect-ratio: 4 / 4.2; justify-self: stretch; }
-  .stage img { object-position: center 78%; }
+  .stage img { object-position: center 55%; }
   .slides-text { min-height: 270px; }
 }
 
@@ -411,7 +411,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
         <div class="st on" data-i="0">
           <span class="who"><i></i>Char Dham Yatra · Kedarnath, 3,583 m</span>
           <h1>Maa's Char Dham Yatra. <span class="orange">Finally.</span></h1>
-          <p>At just 1.5 kg, Stride 2 rides in her backpack all the way to Kedarnath, with Active mode for when the air gets thin.</p>
+          <p>At just 1.5 kg, Stride 2 rides in its shoulder bag all the way to Kedarnath, with Active mode for when the air gets thin.</p>
         </div>
         <div class="st" data-i="1">
           <span class="who"><i></i>Delhi to Bengaluru · window seat</span>
@@ -421,7 +421,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
         <div class="st" data-i="2">
           <span class="who"><i></i>Living with COPD · Manali to Leh</span>
           <h1>COPD doesn't cancel <span class="orange">the road trip.</span></h1>
-          <p>Stride charges from the car socket and Type-C power banks, so oxygen keeps flowing mile after mile.</p>
+          <p>Stride 1 runs straight off the car charger, so oxygen keeps flowing mile after mile.</p>
         </div>
         <div class="st" data-i="3">
           <span class="who"><i></i>Every day · at home and around town</span>
@@ -439,10 +439,10 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
       </div>
     </div>
     <div class="stage" id="stage">
-      <figure class="on"><img src="assets/scene-yatra.jpg" alt="Stride 2 at Kedarnath temple on the Char Dham Yatra" fetchpriority="high"></figure>
-      <figure><img src="assets/scene-flight.jpg" alt="Stride 2 at a window seat on a flight"></figure>
-      <figure><img src="assets/scene-car.jpg" alt="Stride 2 on the dashboard on a Himalayan road trip"></figure>
-      <figure><img src="assets/couple.jpg" alt="Grandparents holding their grandchild" style="object-position:center 25%"></figure>
+      <figure class="on"><img src="assets/scene-yatra.jpg" alt="A mother at Kedarnath temple with Stride 2 in its shoulder bag and a nasal cannula" fetchpriority="high"></figure>
+      <figure><img src="assets/scene-flight.jpg" alt="An older man on a flight with Stride 2 on his armrest tray"></figure>
+      <figure><img src="assets/scene-car.jpg" alt="A man with COPD on a Himalayan road trip with Stride 1 on the car console"></figure>
+      <figure><img src="assets/scene-home.jpg" alt="Grandfather walking his granddaughter to school with Stride 2 in its shoulder bag"></figure>
       <div class="tagchip" id="tagchip"><b>1.5 kg</b><span>Oxygen on the go</span></div>
     </div>
   </div>
@@ -465,10 +465,10 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
       <div class="fstep on" data-step="0">
         <p class="fq">What brings you here?</p>
         <div class="personas">
-          <button class="persona" type="button" data-k="travel"><img src="assets/lake.jpg" alt=""><span class="go"><svg><use href="#i-arrow"/></svg></span><span class="pc"><b>I'm travelling to the hills</b><span>Char Dham, Ladakh, Sikkim, a trek</span></span></button>
+          <button class="persona" type="button" data-k="travel"><img src="assets/finder-travel.jpg" alt="" style="object-position:center 40%"><span class="go"><svg><use href="#i-arrow"/></svg></span><span class="pc"><b>I'm travelling to the hills</b><span>Char Dham, Ladakh, Sikkim, a trek</span></span></button>
           <button class="persona" type="button" data-k="lung"><img src="assets/scene-car.jpg" alt=""><span class="go"><svg><use href="#i-arrow"/></svg></span><span class="pc"><b>I have a lung condition</b><span>COPD, ILD, asthma, post-COVID</span></span></button>
           <button class="persona" type="button" data-k="daily"><img src="assets/s1a-life.jpg" alt="" style="object-position:center 20%"><span class="go"><svg><use href="#i-arrow"/></svg></span><span class="pc"><b>I'm already on oxygen</b><span>I want to get out of the house</span></span></button>
-          <button class="persona" type="button" data-k="parents"><img src="assets/couple.jpg" alt="" style="object-position:center 20%"><span class="go"><svg><use href="#i-arrow"/></svg></span><span class="pc"><b>It's for my parents</b><span>Mum or dad needs oxygen support</span></span></button>
+          <button class="persona" type="button" data-k="parents"><img src="assets/scene-home.jpg" alt="" style="object-position:center 30%"><span class="go"><svg><use href="#i-arrow"/></svg></span><span class="pc"><b>It's for my parents</b><span>Mum or dad needs oxygen support</span></span></button>
         </div>
       </div>
       <div class="fstep" data-step="1">
@@ -881,7 +881,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
 
   /* ---------- hero carousel ---------- */
   var figs = $$('#stage figure'), texts = $$('#slidesText .st'), dotsBox = $('#dots'), amb = $('#amb'), chip = $('#tagchip');
-  var chips = [['1.5 kg', 'rides in her backpack'], ['On battery', 'from take-off to touchdown'], ['Car + Type-C', 'charging on the road'], ['Oxygen on the go', 'every single day']];
+  var chips = [['1.5 kg', 'in her shoulder bag'], ['On battery', 'from take-off to touchdown'], ['Stride 1', 'on the car charger'], ['Oxygen on the go', 'every single day']];
   var idx = 0, DUR = 6500, t0 = 0, raf = null, paused = false;
   var dots = figs.map(function (_, i) {
     var b = document.createElement('button'); b.className = 'dot'; b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-label', 'Story ' + (i + 1));
