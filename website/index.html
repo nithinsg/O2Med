@@ -6,7 +6,7 @@
 <title>AirO2 Stride</title>
 <meta name="description" content="AirO2 Stride: India's first and lightest portable oxygen concentrator. Oxygen on the go.">
 <meta name="theme-color" content="#F06426">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Ccircle cx=%2729%27 cy=%2729%27 r=%2722%27 fill=%27none%27 stroke=%27%23F06426%27 stroke-width=%279%27/%3E%3Ctext x=%2747%27 y=%2762%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2726%27 fill=%27%23F06426%27%3E2%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Ccircle cx=%2732%27 cy=%2732%27 r=%2726.5%27 fill=%27none%27 stroke=%27%23F06426%27 stroke-width=%2710%27/%3E%3Ctext x=%2737.5%27 y=%2746.5%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2727%27 fill=%27%234A4D50%27 text-anchor=%27middle%27%3E2%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
@@ -63,7 +63,7 @@ header.site.hide { transform: translateY(-100%); }
 .navbar { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 18px; }
 .logo { display: inline-flex; align-items: center; text-decoration: none; color: inherit; }
 .wordmark { font-family: var(--display); font-weight: 600; font-size: 27px; letter-spacing: -.04em; line-height: 1; white-space: nowrap; }
-.wordmark .o { width: .76em; height: .76em; vertical-align: -.03em; margin: 0 .005em 0 .025em; }
+.wordmark .o { width: .78em; height: .78em; vertical-align: -.04em; margin: 0 0 0 .02em; }
 .wordmark .qx { color: var(--orange); font-size: .5em; vertical-align: -.12em; margin-left: .02em; letter-spacing: 0; }
 .navlinks { display: flex; gap: 28px; align-items: center; list-style: none; margin: 0; padding: 0; }
 .navlinks a { position: relative; text-decoration: none; font-weight: 600; font-size: 15px; opacity: .9; }
@@ -443,7 +443,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26.5" fill="none" stroke="#F06426" stroke-width="10"/></symbol>
+    <symbol id="ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26.5" fill="none" stroke="#F06426" stroke-width="10"/><text x="37.5" y="46.5" font-family="Sora, sans-serif" font-weight="700" font-size="27" fill="currentColor" text-anchor="middle">2</text></symbol>
     <symbol id="mark" viewBox="0 0 64 64">
       <path d="M43.5 46.1 A21 21 0 1 1 50.3 35.4" fill="none" stroke="#F06426" stroke-width="8.5" stroke-linecap="round"/>
       <path d="M39.5 41.5 C45.5 45 49 52.5 57.5 56.5" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
@@ -458,7 +458,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
 <header class="site" id="top">
   <div class="wrap">
     <nav class="navbar" aria-label="Main">
-      <a class="logo" href="#top" aria-label="AirO2 home"><span class="wordmark" aria-hidden="true">Air<svg class="o"><use href="#ring"/></svg><span class="qx">2</span></span></a>
+      <a class="logo" href="#top" aria-label="AirO2 home"><span class="wordmark" aria-hidden="true">Air<svg class="o"><use href="#ring"/></svg></span></a>
       <ul class="navlinks">
         <li><a href="#finder">Find your Stride</a></li>
         <li><a href="#altitude">Altitude check</a></li>
@@ -987,7 +987,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
   <div class="wrap">
     <div class="foot">
       <div style="display:flex;flex-direction:column;gap:12px">
-        <a class="logo" href="#top" aria-label="AirO2 home"><span class="wordmark" aria-hidden="true">Air<svg class="o"><use href="#ring"/></svg><span class="qx">2</span></span></a>
+        <a class="logo" href="#top" aria-label="AirO2 home"><span class="wordmark" aria-hidden="true">Air<svg class="o"><use href="#ring"/></svg></span></a>
         <p>India's first and lightest portable oxygen concentrator.</p>
         <p>+91 00000 00000<br>hello@airo2.com</p>
       </div>
@@ -1374,11 +1374,11 @@ function init() {
   base.add(slab(BASE, [white, white]));
   const logo = canvasTex(1024, 256, (g, w, h) => {
     g.clearRect(0, 0, w, h); g.font = '600 150px Sora, Figtree, Arial, sans-serif'; g.textBaseline = 'middle';
-    const t = 'Air', tw = g.measureText(t).width, r = 52, x0 = (w - (tw + 2 * r + 70)) / 2, cy = h / 2 + 6;
+    const t = 'Air', tw = g.measureText(t).width, r = 58, x0 = (w - (tw + 2 * r + 10)) / 2, cy = h / 2 + 6;
     g.fillStyle = '#4A4D50'; g.fillText(t, x0, cy);
     const ox = x0 + tw + 8 + r, oy = cy - 2; g.lineWidth = 20; g.strokeStyle = '#F06426';
     g.beginPath(); g.arc(ox, oy, r - 10, 0, Math.PI * 2); g.stroke();
-    g.fillStyle = '#F06426'; g.font = '600 76px Sora, Figtree, Arial, sans-serif'; g.fillText('2', ox + r + 2, cy + 34);
+    g.fillStyle = '#4A4D50'; g.font = '700 54px Sora, Figtree, Arial, sans-serif'; g.textAlign = 'center'; g.fillText('2', ox + r * 0.22, oy + r * 0.5); g.textAlign = 'left';
   });
   const logoMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.46, 0.115), new THREE.MeshBasicMaterial({ map: logo, transparent: true }));
   logoMesh.position.set(0, 0.2, D / 2 + 0.002); base.add(logoMesh);
