@@ -85,6 +85,14 @@ header.site.hide { transform: translateY(-100%); }
 .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 90% at 15% 40%, rgba(18,22,28,.92) 0%, rgba(18,22,28,.7) 55%, rgba(18,22,28,.35) 100%); pointer-events: none; }
 .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; padding-block: clamp(28px, 5vw, 64px) clamp(36px, 5vw, 64px); min-height: min(860px, calc(100svh - 70px)); }
 .badge { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; padding: 7px 14px 7px 8px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); font-size: 13.5px; font-weight: 600; }
+.blip { position: relative; overflow: hidden; box-shadow: 0 0 0 0 rgba(240,100,38,.6); animation: blipGlow 3.2s ease-out infinite; }
+.blip::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -50%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent); transform: skewX(-20deg); animation: blipSweep 3.2s ease-in-out infinite; pointer-events: none; }
+@keyframes blipGlow { 0% { box-shadow: 0 0 0 0 rgba(240,100,38,.55); } 60%, 100% { box-shadow: 0 0 0 12px rgba(240,100,38,0); } }
+@keyframes blipSweep { 0%, 55% { left: -50%; } 85%, 100% { left: 130%; } }
+.blip-w { position: relative; display: inline-grid; }
+.blip-w b { grid-area: 1 / 1; text-align: center; opacity: 0; transform: translateY(110%) scale(.9); transition: opacity .45s ease, transform .55s cubic-bezier(.2,.8,.2,1); }
+.blip-w b.on { opacity: 1; transform: none; }
+.blip-w b.out { opacity: 0; transform: translateY(-110%) scale(.9); }
 .badge b { white-space: nowrap; background: var(--orange); color: #fff; font-family: var(--display); font-size: 11.5px; letter-spacing: .08em; padding: 4px 9px; border-radius: 999px; }
 .hero-copy { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
 .slides-text { position: relative; min-height: 290px; }
@@ -475,12 +483,12 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
   <div class="hero-amb" id="amb" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="badge"><b>INDIA'S FIRST</b>and lightest portable oxygen concentrator</span>
+      <span class="badge blip" aria-label="World's smallest and India's first portable oxygen concentrator"><span class="blip-w" aria-hidden="true"><b class="on">WORLD'S SMALLEST</b><b>INDIA'S FIRST</b></span><span aria-hidden="true">portable oxygen concentrator</span></span>
       <div class="slides-text" id="slidesText" aria-live="polite">
         <div class="st on" data-i="0">
           <span class="who"><i></i>Char Dham Yatra · Kedarnath, 3,583 m</span>
           <h1>Maa's Char Dham Yatra. <span class="orange">Finally.</span></h1>
-          <p>At just 1.5 kg, Stride 2 rides in its shoulder bag all the way to Kedarnath, with Active mode for when the air gets thin.</p>
+          <p>The lightest of its kind, Stride 2 fits right in her shoulder bag all the way to Kedarnath, with Active mode for when the air gets thin.</p>
         </div>
         <div class="st" data-i="1">
           <span class="who"><i></i>Delhi to Bengaluru · window seat</span>
@@ -512,13 +520,13 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
       <figure><img src="assets/scene-flight.jpg" alt="An older man on a flight with Stride 2 on his armrest tray"></figure>
       <figure><img src="assets/scene-car.jpg" alt="A man with COPD on a Himalayan road trip with Stride 1 on the car console"></figure>
       <figure><img src="assets/scene-home.jpg" alt="Grandfather walking his granddaughter to school with Stride 2 in its shoulder bag"></figure>
-      <div class="tagchip" id="tagchip"><b>1.5 kg</b><span>Oxygen on the go</span></div>
+      <div class="tagchip" id="tagchip"><b>Lightest</b><span>fits right in her bag</span></div>
     </div>
   </div>
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="track" id="marq">
-  <span>India's first &amp; lightest portable oxygen concentrator</span><span>1.5 kg with battery</span><span>Usable up to 6,000 m</span><span>93% ± 3% oxygen</span><span>Pulse + Active dual mode</span><span>Car &amp; Type-C charging</span><span>Medical-grade Stride 1</span>
+  <span>World's smallest &amp; India's first portable oxygen concentrator</span><span>1.5 kg with battery</span><span>Usable up to 6,000 m</span><span>93% ± 3% oxygen</span><span>Pulse + Active dual mode</span><span>Car &amp; Type-C charging</span><span>Medical-grade Stride 1</span>
 </div></div>
 
 <!-- ============ BRAND FILM ============ -->
@@ -1018,7 +1026,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
 
   /* ---------- hero carousel ---------- */
   var figs = $$('#stage figure'), texts = $$('#slidesText .st'), dotsBox = $('#dots'), amb = $('#amb'), chip = $('#tagchip');
-  var chips = [['1.5 kg', 'in her shoulder bag'], ['On battery', 'from take-off to touchdown'], ['Stride 1', 'on the car charger'], ['Oxygen on the go', 'every single day']];
+  var chips = [['Lightest', 'fits right in her bag'], ['On battery', 'from take-off to touchdown'], ['Stride 1', 'on the car charger'], ['Oxygen on the go', 'every single day']];
   var idx = 0, DUR = 6500, t0 = 0, raf = null;
   var dots = figs.map(function (_, i) {
     var b = document.createElement('button'); b.className = 'dot'; b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-label', 'Story ' + (i + 1));
@@ -1051,6 +1059,10 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
   stage.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1)); sx = null; });
   hero.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') go(idx + 1); if (e.key === 'ArrowLeft') go(idx - 1); });
   go(0); raf = requestAnimationFrame(tick);
+
+  /* hero badge: alternate "World's smallest" / "India's first" */
+  (function () { var w = $$('.blip-w b'), k = 0; if (w.length < 2) return;
+    setInterval(function () { var cur = w[k]; k = (k + 1) % w.length; cur.classList.remove('on'); cur.classList.add('out'); w[k].classList.remove('out'); w[k].classList.add('on'); setTimeout(function () { cur.classList.remove('out'); }, 600); }, 2600); })();
 
   /* marquee: duplicate content for a seamless loop */
   var mq = $('#marq'); mq.innerHTML += mq.innerHTML;
