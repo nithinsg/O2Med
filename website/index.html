@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ThoraQx Stride</title>
-<meta name="description" content="ThoraQx Stride: India's first and lightest portable oxygen concentrator. Oxygen on the go.">
+<title>AirO2 Stride</title>
+<meta name="description" content="AirO2 Stride: India's first and lightest portable oxygen concentrator. Oxygen on the go.">
 <meta name="theme-color" content="#F06426">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath d=%27M43.5 46.1 A21 21 0 1 1 50.3 35.4%27 fill=%27none%27 stroke=%27%23F06426%27 stroke-width=%278.5%27 stroke-linecap=%27round%27/%3E%3Cpath d=%27M39.5 41.5 C45.5 45 49 52.5 57.5 56.5%27 fill=%27none%27 stroke=%27%234A4D50%27 stroke-width=%277%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Ccircle cx=%2729%27 cy=%2729%27 r=%2722%27 fill=%27none%27 stroke=%27%23F06426%27 stroke-width=%279%27/%3E%3Ctext x=%2747%27 y=%2762%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2726%27 fill=%27%23F06426%27%3E2%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
@@ -63,8 +63,8 @@ header.site.hide { transform: translateY(-100%); }
 .navbar { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 18px; }
 .logo { display: inline-flex; align-items: center; text-decoration: none; color: inherit; }
 .wordmark { font-family: var(--display); font-weight: 600; font-size: 27px; letter-spacing: -.04em; line-height: 1; white-space: nowrap; }
-.wordmark .q { width: .93em; height: .93em; vertical-align: -.13em; margin: 0 .015em 0 -.01em; }
-.wordmark .qx { color: var(--orange); }
+.wordmark .o { width: .76em; height: .76em; vertical-align: -.03em; margin: 0 .005em 0 .025em; }
+.wordmark .qx { color: var(--orange); font-size: .5em; vertical-align: -.12em; margin-left: .02em; letter-spacing: 0; }
 .navlinks { display: flex; gap: 28px; align-items: center; list-style: none; margin: 0; padding: 0; }
 .navlinks a { position: relative; text-decoration: none; font-weight: 600; font-size: 15px; opacity: .9; }
 .navlinks a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
@@ -443,6 +443,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <symbol id="ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26.5" fill="none" stroke="#F06426" stroke-width="10"/></symbol>
     <symbol id="mark" viewBox="0 0 64 64">
       <path d="M43.5 46.1 A21 21 0 1 1 50.3 35.4" fill="none" stroke="#F06426" stroke-width="8.5" stroke-linecap="round"/>
       <path d="M39.5 41.5 C45.5 45 49 52.5 57.5 56.5" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
@@ -457,7 +458,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
 <header class="site" id="top">
   <div class="wrap">
     <nav class="navbar" aria-label="Main">
-      <a class="logo" href="#top" aria-label="ThoraQx home"><span class="wordmark" aria-hidden="true">Thora<svg class="q"><use href="#mark"/></svg><span class="qx">x</span></span></a>
+      <a class="logo" href="#top" aria-label="AirO2 home"><span class="wordmark" aria-hidden="true">Air<svg class="o"><use href="#ring"/></svg><span class="qx">2</span></span></a>
       <ul class="navlinks">
         <li><a href="#finder">Find your Stride</a></li>
         <li><a href="#altitude">Altitude check</a></li>
@@ -533,13 +534,12 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
 <section class="film" id="film">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">The ThoraQx film</span>
+      <span class="eyebrow">The AirO₂ film</span>
       <h2>Oxygen, <span class="orange">reimagined.</span></h2>
       <p class="lead">Thirty seconds on what oxygen on the go really means.</p>
     </div>
     <div class="film-frame rv z" id="filmFrame">
-      <video id="filmVideo" src="media/thoraqx-film.mp4" poster="media/thoraqx-film-poster.jpg" muted playsinline preload="metadata" aria-label="ThoraQx brand film"></video>
-      <div class="film-cap" data-from="0" data-to="7.3"><small>ThoraQx</small>Oxygen, reimagined.</div>
+      <video id="filmVideo" src="media/airo2-film.mp4" poster="media/airo2-film-poster.jpg" muted playsinline preload="metadata" aria-label="AirO2 brand film"></video>
       <div class="film-cap" data-from="7.6" data-to="14.7"><small>Char Dham Yatra</small>Some journeys can't wait.</div>
       <div class="film-cap" data-from="15" data-to="22.1"><small>In the air · on the road · every day</small>Oxygen that travels with you.</div>
       <div class="film-cap" data-from="22.4" data-to="31"><small>Stride 2</small>Turn. Touch. Breathe.</div>
@@ -700,7 +700,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
     <div class="lineup">
       <a class="pcard rv l tilt" href="#stride-2">
         <span class="flag">INDIA'S LIGHTEST</span>
-        <div class="pic"><img src="assets/s1a-unit.jpg" alt="ThoraQx Stride 2 portable oxygen concentrator" loading="lazy"></div>
+        <div class="pic"><img src="assets/s1a-unit.jpg" alt="AirO₂ Stride 2 portable oxygen concentrator" loading="lazy"></div>
         <div class="body">
           <span class="eyebrow">Stride 2</span>
           <h3>Oxygen rhythm. Redefining the boundaries of breathing.</h3>
@@ -710,7 +710,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
       </a>
       <a class="pcard rv r tilt" href="#stride-1">
         <span class="flag" style="background:var(--ink)">MEDICAL-GRADE</span>
-        <div class="pic"><img src="assets/p25b-hero.jpg" alt="ThoraQx Stride 1 portable oxygen concentrator" loading="lazy"></div>
+        <div class="pic"><img src="assets/p25b-hero.jpg" alt="AirO₂ Stride 1 portable oxygen concentrator" loading="lazy"></div>
         <div class="body">
           <span class="eyebrow">Stride 1</span>
           <h3>Portable, medical standard</h3>
@@ -776,7 +776,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
       </div>
       <div class="chapters">
         <article class="chapter on">
-          <span class="eyebrow">ThoraQx Stride 2</span>
+          <span class="eyebrow">AirO₂ Stride 2</span>
           <h2>Oxygen rhythm. <span class="orange">Redefining the boundaries of breathing.</span></h2>
           <p class="lead">India's first and lightest portable oxygen concentrator. Redefine free breathing.</p>
           <div class="mimg"><img src="assets/s1a-hero.jpg" alt="Stride 2 in the mountains" loading="lazy"></div>
@@ -835,7 +835,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
     <div class="story-grid" data-story>
       <div class="chapters">
         <article class="chapter on">
-          <span class="eyebrow">ThoraQx Stride 1</span>
+          <span class="eyebrow">AirO₂ Stride 1</span>
           <h2>Oxygen freedom, <span class="orange">anytime, anywhere.</span></h2>
           <div class="mimg"><img src="assets/p25b-hero.jpg" alt="Stride 1" loading="lazy" style="object-fit:contain;background:#fff"></div>
           <p class="lead">Not every portable is medical-grade. Stride 1 is a certified Class II medical device that produces oxygen-enriched air for oxygen therapy and to relieve the discomfort caused by hypoxia.</p>
@@ -904,7 +904,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
     </div>
     <div class="compare rv z">
       <div class="them"><h3>Home concentrator</h3><dl><dt>Weight</dt><dd>About 20 kg, heavy</dd><dt>Where</dt><dd>Home only</dd><dt>Power cut</dt><dd>No oxygen</dd><dt>Power</dt><dd>Fixed power socket</dd></dl></div>
-      <div class="us"><h3>ThoraQx Stride 2</h3><dl><dt>Weight</dt><dd>1.5 kg, compact</dd><dt>Where</dt><dd>Travel, walks, car, office</dd><dt>Power cut</dt><dd>Backup oxygen source</dd><dt>Power</dt><dd>Mobile: car charging, Type-C at home</dd></dl></div>
+      <div class="us"><h3>AirO₂ Stride 2</h3><dl><dt>Weight</dt><dd>1.5 kg, compact</dd><dt>Where</dt><dd>Travel, walks, car, office</dd><dt>Power cut</dt><dd>Backup oxygen source</dd><dt>Power</dt><dd>Mobile: car charging, Type-C at home</dd></dl></div>
     </div>
   </div>
 </section>
@@ -919,11 +919,11 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
       <button role="tab" id="tab-1" aria-selected="false" aria-controls="panel-1">Stride 1</button>
     </div>
     <div class="specpanel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
-      <div class="pic"><img src="assets/s1a-unit.jpg" alt="ThoraQx Stride 2" loading="lazy"></div>
+      <div class="pic"><img src="assets/s1a-unit.jpg" alt="AirO₂ Stride 2" loading="lazy"></div>
       <div>
         <div class="sgrid">
           <div><span>Product name</span><b>Portable oxygen concentrator</b></div>
-          <div><span>Brand</span><b>ThoraQx</b></div>
+          <div><span>Brand</span><b>AirO₂</b></div>
           <div><span>Model</span><b>Stride 2</b></div>
           <div><span>Weight</span><b>≈ 1.5 kg (incl. one 4-cell battery)</b></div>
           <div><span>Size</span><b>75 × 101 × 283 mm</b></div>
@@ -941,10 +941,10 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
       </div>
     </div>
     <div class="specpanel" id="panel-1" role="tabpanel" aria-labelledby="tab-1" hidden>
-      <div class="pic"><img src="assets/p25b-hero.jpg" alt="ThoraQx Stride 1" loading="lazy"></div>
+      <div class="pic"><img src="assets/p25b-hero.jpg" alt="AirO₂ Stride 1" loading="lazy"></div>
       <div class="sgrid">
         <div><span>Product name</span><b>Portable oxygen concentrator</b></div>
-        <div><span>Brand</span><b>ThoraQx</b></div>
+        <div><span>Brand</span><b>AirO₂</b></div>
         <div><span>Model</span><b>Stride 1</b></div>
         <div><span>Weight</span><b>2.1 kg</b></div>
         <div><span>Oxygen flow</span><b>Settings 1–5</b></div>
@@ -987,15 +987,15 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
   <div class="wrap">
     <div class="foot">
       <div style="display:flex;flex-direction:column;gap:12px">
-        <a class="logo" href="#top" aria-label="ThoraQx home"><span class="wordmark" aria-hidden="true">Thora<svg class="q"><use href="#mark"/></svg><span class="qx">x</span></span></a>
+        <a class="logo" href="#top" aria-label="AirO2 home"><span class="wordmark" aria-hidden="true">Air<svg class="o"><use href="#ring"/></svg><span class="qx">2</span></span></a>
         <p>India's first and lightest portable oxygen concentrator.</p>
-        <p>+91 00000 00000<br>hello@thoraqx.com</p>
+        <p>+91 00000 00000<br>hello@airo2.com</p>
       </div>
       <div><h4>Products</h4><ul><li><a href="#stride-2">Stride 2</a></li><li><a href="#stride-1">Stride 1</a></li><li><a href="#specs">Specifications</a></li></ul></div>
       <div><h4>Tools</h4><ul><li><a href="#finder">Find your Stride</a></li><li><a href="#altitude">Altitude oxygen check</a></li><li><a href="#tour">3D virtual tour</a></li><li><a href="#film">Brand film</a></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#contact">Book a demo</a></li><li><a href="#contact">Service</a></li><li><a href="#contact">Dealers</a></li></ul></div>
     </div>
-    <div class="copy">© 2026 ThoraQx. All rights reserved.</div>
+    <div class="copy">© 2026 AirO₂. All rights reserved.</div>
   </div>
 </footer>
 
@@ -1096,14 +1096,14 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
       why2.push('Charges from the car or a <b>Type-C power bank</b>');
       if (ans.who === 'parents') why2.push('One rotary knob, settings 1–5. Simple for parents');
       var also2 = ans.hours === 'long' ? 'Out all day? Carry a power bank or a spare battery, or pair it with Stride 1 for longer runtime at home base.' : 'Need longer runtime at home base? Stride 1 doubles its runtime with a spare battery.';
-      html = '<div class="rpic"><img src="assets/s1a-unit.jpg" alt="ThoraQx Stride 2"></div><div class="rcopy"><span class="eyebrow">Your best match</span><h2>Stride 2</h2><p class="lead">Oxygen rhythm. Redefining the boundaries of breathing.</p><ul>' + why2.slice(0, 4).map(li).join('') + '</ul><p class="also">' + also2 + '</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-primary" href="#stride-2">Explore Stride 2 <svg><use href="#i-arrow"/></svg></a><a class="btn btn-ghost" href="#contact">Book a demo</a></div></div>';
+      html = '<div class="rpic"><img src="assets/s1a-unit.jpg" alt="AirO₂ Stride 2"></div><div class="rcopy"><span class="eyebrow">Your best match</span><h2>Stride 2</h2><p class="lead">Oxygen rhythm. Redefining the boundaries of breathing.</p><ul>' + why2.slice(0, 4).map(li).join('') + '</ul><p class="also">' + also2 + '</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-primary" href="#stride-2">Explore Stride 2 <svg><use href="#i-arrow"/></svg></a><a class="btn btn-ghost" href="#contact">Book a demo</a></div></div>';
     } else {
       why1.push('Certified <b>medical-grade</b> Class II oxygen concentrator');
       if (ans.hours !== 'short') why1.push('<b>Detachable battery</b>: buy one extra and double your runtime');
       why1.push('<b>≥ 90%</b> oxygen with French imported CECA molecular sieve');
       why1.push('Replace the sieve yourself, no service visit');
       var also1 = ans.alt === 'high' || ans.alt === 'fly' ? 'Heading to the hills or flying? Add Stride 2, India\'s lightest, usable up to 6,000 m.' : 'Want something lighter for short outings? Stride 2 weighs just 1.5 kg.';
-      html = '<div class="rpic"><img src="assets/p25b-hero.jpg" alt="ThoraQx Stride 1"></div><div class="rcopy"><span class="eyebrow">Your best match</span><h2>Stride 1</h2><p class="lead">Portable, medical standard. Oxygen freedom, anytime, anywhere.</p><ul>' + why1.slice(0, 4).map(li).join('') + '</ul><p class="also">' + also1 + '</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-primary" href="#stride-1">Explore Stride 1 <svg><use href="#i-arrow"/></svg></a><a class="btn btn-ghost" href="#contact">Book a demo</a></div></div>';
+      html = '<div class="rpic"><img src="assets/p25b-hero.jpg" alt="AirO₂ Stride 1"></div><div class="rcopy"><span class="eyebrow">Your best match</span><h2>Stride 1</h2><p class="lead">Portable, medical standard. Oxygen freedom, anytime, anywhere.</p><ul>' + why1.slice(0, 4).map(li).join('') + '</ul><p class="also">' + also1 + '</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-primary" href="#stride-1">Explore Stride 1 <svg><use href="#i-arrow"/></svg></a><a class="btn btn-ghost" href="#contact">Book a demo</a></div></div>';
     }
     $('#result').innerHTML = html;
     var fp = $('#f-prod'); if (fp) fp.value = 'Stride ' + pick;
@@ -1287,7 +1287,7 @@ footer { background: var(--ink); color: #A9AFB8; padding-block: 56px calc(30px +
 </script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 <script type="module">
-/* ThoraQx Stride 2: interactive 3D tour (three.js, built from the device's published dimensions:
+/* AirO₂ Stride 2: interactive 3D tour (three.js, built from the device's published dimensions:
    75 x 101 x 283 mm, quilted body, chrome ring + round screen and grey O2 outlet on top, side vents,
    Type-C port and battery release on the base). 1 scene unit = 100 mm. */
 import * as THREE from 'three';
@@ -1374,12 +1374,11 @@ function init() {
   base.add(slab(BASE, [white, white]));
   const logo = canvasTex(1024, 256, (g, w, h) => {
     g.clearRect(0, 0, w, h); g.font = '600 150px Sora, Figtree, Arial, sans-serif'; g.textBaseline = 'middle';
-    const t = 'Thora', tw = g.measureText(t).width, q = 120, x0 = (w - (tw + q + 90)) / 2, cy = h / 2 + 6;
+    const t = 'Air', tw = g.measureText(t).width, r = 52, x0 = (w - (tw + 2 * r + 70)) / 2, cy = h / 2 + 6;
     g.fillStyle = '#4A4D50'; g.fillText(t, x0, cy);
-    const qx = x0 + tw + 8 + q / 2, qy = cy - 4; g.lineCap = 'round'; g.lineWidth = 19; g.strokeStyle = '#F06426';
-    g.beginPath(); g.arc(qx, qy, q / 2 - 12, 0.75, Math.PI * 2 + 0.2); g.stroke();
-    g.strokeStyle = '#4A4D50'; g.lineWidth = 15; g.beginPath(); g.moveTo(qx + 18, qy + 18); g.quadraticCurveTo(qx + 34, qy + 34, qx + 56, qy + 50); g.stroke();
-    g.fillStyle = '#F06426'; g.fillText('x', qx + q / 2 + 2, cy);
+    const ox = x0 + tw + 8 + r, oy = cy - 2; g.lineWidth = 20; g.strokeStyle = '#F06426';
+    g.beginPath(); g.arc(ox, oy, r - 10, 0, Math.PI * 2); g.stroke();
+    g.fillStyle = '#F06426'; g.font = '600 76px Sora, Figtree, Arial, sans-serif'; g.fillText('2', ox + r + 2, cy + 34);
   });
   const logoMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.46, 0.115), new THREE.MeshBasicMaterial({ map: logo, transparent: true }));
   logoMesh.position.set(0, 0.2, D / 2 + 0.002); base.add(logoMesh);
