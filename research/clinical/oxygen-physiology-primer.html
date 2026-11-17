@@ -1,0 +1,588 @@
+<title>Oxygen Physiology Primer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a clinical handbook. Left rail of chapters on wide screens, one reading column, live calculators inline where the physiology is explained. */
+:root {
+  --bg: #F7F8FA; --surface: #FFFFFF; --sunk: #EEF1F5; --line: #DCE1E8;
+  --ink: #16202C; --ink-2: #47525F; --ink-3: #6B7684;
+  --o2: #2563C9; --o2-soft: #E4ECFA; --hypo: #D9480F; --hypo-soft: #FCE9DF;
+  --good: #1E7B45; --good-soft: #E2F2E8; --warn: #9A5B00; --warn-soft: #FBF0D9; --bad: #B4232B; --bad-soft: #FBE3E4;
+  --display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11161D; --surface: #18202A; --sunk: #1F2833; --line: #2C3744;
+  --ink: #E8EDF3; --ink-2: #B3BECA; --ink-3: #8794A3;
+  --o2: #5B8FE6; --o2-soft: #1C2B44; --hypo: #D9601F; --hypo-soft: #3A2316;
+  --good: #4CBF7C; --good-soft: #15301F; --warn: #E0A640; --warn-soft: #36290F; --bad: #F06A70; --bad-soft: #3B1B1E;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #11161D; --surface: #18202A; --sunk: #1F2833; --line: #2C3744;
+  --ink: #E8EDF3; --ink-2: #B3BECA; --ink-3: #8794A3;
+  --o2: #5B8FE6; --o2-soft: #1C2B44; --hypo: #D9601F; --hypo-soft: #3A2316;
+  --good: #4CBF7C; --good-soft: #15301F; --warn: #E0A640; --warn-soft: #36290F; --bad: #F06A70; --bad-soft: #3B1B1E;
+  color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.62; }
+.page { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 80px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; }
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; font-size: 14px; }
+nav.toc b { display: block; font-family: var(--display); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; counter-reset: c -1; }
+nav.toc a { display: grid; grid-template-columns: 26px 1fr; padding: 5px 8px; border-radius: 6px; color: var(--ink-2); text-decoration: none; counter-increment: c; }
+nav.toc a::before { content: counter(c, decimal-leading-zero); font-family: var(--mono); font-size: 12px; color: var(--ink-3); padding-top: 2px; }
+nav.toc a:hover, nav.toc a:focus-visible { background: var(--sunk); color: var(--ink); }
+main { min-width: 0; display: flex; flex-direction: column; gap: 64px; }
+h1, h2, h3, h4 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.05; font-weight: 800; }
+h2 { font-size: clamp(24px, 3vw, 32px); line-height: 1.15; font-weight: 700; }
+h3 { font-size: 19px; font-weight: 700; }
+h4 { font-size: 16px; font-weight: 700; }
+p { margin: 0; max-width: 68ch; }
+section { display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 24px; }
+.kicker { font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--o2); }
+.lede { font-size: 18.5px; color: var(--ink-2); max-width: 64ch; }
+.muted { color: var(--ink-3); }
+.small { font-size: 14px; }
+code, .eq { font-family: var(--mono); font-size: 14.5px; }
+.eq { display: block; background: var(--sunk); border-radius: 8px; padding: 12px 14px; overflow-x: auto; white-space: pre; color: var(--ink); }
+a { color: var(--o2); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--o2); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+ul.clean { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; max-width: 68ch; }
+
+/* bottom-line answers */
+.answers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.ans { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.ans .q { font-family: var(--display); font-weight: 700; font-size: 16.5px; }
+.verdict { align-self: flex-start; font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .04em; padding: 3px 9px; border-radius: 99px; }
+.v-no { background: var(--bad-soft); color: var(--bad); }
+.v-part { background: var(--warn-soft); color: var(--warn); }
+.v-yes { background: var(--good-soft); color: var(--good); }
+.ans p { font-size: 15px; color: var(--ink-2); }
+
+/* panels and tools */
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.tool { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 22px; align-items: start; }
+.ctrl { display: flex; flex-direction: column; gap: 8px; }
+.ctrl label { font-weight: 600; font-size: 14.5px; display: flex; justify-content: space-between; gap: 10px; }
+.ctrl output { font-family: var(--mono); color: var(--o2); }
+input[type=range] { width: 100%; accent-color: var(--o2); }
+select { font: inherit; font-size: 15px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); width: 100%; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips button { font: inherit; font-size: 13px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); padding: 4px 10px; border-radius: 99px; cursor: pointer; }
+.chips button[aria-pressed="true"] { background: var(--o2); border-color: var(--o2); color: #fff; }
+.cascade { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.cascade div { padding: 10px 10px; border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.cascade div:first-child { border-left: 0; }
+.cascade span { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); }
+.cascade b { font-family: var(--display); font-size: 22px; font-variant-numeric: tabular-nums; }
+.cascade i { font-style: normal; font-size: 12px; color: var(--ink-3); }
+.chart { width: 100%; height: auto; display: block; }
+.chart text { fill: var(--ink-3); font-family: var(--mono); font-size: 11px; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .axis { stroke: var(--ink-3); stroke-width: 1; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font-family: var(--mono); font-size: 12px; padding: 6px 8px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -120%); }
+.chartwrap { position: relative; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+
+/* tables */
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; min-width: 620px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--display); font-size: 13px; letter-spacing: .02em; color: var(--ink-2); background: var(--sunk); }
+tr:last-child td { border-bottom: 0; }
+td.k { font-weight: 600; white-space: nowrap; }
+
+/* cards row */
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.card p, .card li { font-size: 14.5px; color: var(--ink-2); }
+.tag { align-self: flex-start; font-family: var(--mono); font-size: 11.5px; padding: 2px 8px; border-radius: 99px; background: var(--o2-soft); color: var(--o2); }
+.tag.h { background: var(--hypo-soft); color: var(--hypo); }
+.note { border-left: 3px solid var(--o2); background: var(--o2-soft); padding: 12px 14px; border-radius: 0 8px 8px 0; font-size: 15px; max-width: 72ch; }
+.note.warn { border-color: var(--warn); background: var(--warn-soft); }
+.note.bad { border-color: var(--bad); background: var(--bad-soft); }
+
+/* machine diagram */
+.psa text { font-family: var(--body); font-size: 12.5px; fill: var(--ink); }
+.psa .lbl { fill: var(--ink-3); font-size: 11px; }
+.psa .box { fill: var(--sunk); stroke: var(--line); }
+.psa .bedOn { fill: var(--o2); transition: fill .6s; }
+.psa .bedOff { fill: var(--o2-soft); transition: fill .6s; }
+.psa .flow { stroke: var(--o2); stroke-width: 2.5; fill: none; stroke-dasharray: 6 6; animation: dash 1.2s linear infinite; }
+.psa .vent { stroke: var(--ink-3); stroke-width: 2; fill: none; stroke-dasharray: 3 5; animation: dash 1.6s linear infinite; }
+@keyframes dash { to { stroke-dashoffset: -24; } }
+.wave text { font-family: var(--mono); font-size: 11px; fill: var(--ink-3); }
+
+/* claims */
+.claims { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.claims ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
+.claims .card.ok { border-top: 3px solid var(--good); }
+.claims .card.no { border-top: 3px solid var(--bad); }
+.refs { font-size: 13.5px; color: var(--ink-2); display: flex; flex-direction: column; gap: 6px; padding-left: 22px; margin: 0; max-width: 80ch; }
+
+@media (max-width: 960px) { .page { grid-template-columns: 1fr; gap: 28px; } nav.toc { position: static; } nav.toc ol { flex-direction: row; flex-wrap: wrap; } .tool { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .answers, .grid3, .grid2, .claims { grid-template-columns: 1fr; } .cascade { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cascade div:nth-child(odd) { border-left: 0; } .cascade div:nth-child(n+3) { border-top: 1px solid var(--line); } }
+@media (prefers-reduced-motion: reduce) { .psa .flow, .psa .vent { animation: none; } }
+</style>
+
+<div class="page">
+<nav class="toc" aria-label="Chapters">
+  <b>Chapters</b>
+  <ol>
+    <li><a href="#answers">Bottom line</a></li>
+    <li><a href="#cascade">Oxygen cascade</a></li>
+    <li><a href="#hypox">Why SpO₂ falls</a></li>
+    <li><a href="#co2">CO₂ and washout</a></li>
+    <li><a href="#hyperox">Too much oxygen</a></li>
+    <li><a href="#machines">How concentrators work</a></li>
+    <li><a href="#ltot">Long-term oxygen</a></li>
+    <li><a href="#flight">Flying</a></li>
+    <li><a href="#altitude">Altitude illness</a></li>
+    <li><a href="#o2alt">Oxygen at altitude</a></li>
+    <li><a href="#claims">What you can claim</a></li>
+    <li><a href="#gaps">Evidence gaps</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<main>
+<header style="display:flex;flex-direction:column;gap:14px">
+  <span class="kicker">A refresher for clinicians · oxygen, altitude and flight</span>
+  <h1>Oxygen, from alveolus to Kedarnath</h1>
+  <p class="lede">The physiology of oxygen and carbon dioxide, how home and portable concentrators work, who needs long-term oxygen, what a flight cabin does to a COPD patient, and what the evidence does and does not say about using oxygen to prevent altitude illness.</p>
+</header>
+
+<!-- ================= BOTTOM LINE ================= -->
+<section id="answers">
+  <span class="kicker">Start here</span>
+  <h2>The questions that matter for the product</h2>
+  <div class="answers">
+    <div class="ans"><span class="q">Will a portable concentrator prevent AMS?</span><span class="verdict v-no">Not established</span>
+      <p>Guidelines recommend gradual ascent and acetazolamide for prevention. Oxygen is not among the recommended prophylactic measures. Small studies of oxygen-enriched rooms at night improved sleep, SpO₂ and next-day performance, but there is no trial showing that an ambulatory pulse-dose device prevents AMS.</p></div>
+    <div class="ans"><span class="q">Will it prevent HAPE or HACE?</span><span class="verdict v-no">No evidence</span>
+      <p>Oxygen is a first-line <em>treatment</em> for both, alongside descent. Biologically it should help (it reverses hypoxic pulmonary vasoconstriction, the driver of HAPE), but no study has tested intermittent portable oxygen as prevention. Descent remains the treatment that cannot be replaced.</p></div>
+    <div class="ans"><span class="q">Does it replace acclimatisation?</span><span class="verdict v-no">No</span>
+      <p>Oxygen only works while it is flowing. Take the cannula off and SpO₂ falls back within minutes. Acclimatisation is driven by hypoxia itself, so continuous oxygen may even slow it. Ascent rules still apply.</p></div>
+    <div class="ans"><span class="q">Does it help at all?</span><span class="verdict v-yes">Yes, while in use</span>
+      <p>It raises inspired oxygen, which lowers the "physiological altitude" the body feels. That relieves hypoxaemic symptoms, can improve sleep and exercise tolerance, and buys time to descend. Its job is relief and safety, not prevention.</p></div>
+    <div class="ans"><span class="q">Who on a flight is at risk?</span><span class="verdict v-part">Lung and heart patients</span>
+      <p>The cabin is pressurised to an altitude of up to 2,438 m (8,000 ft). Healthy passengers drop to SpO₂ around 90–93% and feel nothing. COPD, ILD, pulmonary hypertension and patients already on oxygen can fall well below 85%.</p></div>
+    <div class="ans"><span class="q">What can AirO₂ say?</span><span class="verdict v-part">Relief, not prevention</span>
+      <p>"Supplies supplemental oxygen and raises blood-oxygen levels while in use" is supportable. "Prevents altitude sickness" or "replaces acclimatisation" is not, without your own trial. See the claims chapter.</p></div>
+  </div>
+</section>
+
+<!-- ================= CASCADE ================= -->
+<section id="cascade">
+  <span class="kicker">01 · Physiology</span>
+  <h2>The oxygen cascade</h2>
+  <p>Oxygen moves down a pressure gradient from the air to the mitochondria. At each step some pressure is lost. Altitude lowers the very first step, so everything downstream falls with it.</p>
+  <span class="eq">PIO₂ = FIO₂ × (PB − 47)          inspired, humidified at 37 °C</span>
+  <span class="eq">PAO₂ = PIO₂ − PaCO₂ / R            alveolar gas equation, R ≈ 0.8</span>
+  <span class="eq">CaO₂ = 1.34 × Hb × SaO₂ + 0.003 × PaO₂    ml O₂ per dl blood</span>
+  <span class="eq">DO₂ = CO × CaO₂ × 10              ml O₂ delivered per minute</span>
+  <p>Two things to keep in mind. First, the fraction of oxygen in air stays 20.9% all the way up Everest: what falls is barometric pressure. Second, almost all the oxygen the tissues use is carried on haemoglobin. Dissolved oxygen (the 0.003 term) is tiny unless the patient is breathing high pressures, which is why SpO₂ and Hb matter more than PaO₂ for delivery.</p>
+
+  <div class="panel">
+    <div class="tool">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrl">
+          <label for="alt">Altitude <output id="altOut">0 m</output></label>
+          <input type="range" id="alt" min="0" max="6000" step="1" value="3583">
+          <div class="chips" id="altChips" role="group" aria-label="Preset altitudes">
+            <button type="button" data-h="0">Sea level</button><button type="button" data-h="1600">Delhi→Shimla 1,600</button><button type="button" data-h="2438">Flight cabin 2,438</button><button type="button" data-h="3583" aria-pressed="true">Kedarnath 3,583</button><button type="button" data-h="5359">Khardung La 5,359</button>
+          </div>
+        </div>
+        <div class="ctrl">
+          <label for="fio2">Inspired oxygen <output id="fioOut">21%</output></label>
+          <input type="range" id="fio2" min="21" max="60" step="1" value="21">
+          <span class="small muted">Rough guide: each 1 L/min by nasal cannula adds about 3–4 percentage points, less if breathing fast or through the mouth.</span>
+        </div>
+        <div class="ctrl">
+          <label for="aa">Lungs</label>
+          <select id="aa"><option value="5">Healthy (A–a gradient 5 mmHg)</option><option value="15">Mild disease (A–a 15)</option><option value="30">COPD or ILD (A–a 30)</option></select>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+        <div class="cascade" aria-live="polite">
+          <div><span>PB</span><b id="cPB">–</b><i>mmHg</i></div>
+          <div><span>PIO₂</span><b id="cPI">–</b><i>mmHg</i></div>
+          <div><span>PAO₂</span><b id="cPA">–</b><i>mmHg</i></div>
+          <div><span>PaO₂</span><b id="cPa">–</b><i>mmHg</i></div>
+          <div><span>SaO₂</span><b id="cSa">–</b><i>estimated</i></div>
+        </div>
+        <div class="chartwrap" id="odcWrap">
+          <svg class="chart" id="odc" viewBox="0 0 560 300" role="img" aria-label="Oxygen dissociation curve with the current point marked"></svg>
+          <div class="tip" id="odcTip" hidden></div>
+        </div>
+        <p class="small muted">Model: standard atmosphere, alveolar gas equation with altitude hyperventilation (PaCO₂ falls about 2.5 mmHg per 1,000 m in health, less with lung disease), Severinghaus dissociation curve corrected for the respiratory alkalosis (left shift). An estimate for teaching, not a measurement.</p>
+      </div>
+    </div>
+  </div>
+  <h3>Reading the curve</h3>
+  <ul class="clean">
+    <li><b>The flat top</b> (PaO₂ above about 60 mmHg, SaO₂ above 90%) is a safety margin. A healthy person at 2,000 m barely changes saturation.</li>
+    <li><b>The steep part</b> starts below about 60 mmHg. Here a small fall in PaO₂ causes a large fall in saturation. Most of the Himalayan pilgrim sites put people on this slope, and a COPD patient may start there at sea level.</li>
+    <li><b>Shifts:</b> alkalosis (hyperventilation at altitude), cold and low 2,3-DPG move the curve left, which helps loading in the lung. Acidosis, fever and raised 2,3-DPG move it right, which helps unloading in tissue. P50 in adults is about 27 mmHg.</li>
+  </ul>
+</section>
+
+<!-- ================= HYPOXAEMIA ================= -->
+<section id="hypox">
+  <span class="kicker">02 · Physiology</span>
+  <h2>Five reasons SpO₂ falls, and which ones oxygen fixes</h2>
+  <p>Hypoxaemia means low oxygen in arterial blood. Hypoxia means too little oxygen at the tissue, which can also happen with normal blood gases (anaemia, low cardiac output, carbon monoxide, cyanide). The A–a gradient sorts the causes.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Mechanism</th><th>Example</th><th>A–a gradient</th><th>Response to oxygen</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Low inspired O₂</td><td>Altitude, aircraft cabin</td><td>Normal</td><td>Excellent: the cause is removed</td></tr>
+      <tr><td class="k">Hypoventilation</td><td>Opioids, neuromuscular disease, obesity hypoventilation</td><td>Normal</td><td>Corrects SpO₂ but not CO₂; can mask a rising PaCO₂</td></tr>
+      <tr><td class="k">V/Q mismatch</td><td>COPD, asthma, pneumonia, pulmonary embolism</td><td>Raised</td><td>Good: the commonest cause in practice</td></tr>
+      <tr><td class="k">Diffusion limitation</td><td>ILD, exercise at altitude</td><td>Raised, worse on exertion</td><td>Good</td></tr>
+      <tr><td class="k">Shunt</td><td>Consolidation, ARDS, intracardiac right-to-left</td><td>Raised</td><td>Poor: blood bypassing ventilated alveoli never sees the extra oxygen</td></tr>
+    </tbody>
+  </table></div>
+  <p>At altitude two mechanisms stack: low inspired oxygen for everyone, plus diffusion limitation during exertion because red cells spend less time in the capillary. In HAPE, edematous lung adds shunt and V/Q mismatch, which is why HAPE saturations are far lower than the altitude alone predicts.</p>
+</section>
+
+<!-- ================= CO2 ================= -->
+<section id="co2">
+  <span class="kicker">03 · Physiology</span>
+  <h2>Carbon dioxide, "washout" and the COPD retainer</h2>
+  <p>Oxygen and carbon dioxide are handled differently. Oxygenation depends mostly on FIO₂ and V/Q matching. CO₂ removal depends almost entirely on alveolar ventilation:</p>
+  <span class="eq">PaCO₂ ≈ 0.863 × VCO₂ / VA         halve alveolar ventilation, double PaCO₂</span>
+  <p>Giving oxygen does not remove CO₂. Only breathing does. "Washout" gets used for three different things, and it helps to keep them apart:</p>
+  <div class="grid3">
+    <div class="card"><span class="tag">CO₂ washout</span><h4>Ventilation clearing CO₂</h4><p>Each breath dilutes alveolar CO₂. At altitude, hypoxia drives ventilation up, PaCO₂ falls (to around 30 mmHg at 3,500 m) and a respiratory alkalosis follows. That alkalosis is what acetazolamide partly corrects.</p></div>
+    <div class="card"><span class="tag">Dead-space washout</span><h4>High-flow nasal oxygen</h4><p>Flows of 30–60 L/min flush CO₂-rich gas out of the nose and pharynx, so the next breath has less rebreathed CO₂. Low-flow cannulas and pulse-dose portables do not do this.</p></div>
+    <div class="card"><span class="tag">Nitrogen washout</span><h4>Pre-oxygenation</h4><p>Breathing high FIO₂ before intubation replaces nitrogen in the lungs with oxygen, building a reservoir that delays desaturation during apnoea.</p></div>
+  </div>
+  <h3>Why oxygen can raise CO₂ in some COPD patients</h3>
+  <ul class="clean">
+    <li><b>Loss of hypoxic pulmonary vasoconstriction.</b> Oxygen opens vessels to poorly ventilated units, so more blood goes to areas that do not clear CO₂. This is the main mechanism.</li>
+    <li><b>Haldane effect.</b> Oxygenated haemoglobin holds less CO₂, releasing it into the plasma.</li>
+    <li><b>Reduced hypoxic drive.</b> Contributes, but less than taught.</li>
+  </ul>
+  <div class="note warn">In patients at risk of hypercapnic respiratory failure (COPD with prior hypercapnia, obesity hypoventilation, neuromuscular or chest-wall disease) target SpO₂ 88–92%. For most other acutely ill adults, 94–98% (BTS 2017).</div>
+</section>
+
+<!-- ================= HYPEROXAEMIA ================= -->
+<section id="hyperox">
+  <span class="kicker">04 · Physiology</span>
+  <h2>Hyperoxaemia: when more oxygen is not better</h2>
+  <p>Above about 97–98% saturation, haemoglobin is full, so extra oxygen only adds dissolved gas and raises PaO₂. That carries costs:</p>
+  <div class="grid2">
+    <div class="card"><h4>Mechanisms of harm</h4><ul class="clean small"><li>Reactive oxygen species and inflammation</li><li>Coronary and cerebral vasoconstriction</li><li>Absorption atelectasis at high FIO₂ (nitrogen washed out, alveoli collapse)</li><li>Hypercapnia in at-risk patients (chapter 3)</li><li>Pulmonary oxygen toxicity with prolonged FIO₂ above about 50–60%</li></ul></div>
+    <div class="card"><h4>What the trials showed</h4><ul class="clean small"><li><b>AVOID (2015):</b> oxygen in non-hypoxaemic STEMI increased early myocardial injury.</li><li><b>DETO2X-AMI (2017):</b> no mortality benefit from oxygen in suspected MI without hypoxaemia.</li><li><b>IOTA meta-analysis (2018):</b> liberal oxygen increased mortality in acutely ill adults compared with conservative oxygen.</li></ul></div>
+  </div>
+  <p>For a portable concentrator the practical point is different: a pulse-dose device delivering about 90% oxygen into a nasal cannula cannot produce dangerous hyperoxaemia in a person breathing at altitude. The real risk in a home setting is hypercapnia in a COPD retainer given more than prescribed, and fire.</p>
+</section>
+
+<!-- ================= MACHINES ================= -->
+<section id="machines">
+  <span class="kicker">05 · Equipment</span>
+  <h2>How a concentrator makes oxygen</h2>
+  <p>Every concentrator, the 18 kg home 5 L unit and the 1.5 kg Stride 2 alike, uses pressure swing adsorption (PSA). Room air is compressed into a column of zeolite (usually a lithium-exchanged LiX type). Under pressure, zeolite traps nitrogen and lets oxygen and argon through. Two columns take turns: one produces while the other is depressurised and vents its nitrogen back into the room.</p>
+  <div class="panel">
+    <svg class="psa" viewBox="0 0 720 260" role="img" aria-label="Pressure swing adsorption: compressor feeding two zeolite beds that alternate">
+      <rect class="box" x="10" y="100" width="110" height="60" rx="10"/><text x="65" y="126" text-anchor="middle">Room air</text><text class="lbl" x="65" y="144" text-anchor="middle">78% N₂ · 21% O₂</text>
+      <rect class="box" x="160" y="100" width="120" height="60" rx="10"/><text x="220" y="126" text-anchor="middle">Filter + compressor</text><text class="lbl" x="220" y="144" text-anchor="middle">oil-free, ~1.5–2.5 bar</text>
+      <rect id="bedA" class="bedOn" x="330" y="20" width="140" height="90" rx="12"/><text id="bedAt" x="400" y="62" text-anchor="middle" style="fill:#fff;font-weight:600">Bed A: adsorbing N₂</text><text class="lbl" x="400" y="82" text-anchor="middle" id="bedAs" style="fill:#fff">pressurised</text>
+      <rect id="bedB" class="bedOff" x="330" y="150" width="140" height="90" rx="12"/><text id="bedBt" x="400" y="192" text-anchor="middle" style="font-weight:600">Bed B: venting N₂</text><text class="lbl" x="400" y="212" text-anchor="middle" id="bedBs">depressurised</text>
+      <rect class="box" x="520" y="100" width="90" height="60" rx="10"/><text x="565" y="126" text-anchor="middle">Product tank</text><text class="lbl" x="565" y="144" text-anchor="middle">90–96% O₂</text>
+      <rect class="box" x="630" y="100" width="80" height="60" rx="10"/><text x="670" y="126" text-anchor="middle">Patient</text><text class="lbl" x="670" y="144" text-anchor="middle">flow or pulse</text>
+      <path class="flow" d="M120 130 H160"/><path class="flow" id="fA" d="M280 130 C305 130 305 65 330 65"/><path class="flow" id="fB" d="M280 130 C305 130 305 195 330 195" style="opacity:.15"/>
+      <path class="flow" d="M470 65 C495 65 495 130 520 130" id="oA"/><path class="flow" d="M470 195 C495 195 495 130 520 130" id="oB" style="opacity:.15"/><path class="flow" d="M610 130 H630"/>
+      <path class="vent" d="M400 240 V256" id="vB"/><path class="vent" d="M400 20 V4" id="vA" style="opacity:0"/>
+    </svg>
+    <p class="small muted">The beds swap every few seconds. A small purge of product oxygen flows back through the resting bed to help release nitrogen. Final gas is about 93% oxygen, the rest mostly argon (which zeolite does not separate).</p>
+  </div>
+
+  <h3>Continuous flow (home 5 L) vs pulse dose (portables)</h3>
+  <div class="grid2">
+    <div class="card"><span class="tag">Continuous</span><h4>Home 5 L unit</h4><p>Delivers a steady flow, 1–5 L/min, whether the patient is breathing in or out. About two-thirds of it is wasted during expiration, but it works during sleep, mouth breathing and with humidifiers or nebulisers. Purity falls above the rated flow.</p></div>
+    <div class="card"><span class="tag h">Pulse</span><h4>Portable concentrators</h4><p>A pressure sensor detects the start of inspiration and fires a bolus (say 10–50 ml) into the cannula. Efficient, so a small compressor and battery can last hours. But "setting 3" is not "3 L/min": the oxygen per minute depends on the device and on breathing rate, and triggering can fail with shallow breaths, mouth breathing or during sleep.</p></div>
+  </div>
+  <div class="panel">
+    <svg class="wave chart" id="wave" viewBox="0 0 720 170" role="img" aria-label="Breathing cycle with continuous flow and pulse dose delivery"></svg>
+    <div class="legend"><span><i style="background:var(--o2)"></i>Continuous flow, constant</span><span><i style="background:var(--hypo)"></i>Pulse dose, fired at start of inspiration</span></div>
+  </div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Continuous flow by nasal cannula</th><th>1 L/min</th><th>2 L/min</th><th>3 L/min</th><th>4 L/min</th><th>5 L/min</th></tr></thead>
+    <tbody><tr><td class="k">Approximate FIO₂</td><td class="num">≈ 24%</td><td class="num">≈ 28%</td><td class="num">≈ 32%</td><td class="num">≈ 36%</td><td class="num">≈ 40%</td></tr></tbody>
+  </table></div>
+  <p class="small muted">The "4% per litre" rule is a teaching approximation. Real FIO₂ falls as minute ventilation rises, which is exactly what happens on exertion and at altitude.</p>
+  <div class="note warn"><b>Pulse devices at altitude.</b> A bench study of four portable concentrators found that delivered oxygen per minute often fell as breathing rate rose and did not match the "litre equivalent" claimed (Chatburn and Williams, 2010). Concentrators also deliver a volume of gas at ambient pressure, so each millilitre contains fewer oxygen molecules higher up. Titrate to SpO₂ on the patient, at rest and walking, rather than to the setting number.</div>
+</section>
+
+<!-- ================= LTOT ================= -->
+<section id="ltot">
+  <span class="kicker">06 · Clinical</span>
+  <h2>Who needs long-term oxygen therapy</h2>
+  <p>Two trials from 1980–81 still define LTOT. In COPD with severe resting hypoxaemia, oxygen for at least 15 hours a day (MRC) and near-continuous oxygen (NOTT) reduced mortality. That benefit has never been shown for milder hypoxaemia.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Group</th><th>Criteria (stable, on optimal treatment)</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Severe resting hypoxaemia</td><td>PaO₂ ≤ 55 mmHg (7.3 kPa) or SaO₂ ≤ 88%</td><td>Survival benefit in COPD: NOTT 1980, MRC 1981. Prescribe ≥ 15 h/day.</td></tr>
+      <tr><td class="k">With end-organ effects</td><td>PaO₂ 56–59 mmHg (7.3–8.0 kPa) or SaO₂ 89% plus cor pulmonale, peripheral oedema or haematocrit > 55%</td><td>Same trials</td></tr>
+      <tr><td class="k">Moderate desaturation</td><td>Resting SpO₂ 89–93%, or desaturation on exercise only</td><td>No benefit on survival or admissions: LOTT 2016</td></tr>
+      <tr><td class="k">Nocturnal-only desaturation</td><td>COPD desaturating at night only</td><td>No benefit: INOX 2020</td></tr>
+      <tr><td class="k">Exertional (ambulatory) oxygen</td><td>Severe desaturation on walking</td><td>ATS 2020: conditional recommendation in COPD and ILD. AmbOx 2018: better quality of life in ILD.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Typical LTOT patients: COPD (the majority), interstitial lung disease, pulmonary hypertension, cystic fibrosis, severe chronic heart failure with hypoxaemia, and some neuromuscular patients alongside ventilation. They need a home concentrator for sleep and most of the day. A portable is what lets them leave the house, which is where AirO₂'s portables fit: as ambulatory oxygen, on top of a home unit, not instead of it.</p>
+  <div class="note bad">Smoking is the main safety exclusion. Oxygen-related burns and house fires happen mostly to patients who smoke while using oxygen.</div>
+</section>
+
+<!-- ================= FLIGHT ================= -->
+<section id="flight">
+  <span class="kicker">07 · Clinical</span>
+  <h2>What a flight does to a lung patient</h2>
+  <p>Commercial cabins are pressurised to an equivalent altitude of up to 2,438 m (8,000 ft), PB about 565 mmHg. Inspired oxygen falls from about 150 to about 109 mmHg. In health, PaO₂ drops to around 60–70 mmHg and SpO₂ to about 90–93%, on the flat part of the curve. A patient who starts lower on the curve slides onto the steep part.</p>
+  <div class="grid3">
+    <div class="card"><span class="tag h">Most affected</span><p>COPD, ILD, pulmonary hypertension, cystic fibrosis, patients on LTOT, cyanotic congenital heart disease, severe heart failure, severe anaemia, sickle cell disease.</p></div>
+    <div class="card"><span class="tag h">Other cabin risks</span><p>Gas expands about 30% at cabin altitude: a recent or unresolved pneumothorax, bullae and recent surgery need specific clearance. Long sitting raises VTE risk.</p></div>
+    <div class="card"><span class="tag">Assessment (BTS 2022)</span><p>Resting SpO₂ ≥ 95% on room air: usually no test needed. Lower values or significant disease: hypoxic challenge test (breathing 15% oxygen for 20 minutes). Desaturation below about 85% or PaO₂ below 6.6 kPa: in-flight oxygen. Patients on LTOT need in-flight oxygen, usually at an increased flow.</p></div>
+  </div>
+  <p>Practicalities for a portable: airlines accept only certain approved portable concentrators, the battery must fit lithium limits (under 100 Wh per battery without airline approval), and many airlines want enough battery for the whole journey plus a margin, often 150%. Each airline sets its own rules and paperwork.</p>
+</section>
+
+<!-- ================= ALTITUDE ================= -->
+<section id="altitude">
+  <span class="kicker">08 · Clinical</span>
+  <h2>Altitude illness: AMS, HACE and HAPE</h2>
+  <p>Risk starts above about 2,500 m and depends far more on <em>how fast</em> people climb, especially sleeping altitude, than on how high they end up. Char Dham pilgrims who drive or fly to 3,000–3,600 m in a day, often older and with comorbidities, are a textbook moderate-to-high-risk group.</p>
+  <div class="grid3">
+    <div class="card"><span class="tag h">AMS</span><h4>Acute mountain sickness</h4><p><b>When:</b> 6–12 h after arrival.<br><b>What:</b> headache plus nausea, fatigue or dizziness (Lake Louise score 2018).<br><b>Why:</b> not fully known; likely brain swelling from hypoxic vasodilation and changes in permeability.<br><b>Treat:</b> stop ascending, rest, analgesia, antiemetic; acetazolamide 250 mg BD; oxygen; descend if worse.</p></div>
+    <div class="card"><span class="tag h">HACE</span><h4>High-altitude cerebral oedema</h4><p><b>When:</b> usually after AMS, often day 2–4.<br><b>What:</b> ataxia, confusion, drowsiness. Ataxia (heel-to-toe walk) is the key sign.<br><b>Why:</b> vasogenic oedema; the far end of the AMS spectrum.<br><b>Treat:</b> descend now; dexamethasone 8 mg then 4 mg 6-hourly; oxygen; portable hyperbaric bag if descent is impossible.</p></div>
+    <div class="card"><span class="tag h">HAPE</span><h4>High-altitude pulmonary oedema</h4><p><b>When:</b> day 2–4, often at night.<br><b>What:</b> breathless at rest, cough, falling exercise tolerance, very low SpO₂ for the altitude; may occur without AMS.<br><b>Why:</b> exaggerated, uneven hypoxic pulmonary vasoconstriction → high capillary pressure → stress failure and leak.<br><b>Treat:</b> descend; oxygen to SpO₂ > 90%; nifedipine 30 mg ER 12-hourly if no oxygen or descent.</p></div>
+  </div>
+  <h3>Prevention, by the guidelines (WMS 2019, updated 2024)</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Measure</th><th>Prevents</th><th>Details</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Gradual ascent</td><td>AMS, HACE, HAPE</td><td>Above 3,000 m, raise sleeping altitude by no more than 500 m a day, with a rest day every 3–4 days.</td></tr>
+      <tr><td class="k">Acetazolamide</td><td>AMS, HACE</td><td>125 mg twice daily, from the day before ascent. Children 1.25 mg/kg twice daily.</td></tr>
+      <tr><td class="k">Dexamethasone</td><td>AMS, HACE</td><td>2 mg 6-hourly or 4 mg 12-hourly, when acetazolamide cannot be used. Does not aid acclimatisation.</td></tr>
+      <tr><td class="k">Nifedipine</td><td>HAPE</td><td>30 mg ER 12-hourly, for people with previous HAPE. Tadalafil is an alternative.</td></tr>
+      <tr><td class="k">Supplemental oxygen</td><td>Not a listed preventive</td><td>A treatment for all three. Oxygen-enriched rooms improve sleep and SpO₂ but are not a guideline recommendation for prevention.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ================= OXYGEN AT ALTITUDE ================= -->
+<section id="o2alt">
+  <span class="kicker">09 · The product question</span>
+  <h2>What extra oxygen does at altitude</h2>
+  <p>Adding oxygen raises PIO₂, which is the same as moving to a lower altitude. West worked out that each 1% added to room oxygen concentration lowers the equivalent altitude by roughly 300 m. That gives a clear way to talk about what a device can do.</p>
+  <div class="panel">
+    <div class="tool">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="ctrl"><label for="ea">You are at <output id="eaOut">3,583 m</output></label><input type="range" id="ea" min="1500" max="6000" step="50" value="3583"></div>
+        <div class="ctrl"><label for="ef">Breathing FIO₂ <output id="efOut">29%</output></label><input type="range" id="ef" min="21" max="45" step="1" value="29">
+          <span class="small muted">29% is roughly 2 L/min of continuous flow at rest. Pulse settings cannot be converted reliably; measure SpO₂ instead.</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+        <div class="cascade" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+          <div><span>PIO₂ on room air</span><b id="eRA">–</b><i>mmHg</i></div>
+          <div><span>PIO₂ with oxygen</span><b id="eO2">–</b><i>mmHg</i></div>
+          <div><span>Feels like</span><b id="eEq">–</b><i>equivalent altitude</i></div>
+        </div>
+        <p id="eMsg" style="font-size:15px"></p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Why oxygen relieves but does not acclimatise</h3>
+  <div class="grid2">
+    <div class="card"><h4>Acclimatisation is a response to hypoxia</h4><ul class="clean small"><li><b>Hours:</b> carotid bodies raise ventilation (hypoxic ventilatory response).</li><li><b>Days:</b> kidneys excrete bicarbonate to correct the alkalosis, letting ventilation rise further. Acetazolamide speeds this.</li><li><b>Days to weeks:</b> plasma volume falls, haemoglobin concentration rises, then erythropoietin raises red cell mass.</li><li><b>Throughout:</b> 2,3-DPG and capillary changes improve unloading.</li></ul></div>
+    <div class="card"><h4>What that means for an oxygen device</h4><ul class="clean small"><li>Every one of those steps needs a hypoxic signal. Oxygen removes the signal while it is on.</li><li>Used continuously, it could slow acclimatisation. Used for sleep, exertion or symptoms, the effect is not known.</li><li>The benefit stops within minutes of removing the cannula, so it cannot "pre-load" protection.</li><li>Using it to keep climbing with symptoms is dangerous: it can mask worsening AMS, HACE or HAPE.</li></ul></div>
+  </div>
+  <div class="note">A defensible clinical position: portable oxygen is a symptom-relief and safety tool for travellers with lung or heart disease and for anyone who develops altitude illness, used alongside gradual ascent and, where indicated, acetazolamide. It is not a substitute for either, and it does not change the rule that worsening illness means descent.</div>
+</section>
+
+<!-- ================= CLAIMS ================= -->
+<section id="claims">
+  <span class="kicker">10 · Product</span>
+  <h2>What AirO₂ can and cannot claim</h2>
+  <p>Claims must match the device's registered intended use and the evidence behind it. For Stride 1, the registered use is to supply oxygen-enriched air for oxygen therapy or to relieve discomfort caused by hypoxia. Prevention claims need prevention data.</p>
+  <div class="claims">
+    <div class="card ok"><h4>Supportable now</h4><ul>
+      <li>"Supplies supplemental oxygen, up to 93% concentration."</li>
+      <li>"Raises blood-oxygen levels while in use. Check with a pulse oximeter."</li>
+      <li>"Portable oxygen for travel, including at altitude, as advised by your doctor."</li>
+      <li>"Relieves symptoms of low oxygen" (matching the registered intended use).</li>
+      <li>Altitude rating, as tested: "Operates up to X m."</li>
+    </ul></div>
+    <div class="card no"><h4>Not supportable without your own trial</h4><ul>
+      <li>"Prevents altitude sickness / AMS / HAPE / HACE."</li>
+      <li>"Replaces acclimatisation" or "no need to acclimatise."</li>
+      <li>"Climb safely without stopping."</li>
+      <li>"Equivalent to X L/min" for pulse settings.</li>
+      <li>Treating a named disease beyond the registered use.</li>
+    </ul></div>
+  </div>
+  <div class="note warn">The current website copy carries over Jiayi's line that Active mode is "for altitude sickness, palpitations and chest tightness", and "usable up to 6,000 m" for Stride 2. Both are the maker's claims. The first reads as a treatment claim and the second has not been verified on the device. Either substantiate them or soften them, for example "Active mode gives a steady 20 pulses a minute when breathing is too shallow to trigger the sensor."</div>
+</section>
+
+<!-- ================= GAPS ================= -->
+<section id="gaps">
+  <span class="kicker">11 · Research</span>
+  <h2>Where the evidence runs out, and what you could do about it</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Open question</th><th>Why it matters</th><th>How it could be studied</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Does nocturnal portable oxygen prevent AMS in rapid ascent?</td><td>The night is when SpO₂ is lowest and AMS starts.</td><td>Randomised, sham-controlled (room-air concentrator) at Kedarnath or Leh; AMS by Lake Louise score at 24–48 h.</td></tr>
+      <tr><td class="k">Does intermittent oxygen slow acclimatisation?</td><td>Decides whether advice should be "use it" or "use it only for symptoms".</td><td>Serial SpO₂, ventilation, bicarbonate and haemoglobin over 3–5 days with and without nightly oxygen.</td></tr>
+      <tr><td class="k">Does pulse dosing trigger reliably in sleep at altitude?</td><td>Periodic breathing is common above 2,500 m; pulse devices may miss shallow breaths.</td><td>Overnight oximetry plus device trigger logs; bench tests in a hypobaric chamber.</td></tr>
+      <tr><td class="k">Real output of Stride 1 and Stride 2 at altitude</td><td>Purity and ml per pulse may fall with pressure; the 6,000 m claim is untested.</td><td>Hypobaric chamber bench test at 2,500, 3,500, 4,500 and 6,000 m; ISO 80601-2-69 methods.</td></tr>
+      <tr><td class="k">Older pilgrims with heart and lung disease at 3,000–3,600 m</td><td>Most altitude data come from young trekkers and soldiers. Pilgrim deaths are often cardiac.</td><td>Prospective registry of travellers with SpO₂, symptoms and outcomes, with and without oxygen.</td></tr>
+      <tr><td class="k">Can oxygen prevent HAPE in the susceptible?</td><td>Physiologically plausible; never tested.</td><td>Small crossover studies in people with previous HAPE, measuring pulmonary artery pressure by echo.</td></tr>
+      <tr><td class="k">Is a portable enough in flight for LTOT patients?</td><td>Airlines accept portables, but pulse delivery at cabin altitude is rarely validated per patient.</td><td>Hypoxic challenge testing while using the device, before travel.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>A study you could actually run</h3>
+  <div class="panel">
+    <p><b>Design:</b> randomised, double-blind, sham-controlled trial of nocturnal portable oxygen in pilgrims arriving at Kedarnath by helicopter or road. Active arm: oxygen at a fixed setting during sleep. Sham arm: an identical device delivering room air.</p>
+    <p><b>Primary outcome:</b> AMS (Lake Louise score ≥ 3 with headache) on the first morning. <b>Secondary:</b> overnight SpO₂, sleep quality, HAPE/HACE, descent or evacuation.</p>
+    <p><b>Size:</b> if 40% of the sham arm develop AMS and oxygen cuts that to 25%, about 150 per arm gives 80% power at a 5% significance level.</p>
+    <p><b>Partners to approach:</b> a high-altitude physiology group (for example DIPAS, DRDO's high-altitude institute), a teaching hospital near the Char Dham route, and an ethics committee registered with CTRI. The bench and chamber testing should come first; it also answers the 6,000 m question.</p>
+  </div>
+</section>
+
+<!-- ================= REFS ================= -->
+<section id="refs">
+  <span class="kicker">12 · Sources</span>
+  <h2>References</h2>
+  <ol class="refs">
+    <li>Luks AM, Auerbach PS, Freer L, et al. Wilderness Medical Society clinical practice guidelines for the prevention and treatment of acute altitude illness: 2019 update. <i>Wilderness Environ Med</i> 2019;30(4S):S3–S18. (Further update published 2024.)</li>
+    <li>Roach RC, Hackett PH, Oelz O, et al. The 2018 Lake Louise Acute Mountain Sickness Score. <i>High Alt Med Biol</i> 2018;19:4–6.</li>
+    <li>Hackett PH, Roach RC. High-altitude illness. <i>N Engl J Med</i> 2001;345:107–114.</li>
+    <li>Bärtsch P, Swenson ER. Acute high-altitude illnesses. <i>N Engl J Med</i> 2013;368:2294–2302.</li>
+    <li>West JB. Oxygen enrichment of room air to relieve the hypoxia of high altitude. <i>Respir Physiol</i> 1995;99:225–232.</li>
+    <li>Luks AM, van Melick H, Batarse RR, et al. Room oxygen enrichment improves sleep and subsequent day-time performance at high altitude. <i>Respir Physiol</i> 1998;113:247–258.</li>
+    <li>Nocturnal Oxygen Therapy Trial Group. Continuous or nocturnal oxygen therapy in hypoxemic chronic obstructive lung disease. <i>Ann Intern Med</i> 1980;93:391–398.</li>
+    <li>Medical Research Council Working Party. Long term domiciliary oxygen therapy in chronic hypoxic cor pulmonale complicating chronic bronchitis and emphysema. <i>Lancet</i> 1981;1:681–686.</li>
+    <li>Long-Term Oxygen Treatment Trial Research Group. A randomized trial of long-term oxygen for COPD with moderate desaturation. <i>N Engl J Med</i> 2016;375:1617–1627.</li>
+    <li>Lacasse Y, Sériès F, Corbeil F, et al. Randomized trial of nocturnal oxygen in chronic obstructive pulmonary disease (INOX). <i>N Engl J Med</i> 2020;383:1129–1138.</li>
+    <li>Visca D, Mori L, Tsipouri V, et al. Effect of ambulatory oxygen on quality of life for patients with fibrotic lung disease (AmbOx). <i>Lancet Respir Med</i> 2018;6:759–770.</li>
+    <li>Jacobs SS, Krishnan JA, Lederer DJ, et al. Home oxygen therapy for adults with chronic lung disease: an official ATS clinical practice guideline. <i>Am J Respir Crit Care Med</i> 2020;202:e121–e141.</li>
+    <li>O'Driscoll BR, Howard LS, Earis J, Mak V. BTS guideline for oxygen use in adults in healthcare and emergency settings. <i>Thorax</i> 2017;72(Suppl 1):ii1–ii90.</li>
+    <li>Coker RK, Armstrong A, Church AC, et al. BTS clinical statement on air travel for passengers with respiratory disease. <i>Thorax</i> 2022;77:329–350.</li>
+    <li>Chu DK, Kim LH, Young PJ, et al. Mortality and morbidity in acutely ill adults treated with liberal versus conservative oxygen therapy (IOTA). <i>Lancet</i> 2018;391:1693–1705.</li>
+    <li>Stub D, Smith K, Bernard S, et al. Air versus oxygen in ST-segment–elevation myocardial infarction (AVOID). <i>Circulation</i> 2015;131:2143–2150.</li>
+    <li>Hofmann R, James SK, Jernberg T, et al. Oxygen therapy in suspected acute myocardial infarction (DETO2X-AMI). <i>N Engl J Med</i> 2017;377:1240–1249.</li>
+    <li>Chatburn RL, Williams TJ. Performance comparison of 4 portable oxygen concentrators. <i>Respir Care</i> 2010;55:433–442.</li>
+    <li>Severinghaus JW. Simple, accurate equations for human blood O₂ dissociation computations. <i>J Appl Physiol</i> 1979;46:599–602.</li>
+  </ol>
+  <p class="small muted">Doses and thresholds are summarised from the guidelines above for teaching. Check the current version of each guideline before applying it to a patient.</p>
+</section>
+</main>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var NS = 'http://www.w3.org/2000/svg';
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(id) { return document.getElementById(id); }
+  function pb(h) { return 760 * Math.pow(1 - 2.25577e-5 * h, 5.25588); }
+  function sev(p) { return 100 / (1 + 23400 / (p * p * p + 150 * p)); }
+  function el(svg, tag, a, txt) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; }
+  function fmt(n) { return Math.round(n).toLocaleString('en-IN'); }
+
+  /* ---------- cascade + ODC ---------- */
+  var alt = $('alt'), fio = $('fio2'), aa = $('aa'), odc = $('odc'), tip = $('odcTip');
+  var X0 = 48, X1 = 540, Y0 = 262, Y1 = 16, PMAX = 120;
+  function X(p) { return X0 + (X1 - X0) * Math.min(p, PMAX) / PMAX; }
+  function Y(s) { return Y0 - (Y0 - Y1) * s / 100; }
+  function drawAxes() {
+    for (var s = 0; s <= 100; s += 20) { el(odc, 'line', { x1: X0, x2: X1, y1: Y(s), y2: Y(s), class: 'grid' }); el(odc, 'text', { x: X0 - 8, y: Y(s) + 4, 'text-anchor': 'end' }, s + '%'); }
+    for (var p = 0; p <= PMAX; p += 20) { el(odc, 'text', { x: X(p), y: Y0 + 18, 'text-anchor': 'middle' }, p); }
+    el(odc, 'text', { x: X1, y: Y0 + 34, 'text-anchor': 'end' }, 'PaO₂, mmHg');
+    el(odc, 'text', { x: X0, y: Y1 - 4, 'text-anchor': 'start' }, 'SaO₂');
+    el(odc, 'rect', { x: X(0), y: Y(100), width: X(60) - X(0), height: Y0 - Y(100), fill: 'var(--hypo-soft)', opacity: '.55' });
+    el(odc, 'text', { x: X(30), y: Y(8), 'text-anchor': 'middle', style: 'fill:var(--hypo)' }, 'steep zone, PaO₂ < 60');
+    var d = ''; for (var q = 1; q <= PMAX; q += 1) d += (q === 1 ? 'M' : 'L') + X(q).toFixed(1) + ' ' + Y(sev(q)).toFixed(1);
+    el(odc, 'path', { d: d, fill: 'none', stroke: 'var(--o2)', 'stroke-width': 2, 'stroke-linecap': 'round' });
+    el(odc, 'circle', { cx: X(26.8), cy: Y(50), r: 4, fill: 'var(--surface)', stroke: 'var(--ink-3)', 'stroke-width': 2 });
+    el(odc, 'text', { x: X(26.8) + 8, y: Y(50) + 4 }, 'P50 ≈ 27');
+  }
+  drawAxes();
+  var gLine = el(odc, 'line', { class: 'axis', 'stroke-dasharray': '3 4', y1: Y0 });
+  var gDot = el(odc, 'circle', { r: 7, fill: 'var(--hypo)', stroke: 'var(--surface)', 'stroke-width': 2 });
+  var gLab = el(odc, 'text', { 'text-anchor': 'start', style: 'fill:var(--ink);font-weight:500' });
+  var hov = el(odc, 'circle', { r: 5, fill: 'var(--o2)', stroke: 'var(--surface)', 'stroke-width': 2, opacity: 0 });
+  odc.addEventListener('pointermove', function (e) {
+    var r = odc.getBoundingClientRect(), x = (e.clientX - r.left) / r.width * 560;
+    var p = (x - X0) / (X1 - X0) * PMAX; if (p < 1 || p > PMAX) { tip.hidden = true; hov.setAttribute('opacity', 0); return; }
+    var s = sev(p); hov.setAttribute('cx', X(p)); hov.setAttribute('cy', Y(s)); hov.setAttribute('opacity', 1);
+    tip.hidden = false; tip.textContent = 'PaO₂ ' + p.toFixed(0) + ' → SaO₂ ' + s.toFixed(1) + '%';
+    tip.style.left = (X(p) / 560 * r.width) + 'px'; tip.style.top = (Y(s) / 300 * r.height) + 'px';
+  });
+  odc.addEventListener('pointerleave', function () { tip.hidden = true; hov.setAttribute('opacity', 0); });
+  function cascade() {
+    var h = +alt.value, f = +fio.value / 100, g = +aa.value;
+    var P = pb(h), PI = f * (P - 47);
+    var slope = g >= 30 ? 1.25 : g >= 15 ? 2 : 2.5;
+    var PaCO2 = Math.max(26, 40 - slope * h / 1000);
+    var PA = PI - PaCO2 / 0.8, Pa = Math.max(15, PA - g);
+    var pH = 7.40 + 0.008 * (40 - PaCO2), S = sev(Pa * Math.pow(10, 0.48 * (pH - 7.4)));
+    $('altOut').textContent = fmt(h) + ' m'; $('fioOut').textContent = Math.round(f * 100) + '%';
+    $('cPB').textContent = fmt(P); $('cPI').textContent = fmt(PI); $('cPA').textContent = fmt(PA); $('cPa').textContent = fmt(Pa); $('cSa').textContent = S.toFixed(0) + '%';
+    var x = X(Pa), y = Y(S);
+    gLine.setAttribute('x1', x); gLine.setAttribute('x2', x); gLine.setAttribute('y2', y);
+    gDot.setAttribute('cx', x); gDot.setAttribute('cy', y);
+    gLab.setAttribute('x', Math.min(x + 12, X1 - 120)); gLab.setAttribute('y', y - 10); gLab.textContent = 'SaO₂ ' + S.toFixed(0) + '%';
+    document.querySelectorAll('#altChips button').forEach(function (b) { b.setAttribute('aria-pressed', +b.dataset.h === h ? 'true' : 'false'); });
+  }
+  [alt, fio, aa].forEach(function (i) { i.addEventListener('input', cascade); });
+  document.querySelectorAll('#altChips button').forEach(function (b) { b.addEventListener('click', function () { alt.value = b.dataset.h; cascade(); }); });
+  cascade();
+
+  /* ---------- equivalent altitude ---------- */
+  var ea = $('ea'), ef = $('ef');
+  function eqAlt(target) { var lo = -500, hi = 9000; for (var i = 0; i < 60; i++) { var m = (lo + hi) / 2; if (0.209 * (pb(m) - 47) > target) lo = m; else hi = m; } return (lo + hi) / 2; }
+  function equiv() {
+    var h = +ea.value, f = +ef.value / 100, P = pb(h);
+    var ra = 0.209 * (P - 47), wo = f * (P - 47), eq = eqAlt(wo);
+    $('eaOut').textContent = fmt(h) + ' m'; $('efOut').textContent = Math.round(f * 100) + '%';
+    $('eRA').textContent = fmt(ra); $('eO2').textContent = fmt(wo);
+    $('eEq').textContent = eq <= 0 ? 'sea level' : fmt(Math.round(eq / 50) * 50) + ' m';
+    var drop = h - Math.max(0, eq);
+    $('eMsg').textContent = f <= 0.21 ? 'On room air the body feels the full ' + fmt(h) + ' m.' : 'While the oxygen is flowing, the lungs see the inspired oxygen of about ' + (eq <= 0 ? 'sea level' : fmt(Math.round(eq / 50) * 50) + ' m') + ', a drop of about ' + fmt(Math.round(drop / 50) * 50) + ' m. Remove the cannula and you are back at ' + fmt(h) + ' m within minutes.';
+  }
+  [ea, ef].forEach(function (i) { i.addEventListener('input', equiv); });
+  equiv();
+
+  /* ---------- breathing / delivery waveform ---------- */
+  var w = $('wave'), WX0 = 40, WX1 = 708, base = 130, top = 30;
+  el(w, 'line', { x1: WX0, x2: WX1, y1: base, y2: base, class: 'grid' });
+  var d = '', T = 3, cyc = (WX1 - WX0) / T;
+  for (var x = WX0; x <= WX1; x += 2) { var ph = ((x - WX0) % cyc) / cyc; var v = ph < 0.4 ? Math.sin(ph / 0.4 * Math.PI) : -0.6 * Math.sin((ph - 0.4) / 0.6 * Math.PI); d += (x === WX0 ? 'M' : 'L') + x + ' ' + (base - 50 - v * 30).toFixed(1); }
+  el(w, 'path', { d: d, fill: 'none', stroke: 'var(--ink-3)', 'stroke-width': 1.5 });
+  el(w, 'text', { x: WX0, y: 18 }, 'Airflow: inspiration up, expiration down');
+  el(w, 'line', { x1: WX0, x2: WX1, y1: 112, y2: 112, stroke: 'var(--o2)', 'stroke-width': 2 });
+  for (var i = 0; i < T; i++) { var px = WX0 + i * cyc + 6; el(w, 'rect', { x: px, y: 118, width: cyc * 0.12, height: 26, rx: 3, fill: 'var(--hypo)' }); el(w, 'text', { x: px, y: 160 }, i === 0 ? 'bolus' : ''); }
+  el(w, 'text', { x: WX1, y: 106, 'text-anchor': 'end' }, 'continuous flow');
+
+  /* ---------- PSA bed swap ---------- */
+  var phase = 0;
+  function swap() {
+    phase = 1 - phase;
+    $('bedA').setAttribute('class', phase ? 'bedOff' : 'bedOn'); $('bedB').setAttribute('class', phase ? 'bedOn' : 'bedOff');
+    $('bedAt').textContent = phase ? 'Bed A: venting N₂' : 'Bed A: adsorbing N₂'; $('bedBt').textContent = phase ? 'Bed B: adsorbing N₂' : 'Bed B: venting N₂';
+    $('bedAs').textContent = phase ? 'depressurised' : 'pressurised'; $('bedBs').textContent = phase ? 'pressurised' : 'depressurised';
+    ['bedAt', 'bedAs'].forEach(function (k) { $(k).style.fill = phase ? 'var(--ink)' : '#fff'; });
+    ['bedBt', 'bedBs'].forEach(function (k) { $(k).style.fill = phase ? '#fff' : 'var(--ink)'; });
+    $("fB").style.opacity = phase ? 1 : .15; $("fA").style.opacity = phase ? .15 : 1; $('oB').style.opacity = phase ? 1 : .15; $('oA').style.opacity = phase ? .15 : 1;
+    $('vA').style.opacity = phase ? 1 : 0; $('vB').style.opacity = phase ? 0 : 1;
+  }
+  if (!reduce) setInterval(swap, 3000);
+})();
+</script>
